@@ -62,29 +62,66 @@
 			<div class="checking">
 				<input id="check" type="checkbox" class="check" checked>
 				<label for="check"><span class="icon"></span>J'accepte et certifie avoir lu les conditions d'utilisation.</label>
-			</div class="input">
+			</div>
 				<button class="upText" id="createButton">Créer un compte</button>
-			<a class="member">Déjà membre ?</a>
+			<a id="member">Déjà membre ?</a>
 	  	</form>
 		<!-- Sign in form -->
 		<form id="sign_in-tabs">
 			<div class="input">
 				<input id="username" type="text" name="username" required/>
 				<label for="username">nom d'utilisateur ou email</label>
-			  </div>
-			  <div class="input">
+			</div>
+			<div class="input">
 				<input id="password" type="password" name="password" required/>
 				<label for="password">mot de passe</label>
-			  </div>
-			  <div class="checking">
-				  <input id="check" type="checkbox" class="check" checked>
-				  <label for="check"><span class="icon"></span>Rester connecté</label>
-			  </div class="input">
-			  <button class="upText" id="loginButton">se connecter</button>
-				  <a class="forgot">Mot de passe oublié ?</a>
+			</div>
+			<div class="checking">
+				<input id="check" type="checkbox" class="check" checked>
+				<label for="check"><span class="icon"></span>Rester connecté</label>
+			</div>
+			<button class="upText" id="loginButton">se connecter</button>
+				<a class="forgot">Mot de passe oublié ?</a>
 		</form>
 </div>
   </div>
+
+
+
+  <div class="wrapper modal" id="myInfos">
+	<div class="login">
+		<span class="close">&times;</span>
+		<h1>Mes Informations</h1>
+	<form id="info-tabs">
+			<div class="input">
+				<input id="username" type="text" name="username"required/>
+				<label for="username">nom d'utilisateur</label>
+			</div>
+			<div class="input">
+				<input id="email" type="email" name="email" required/>
+				<label for="email">email</label>
+			</div>
+			<div class="input">
+				<input id="password" type="password" name="password" required/>
+				<label for="password">mot de passe</label>
+			</div>
+			<div class="input">
+				<input id="password-validation" type="password" name="password-validation" required/>
+				<label for="password">validation mot de passe</label>
+			</div>
+			<div class="checking">
+				<input type="checkbox" class="check" checked>
+				<label for="check"><span class="icon"></span>J'accepte et certifie avoir lu les conditions d'utilisation.</label>
+			</div>
+				<button class="upText" id="createButton">Mettre à jour mes Informations</button>
+	
+	  	</form>
+		
+		</div>
+    </div>
+
+
+
 
 
 	  <section class="contact">
@@ -159,7 +196,8 @@
 		<script>
 			// Récupère modal
 			var modal = document.getElementById("myModal");
-			
+			var infos = document.getElementById("myInfos");
+
 			// Récupère bouton profile
 			var profile_btn = document.getElementById("profileBtn");
 			
@@ -168,51 +206,66 @@
 			
 			// Ouverture/fermeture du modal 
 			profile_btn.onclick = function() {
-			  modal.style.display = "block";
+			
+			  infos.style.display = "block";
 			}
 			
 			close_btn.onclick = function() {
 			  modal.style.display = "none";
 			}
 			
-			// When the user clicks anywhere outside of the modal, close it
+			// Quand l'utilisateur clique en dehors de la fenêtre modal, cette dernière se ferme
 			window.onclick = function(event) {
 			  if (event.target == modal) {
 				modal.style.display = "none";
+			  }
+			  else if (event.target == infos) {
+				  infos.style.display = "none";
 			  }
 			}
 
 			/* Changer de 'SE CONNECTER' à 'S'ENREGISTRER' */
 			var register_content = document.getElementById("register-tabs");
 			var sign_in_content = document.getElementById("sign_in-tabs");
-			var su_btn = document.getElementById("register_btn");
+
+			var rg_btn = document.getElementById("register_btn");
 			var si_btn = document.getElementById("sign_in_btn");
 			si_btn.onclick = function() {
 				register_content.style.display = "none";
 				sign_in_content.style.display = "block";
 				si_btn.classList.add("active");
-				su_btn.classList.remove("active");
+				rg_btn.classList.remove("active");
 			}
 
-			su_btn.onclick = function() {
+			rg_btn.onclick = function() {
 				sign_in_content.style.display = "none";
 				register_content.style.display = "block";
-				su_btn.classList.add("active");
+				rg_btn.classList.add("active");
 				si_btn.classList.remove("active");
+			}
+
+			/* Redirecton membre */
+
+			var member_redirect = document.getElementById("member");
+			member_redirect.onclick = function() {
+				/* Trouver un moyen de rediriger ça */	
 			}
 
 			/* Vérification formulaire */
 
 			var login = document.getElementById("loginButton");
 			var create = document.getElementById("createButton");
+			var password = document.getElementById("password");
+			var password_validation = document.getElementById("password-validation");
 
-			login.onclick() = function {
-				/* là on fait appel à la fausse base de données */
+			/*login.onclick() = function() {
+				/* là on fait appel à la fausse base de données 
 			}
 
-			create.onclick() = function {
-
+			create.onclick() = function() {
+				if (password.ge)
 			}
+			*/
 			</script>
 
 

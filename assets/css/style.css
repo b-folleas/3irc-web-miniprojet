@@ -180,7 +180,7 @@ input[type=text]:focus {
 	color:#b43838;
 }
 
-
+/* Wrapper */
 
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 @import url("https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css");
@@ -314,7 +314,7 @@ body {
 .wrapper .login form button:hover {
   background: #4082f5;
 }
-.wrapper .login form .forgot, .wrapper .login form .member {
+.wrapper .login form .forgot, .wrapper .login form #member {
   width: 100%;
   padding-top: 11.85%;
   font-size: 14px;
@@ -323,7 +323,7 @@ body {
   cursor: pointer;
 }
 
-.wrapper .login form .forgot:hover, .wrapper .login form .member:hover {
+.wrapper .login form .forgot:hover, .wrapper .login form #member:hover {
 opacity: 1;}
 
 /* Modal */
@@ -337,7 +337,31 @@ opacity: 1;}
   padding-bottom: 2%;
 }
 
-#check {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Checkbox */
+
+
+/* Permet de cacher la checkbox initiale */
+.check {
   display: none;
 }
 
