@@ -3,14 +3,72 @@
 <html>
 
 <head>
-    <title>Voyage</title>
-    <meta charset="utf-8" />
-    <meta name="miniprojet" content="width=device-width, initial-scale=1"/>
+	<title>Voyage</title>
+	<meta charset="utf-8" />
+	<meta name="miniprojet" content="width=device-width, initial-scale=1" />
 	<link rel="icon" href="./assets/favicon.ico" type="image/gif" sizes="16x16">
-	<link rel="stylesheet" href="./assets/css/style.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="./assets/css/style.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-  
+
+
+
+
+<div class="wrapper modal" id="myModal">
+	<div class="login">
+		<span class="close">&times;</span>
+		<h1>Vous devez d'abord vous connecter !</h1>
+		<div class="tabs">
+			<div class="tab active" id="register_btn">S'ENREGISTRER</div>
+			<div class="tab" id="sign_in_btn">SE CONNECTER</div>
+		</div>
+		<!-- Register form -->
+		<form id="register-tabs">
+			<div class="input">
+				<input id="username" type="text" name="username" required />
+				<label for="username">nom d'utilisateur</label>
+			</div>
+			<div class="input">
+				<input id="email" type="email" name="email" required />
+				<label for="email">email</label>
+			</div>
+			<div class="input">
+				<input id="password" type="password" name="password" required />
+				<label for="password">mot de passe</label>
+			</div>
+			<div class="input">
+				<input id="password-validation" type="password" name="password-validation" required />
+				<label for="password">validation mot de passe</label>
+			</div>
+			<div class="checking">
+				<input id="checkregister" type="checkbox" class="check" checked>
+				<label for="checkregister"><span class="icon"></span>J'accepte et certifie avoir lu les conditions
+					d'utilisation.</label>
+			</div>
+			<button class="upText" id="createButton">Créer un compte</button>
+			<a id="member">Déjà membre ?</a>
+		</form>
+		<!-- Sign in form -->
+		<form id="sign_in-tabs">
+			<div class="input">
+				<input id="username" type="text" name="username" required />
+				<label for="username">nom d'utilisateur ou email</label>
+			</div>
+			<div class="input">
+				<input id="password" type="password" name="password" required />
+				<label for="password">mot de passe</label>
+			</div>
+			<div class="checking">
+				<input id="checksignin" type="checkbox" class="check" checked>
+				<label for="checksignin"><span class="icon"></span>Rester connecté</label>
+			</div>
+			<button class="upText" id="loginButton">se connecter</button>
+			<a class="forgot">Mot de passe oublié ?</a>
+		</form>
+	</div>
+</div>
+
+
 <body>
 
 
@@ -27,65 +85,9 @@
 		</form>
 		<a href="#profile" class="profile" id="profileBtn"><i class="fa fa-user"></i>Mon Profil</a>
 		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
-		  <i class="fa fa-bars"></i>
+			<i class="fa fa-bars"></i>
 		</a>
-	  </div>
-
-
-
-	  
-<div class="wrapper modal" id="myModal">
-	<div class="login">
-		<span class="close">&times;</span>
-		<h1>Vous devez d'abord vous connecter !</h1>
-	  <div class="tabs">
-		<div class="tab active" id="register_btn">S'ENREGISTRER</div>
-		<div class="tab" id="sign_in_btn">SE CONNECTER</div>
-	  </div>
-	  <!-- Register form -->
-	  <form id="register-tabs">
-			<div class="input">
-				<input id="username" type="text" name="username"required/>
-				<label for="username">nom d'utilisateur</label>
-			</div>
-			<div class="input">
-				<input id="email" type="email" name="email" required/>
-				<label for="email">email</label>
-			</div>
-			<div class="input">
-				<input id="password" type="password" name="password" required/>
-				<label for="password">mot de passe</label>
-			</div>
-			<div class="input">
-				<input id="password-validation" type="password" name="password-validation" required/>
-				<label for="password">validation mot de passe</label>
-			</div>
-			<div class="checking">
-				<input id="checkregister" type="checkbox" class="check" checked>
-				<label for="checkregister"><span class="icon"></span>J'accepte et certifie avoir lu les conditions d'utilisation.</label>
-			</div>
-				<button class="upText" id="createButton">Créer un compte</button>
-			<a id="member">Déjà membre ?</a>
-	  	</form>
-		<!-- Sign in form -->
-		<form id="sign_in-tabs">
-			<div class="input">
-				<input id="username" type="text" name="username" required/>
-				<label for="username">nom d'utilisateur ou email</label>
-			</div>
-			<div class="input">
-				<input id="password" type="password" name="password" required/>
-				<label for="password">mot de passe</label>
-			</div>
-			<div class="checking">
-				<input id="checksignin" type="checkbox" class="check" checked>
-				<label for="checksignin"><span class="icon"></span>Rester connecté</label>
-			</div>
-			<button class="upText" id="loginButton">se connecter</button>
-				<a class="forgot">Mot de passe oublié ?</a>
-		</form>
-</div>
-  </div>
+	</div>
 
 
 
@@ -113,10 +115,15 @@
 
 
 
-  
 
 
-<!--
+
+
+
+
+
+
+	<!--
   <div class="wrapper modal" id="myInfos">
 	<div class="login">
 		<span class="close">&times;</span>
@@ -153,22 +160,23 @@
 
 
 
-	  <section class="contact">
+	<section class="contact">
 		<div class="contact-container">
 			<h2>Contactez-nous!</h2>
-			<p>N'hésitez pas à passer pour parler de votre projet autour d'une bonne tasse de <i class="fa fa-coffee"></i>, ou laissez nous un message !</p>
+			<p>N'hésitez pas à passer pour parler de votre projet autour d'une bonne tasse de <i
+					class="fa fa-coffee"></i>, ou laissez nous un message !</p>
 			<form name="contactform" method="post" action="">
 
 				<input type="text" name="name" placeholder="Votre nom" required>
-	  
-				<input  type="email" name="email" placeholder="Votre email" required>
-	  
-				<textarea name="comments" placeholder="Votre message..." ></textarea>
-	  
-				<button name="send" type="submit" class="submit"><i class="fa fa-paper-plane"></i>ENVOYER</button> 
-	  
+
+				<input type="email" name="email" placeholder="Votre email" required>
+
+				<textarea name="comments" placeholder="Votre message..."></textarea>
+
+				<button name="send" type="submit" class="submit"><i class="fa fa-paper-plane"></i>ENVOYER</button>
+
 			</form>
-	 
+
 		</div>
 	</section>
 
@@ -176,19 +184,20 @@
 	<section class="contact">
 		<div class="contact-container">
 			<h2>Contactez-nous!</h2>
-			<p>N'hésitez pas à passer pour parler de votre projet autour d'une bonne tasse de <i class="fa fa-coffee"></i>, ou laissez nous un message !</p>
+			<p>N'hésitez pas à passer pour parler de votre projet autour d'une bonne tasse de <i
+					class="fa fa-coffee"></i>, ou laissez nous un message !</p>
 			<form name="contactform" method="post" action="">
 
 				<input type="text" name="name" placeholder="Votre nom" required>
-	  
-				<input  type="email" name="email" placeholder="Votre email" required>
-	  
-				<textarea name="comments" placeholder="Votre message..." ></textarea>
-	  
-				<button name="send" type="submit" class="submit"><i class="fa fa-paper-plane"></i>ENVOYER</button> 
-	  
+
+				<input type="email" name="email" placeholder="Votre email" required>
+
+				<textarea name="comments" placeholder="Votre message..."></textarea>
+
+				<button name="send" type="submit" class="submit"><i class="fa fa-paper-plane"></i>ENVOYER</button>
+
 			</form>
-	 
+
 		</div>
 	</section>
 
@@ -197,105 +206,111 @@
 
 
 
-		<footer class="footer-style">
-			<div class="footer-social">
-				<a class="facebook-link" href="#"><i class="fa fa-facebook" title="Retrouvez-nous sur Facebook !"></i></a>
-				<a class="twitter-link"  href="#"><i class="fa fa-twitter" title="Retrouvez-nous sur Twitter !"></i></a>
-				<a class="linkedin-link"  href="#"><i class="fa fa-linkedin" title="Retrouvez-nous sur Linkedin !"></i></a>
-				<a class="github-link"  href="https://github.com/AmazingBrice/miniprojet"><i class="fa fa-github" title="Retrouvez-nous sur Github !"></i></a>
-			</div>
+	<footer class="footer-style">
+		<div class="footer-social">
+			<a class="facebook-link" href="#"><i class="fa fa-facebook" title="Retrouvez-nous sur Facebook !"></i></a>
+			<a class="twitter-link" href="#"><i class="fa fa-twitter" title="Retrouvez-nous sur Twitter !"></i></a>
+			<a class="linkedin-link" href="#"><i class="fa fa-linkedin" title="Retrouvez-nous sur Linkedin !"></i></a>
+			<a class="github-link" href="https://github.com/AmazingBrice/miniprojet"><i class="fa fa-github"
+					title="Retrouvez-nous sur Github !"></i></a>
+		</div>
 
-			<div class="footer-left">
-				<p class="footer-links">
-					<a href="#">A propos</a>
-					<a href="#">Contactez-nous</a>
-					<a href="#">Plus d'infos</a>
-				</p>
-				<p>miniprojet &copy; 2020</p>
-			</div>
-		</footer>
-		
+		<div class="footer-left">
+			<p class="footer-links">
+				<a href="#">A propos</a>
+				<a href="#">Contactez-nous</a>
+				<a href="#">Plus d'infos</a>
+			</p>
+			<p>miniprojet &copy; 2020</p>
+		</div>
+	</footer>
+
 	<!-- Scripts -->
 
-		<script src="assets/js/main.js"></script>
-		
+	<script src="assets/js/main.js"></script>
 
 
 
-		<script>
-			// Récupère modal
-			var modal = document.getElementById("myModal");
-			var infos = document.getElementById("myInfos");
 
-			// Récupère bouton profile
-			var profile_btn = document.getElementById("profileBtn");
-			
-			// Récupère bouton close
-			var close_btn = document.getElementsByClassName("close")[0];
-			
-			// Ouverture/fermeture du modal 
-			profile_btn.onclick = function() {
-			
-			  infos.style.display = "block";
-			}
-			
-			close_btn.onclick = function() {
-			  modal.style.display = "none";
-			}
-			
-			// Quand l'utilisateur clique en dehors de la fenêtre modal, cette dernière se ferme
-			window.onclick = function(event) {
-			  if (event.target == modal) {
+	<script>
+		// Récupère le body
+		var body = document.getElementsByTagName("body");
+
+		// Récupère modal
+		var modal = document.getElementById( "myModal" );
+		var infos = document.getElementById( "myInfos" );
+
+		// Récupère bouton profile
+		var profile_btn = document.getElementById( "profileBtn" );
+
+		// Récupère bouton close
+		var close_btn = document.getElementsByClassName( "close" )[0];
+
+		// Ouverture/fermeture du modal 
+		profile_btn.onclick = function () {
+			modal.style.display = "block";
+			//body.style.style.background-color = 'red';
+
+		}
+
+		close_btn.onclick = function () {
+			modal.style.display = "none";
+		}
+
+		// Quand l'utilisateur clique en dehors de la fenêtre modal, cette dernière se ferme
+		window.onclick = function ( event ) {
+			if ( event.target == modal ) {
 				modal.style.display = "none";
-			  }
-			  /*else if (event.target == infos) {
-				  infos.style.display = "none";
-			  }*/
 			}
+			/*else if (event.target == infos) {
+				infos.style.display = "none";
+			}*/
+		}
 
-			/* Changer de 'SE CONNECTER' à 'S'ENREGISTRER' */
-			var register_content = document.getElementById("register-tabs");
-			var sign_in_content = document.getElementById("sign_in-tabs");
+		/* Changer de 'SE CONNECTER' à 'S'ENREGISTRER' */
+		var register_content = document.getElementById( "register-tabs" );
+		var sign_in_content = document.getElementById( "sign_in-tabs" );
 
-			var rg_btn = document.getElementById("register_btn");
-			var si_btn = document.getElementById("sign_in_btn");
-			si_btn.onclick = function() {
-				register_content.style.display = "none";
-				sign_in_content.style.display = "block";
-				si_btn.classList.add("active");
-				rg_btn.classList.remove("active");
-			}
+		var rg_btn = document.getElementById( "register_btn" );
+		var si_btn = document.getElementById( "sign_in_btn" );
+		si_btn.onclick = function () {
+			register_content.style.display = "none";
+			sign_in_content.style.display = "block";
+			si_btn.classList.add( "active" );
+			rg_btn.classList.remove( "active" );
+			
+		}
 
-			rg_btn.onclick = function() {
-				sign_in_content.style.display = "none";
-				register_content.style.display = "block";
-				rg_btn.classList.add("active");
-				si_btn.classList.remove("active");
-			}
+		rg_btn.onclick = function () {
+			sign_in_content.style.display = "none";
+			register_content.style.display = "block";
+			rg_btn.classList.add( "active" );
+			si_btn.classList.remove( "active" );
+		}
 
-			/* Redirecton membre */
+		/* Redirecton membre */
 
-			var member_redirect = document.getElementById("member");
-			member_redirect.onclick = function() {
-				/* Trouver un moyen de rediriger ça */	
-			}
+		var member_redirect = document.getElementById( "member" );
+		member_redirect.onclick = function () {
+			/* Trouver un moyen de rediriger ça */
+		}
 
-			/* Vérification formulaire */
+		/* Vérification formulaire */
 
-			var login = document.getElementById("loginButton");
-			var create = document.getElementById("createButton");
-			var password = document.getElementById("password");
-			var password_validation = document.getElementById("password-validation");
+		var login = document.getElementById( "loginButton" );
+		var create = document.getElementById( "createButton" );
+		var password = document.getElementById( "password" );
+		var password_validation = document.getElementById( "password-validation" );
 
-			/*login.onclick() = function() {
-				/* là on fait appel à la fausse base de données 
-			}
+		/*login.onclick() = function() {
+			/* là on fait appel à la fausse base de données
+		}
 
-			create.onclick() = function() {
-				if (password.ge)
-			}
-			*/
-			</script>
+		create.onclick() = function() {
+			if (password.ge)
+		}
+		*/
+	</script>
 
 
 </body>

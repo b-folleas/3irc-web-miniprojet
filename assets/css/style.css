@@ -1,5 +1,5 @@
 * {
-  color: #fff;
+
   font-family: 'Roboto', Helvetica, Arial, sans-serif;
   box-sizing: border-box;
   padding: 0;
@@ -123,7 +123,6 @@ input[type=text]:focus {
   display: block;
   height:70%;
   margin: 0 auto;
-  background: #DDD;
  }
 
 .contact-container {width:960px; height:auto; margin: 0 auto; padding: 50px 0;}
@@ -181,21 +180,11 @@ input[type=text]:focus {
 }
 
 /* Wrapper */
-
-@import url(https://fonts.googleapis.com/css?family=Montserrat);
-@import url("https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css");
-body {
-  background: #d6d6d6;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 .wrapper {
-/*  width: 90%; */
   margin: auto;
   position: absolute;
   padding: 2% 0;
+  color : white;
 }
 
 .wrapper .login {
@@ -203,10 +192,11 @@ body {
   margin: auto;
   padding: 5%;
   padding-top: 2%;
-  background: url("http://res.cloudinary.com/dcwodeda4/image/upload/v1502999946/DayOneBg_zhnovh.png") no-repeat;
+  background: url("https://images.pexels.com/photos/544268/pexels-photo-544268.jpeg?cs=srgb&dl=arriere-plan-astronomie-brillant-celebrites-544268.jpg&fm=jpg") no-repeat;
   background-size: cover;
   box-shadow: 0px 28px 72px -5px #000;
   transform-style:preserve-3d;
+  
 }
 .wrapper .login .tabs {
   display: flex;
@@ -228,20 +218,6 @@ body {
 .wrapper .login .tabs .tab.active {
   opacity: 1;
 }
-
-
-
-/*
-.wrapper .login .tabs .tab.active:after {
-  content: "";
-  height: 2px;
-  position: absolute;
-  left: 1px;
-  right: 5px;
-  bottom: -8px;
-  background: #1161ed;
-}*/
-
 
 .wrapper .login form {
   margin-top: 15%;
@@ -295,7 +271,6 @@ body {
   opacity: 0.7;
 }
 
-
 .wrapper .login form button {
   width: 100%;
   height: 38px;
@@ -337,28 +312,7 @@ opacity: 1;}
   padding-bottom: 2%;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Checkbox */
-
 
 /* Permet de cacher la checkbox initiale */
 .check {
@@ -407,8 +361,6 @@ opacity: 1;}
   transform:scale(1) rotate(-45deg);
 }
 
-
-
 /* Close Button */
 .close {
   color: #aaaaaa;
@@ -424,9 +376,74 @@ opacity: 1;}
   cursor: pointer;
 }
 
+/* About */
+.about-row {
+  display: inline-flex;
+  width: 100%;
+  justify-content: space-between;
+}
 
+.about-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
 
+.about-title {
+  text-align: center;
+}
 
+.about-container>p,
+.about-container>h2 {
+  overflow-wrap: break-word;
+  padding: 5px;
+  margin: 8px;
+}
+
+.about-img {
+  padding: 5px;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.container::after,
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.contact-button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+	background-image: linear-gradient(260deg, #2376ae 0%, #c16ecf 100%);
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.contact-button:hover {
+	background-image: linear-gradient(0, #2376ae 0%, #c16ecf 100%);
+}
+
+@media screen and (max-width: 870px) {
+  .about-row {
+    width: 100%;
+    display: block;
+  }
+
+  .about-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+  }
+
+  .about-container {
+    width: 100%;
+    display: block;
+  }
+}
 
 /* Footer */
 
@@ -571,10 +588,6 @@ opacity: 1;}
     float: none;
     display: block;
     text-align: left;
-  }
-
-  .wrapper .login {
-    width: 80%;
   }
 
   .footer-style .footer-left,.footer-style .footer-center, .footer-style .footer-social {
