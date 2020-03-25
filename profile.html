@@ -91,87 +91,32 @@
 
 
 
-	<!--
-  <div class="wrapper modal" id="myInfos">
-	<div class="login">
-		<span class="close">&times;</span>
-		<h1>Mes Informations</h1>
-	<form id="info-tabs">
-			<div class="input">
-				<input id="username" type="text" name="username"required/>
-				<label for="username">nom d'utilisateur</label>
-			</div>
-			<div class="input">
-				<input id="email" type="email" name="email" required/>
-				<label for="email">email</label>
-			</div>
-			<div class="input">
-				<input id="password" type="password" name="password" required/>
-				<label for="password">mot de passe</label>
-			</div>
-			<div class="input">
-				<input id="password-validation" type="password" name="password-validation" required/>
-				<label for="password">validation mot de passe</label>
-			</div>
-			<div class="checking">
-				<input type="checkbox" class="check" id="checkinfos">
-				<label for="checkinfos"><span class="icon"></span>J'accepte et certifie avoir lu les conditions d'utilisation.</label>
-			</div>
-				<button class="upText" id="createButton">Mettre à jour mes Informations</button>
-	
-	  	</form>
-		
-		</div>
-    </div>
--->
 
-	<!-- Contact Form -->
+        <div class="about-row">
+          <div class="img-profile">
+            <img class="about-img" src="./assets/images/ghost-jira-removebg-preview.png" alt="Ghost">
+            <button class="edit-profile">editer votre photo</button>
+          </div>
+          <div class="profile-container">
+            <h2>Mes Informations</h2>
+            <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
+            <input type="text" id="email" name="email" placeholder="john@example.com">
+            <select name="Language">
+                <option value="0">Langue sélectionnée</option>
+                <option value="1">Français</option>
+                <option value="2">Anglais</option>s
+              </select>
 
-	<section class="contact">
-		<div class="contact-container">
-			<h2>Contactez-nous!</h2>
-			<p>N'hésitez pas à passer pour parler de votre projet autour d'une bonne tasse de <i
-					class="fa fa-coffee"></i>, ou laissez nous un message !</p>
-			<form name="contactform" method="post" action="">
-
-				<input type="text" name="name" placeholder="Votre nom" required>
-
-				<input type="email" name="email" placeholder="Votre email" required>
-
-				<textarea name="comments" placeholder="Votre message..."></textarea>
-
-				<button name="send" type="submit" class="submit"><i class="fa fa-paper-plane"></i>ENVOYER</button>
-
-			</form>
-
-		</div>
-	</section>
+            <input class="address" type="text" id="address_rue" name="rue" placeholder="Rue" style="display: inline-block;">
+            <input class="address" type="text" id="address_code_postal" name="codePostal" placeholder="Code Postal">
+            <input class="address" type="text" id="city" name="city" placeholder="Ville">
 
 
-	<section class="contact">
-		<div class="contact-container">
-			<h2>Contactez-nous!</h2>
-			<p>N'hésitez pas à passer pour parler de votre projet autour d'une bonne tasse de <i
-					class="fa fa-coffee"></i>, ou laissez nous un message !</p>
-			<form name="contactform" method="post" action="">
+            <p><a class="save-button">enregistrer</a></p>
+          </div>
+        </div>
 
-				<input type="text" name="name" placeholder="Votre nom" required>
-
-				<input type="email" name="email" placeholder="Votre email" required>
-
-				<textarea name="comments" placeholder="Votre message..."></textarea>
-
-				<button name="send" type="submit" class="submit"><i class="fa fa-paper-plane"></i>ENVOYER</button>
-
-			</form>
-
-		</div>
-	</section>
-
-
-
-
-	<!-- Footer -->
+    <!-- Footer -->
 
 	<footer class="footer-style">
 		<div class="footer-social">
@@ -191,10 +136,6 @@
 			<p>miniprojet &copy; 2020</p>
 		</div>
 	</footer>
-
-	<!-- Scripts -->
-
-	<script src="assets/js/main.js"></script>
 
 
 

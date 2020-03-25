@@ -1,15 +1,22 @@
 * {
-
   font-family: 'Roboto', Helvetica, Arial, sans-serif;
   box-sizing: border-box;
   padding: 0;
   margin:0;
 }
 
+body {
+  background-color: black; /* fallback color */
+  background-image: url("https://images.pexels.com/photos/1905054/pexels-photo-1905054.jpeg?cs=srgb&dl=aube-calme-ciel-coucher-de-soleil-1905054.jpg&fm=jpg");
+  background-position: center;
+  background-size: cover;
+  }
 
+.row {
+  width: 100%;
+}
 
 /* Navbar */
-
 
 .topnav {
   overflow: hidden;
@@ -57,7 +64,7 @@
 
 /* Search */
 
-.topnav .search-container{
+.topnav .search-form{
   color: #f2f2f2;
   padding: 14px 16px;
   text-decoration: none;
@@ -68,7 +75,7 @@
   border-radius: 1em;
 }
 
-.topnav input[type=text] {
+.search {
   display: inline-flex;
   align-items: center;
   width: 130px;
@@ -80,9 +87,19 @@
   transition: width 0.4s ease-in-out;
 }
 
-input[type=text]:focus {
+.search:focus {
   width: 100%;
 }
+
+
+
+
+
+
+
+
+
+
 
 /*
 
@@ -93,7 +110,7 @@ input[type=text]:focus {
     display: block;
   }
 
-  .topnav input[type=text], .topnav .search-container {
+  .topnav input[type=text], .topnav .search-form {
     display: none;
   }
 
@@ -118,36 +135,38 @@ input[type=text]:focus {
 
 /* Contact */
 
-
 .contact {width:100%;
   display: block;
   height:70%;
   margin: 0 auto;
- }
+  color: #FFF;
+}
 
 .contact-container {width:960px; height:auto; margin: 0 auto; padding: 50px 0;}
 
 .contact .contact-container form input,
 .contact .contact-container form textarea {
-	width:97.4%;
+	width:100%;
 	height:30px;
 	padding:5px 10px;
 	font-size: 12px;
 	color:#999;
-	letter-spacing:1px;
+  resize: vertical;
+  letter-spacing:1px;
 	background: #FFF;
-	border:2px solid #FFF;
+	border:1px solid #999;
 	margin-bottom:25px;
   -webkit-transition:all .1s ease-in-out;
 	-moz-transition:all .1s ease-in-out;
 	-ms-transition:all .1s ease-in-out;
 	-o-transition:all .1s ease-in-out;
-	transition:all .1s ease-in-out;}
+  transition:all .1s ease-in-out;
+}
 
 .contact .contact-container form input:focus,
 .contact .contact-container form textarea:focus {
-	border:2px solid #dd4545;
-	color:#999;}
+	border:1px solid #000;
+}
 
 .contact .contact-container form textarea {
 	height:150px;}
@@ -155,14 +174,14 @@ input[type=text]:focus {
 .contact .contact-container form .submit {
 	width:100%;
 	padding:5px 10px;
-	font-size: 12px;
+  color: #FFF;
+  font-size: 12px;
 	letter-spacing:1px;
 	background-image: linear-gradient(260deg, #2376ae 0%, #c16ecf 100%);
 	height:40px;
 	text-transform:uppercase;
 	letter-spacing:1px;
-	color:#FFF;
-	border:2px solid;
+	
 	-webkit-transition:all .1s ease-in-out;
 	-moz-transition:all .1s ease-in-out;
 	-ms-transition:all .1s ease-in-out;
@@ -170,18 +189,90 @@ input[type=text]:focus {
 	transition:all .1s ease-in-out;}
 
 .contact .contact-container form .submit:hover {
-	color:#FFF;
-	border:2px solid #dd4545;
-	background: #b43838;
+	
+  background-image: linear-gradient(0, #2376ae 0%, #c16ecf 100%);
 	cursor:pointer;}
 
 .contact .contact-container form .required {
 	color:#b43838;
 }
 
+
+/* Profile */
+
+.profile-container {
+  margin: 2%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: #FFF;
+  width: 80%;
+  min-width: 300px;
+}
+
+.profile-container * {
+  margin: 2%;
+  padding:5px 10px;
+  display: block;
+
+}
+
+.profile-container input, .profile-container select {
+	height:30px;
+  font-size: 12px;
+	color:#999;
+  resize: vertical;
+  letter-spacing:1px;
+	background: #FFF;
+	border:1px solid #999;
+	margin-bottom:25px;
+  -webkit-transition:all .1s ease-in-out;
+	-moz-transition:all .1s ease-in-out;
+	-ms-transition:all .1s ease-in-out;
+	-o-transition:all .1s ease-in-out;
+  transition:all .1s ease-in-out;
+}
+
+.img-profile {
+  margin: 2%;
+  display: block;
+}
+
+.address {
+display: inline-flex;
+justify-content: space-between;
+}
+
+
+.edit-profile {
+  border: none;
+  outline: 0;
+  display: block;
+  padding: 8px;
+  color: white;
+	background-image: linear-gradient(260deg, #2376ae 0%, #c16ecf 100%);
+  text-align: center;
+  cursor: pointer;
+  margin: 5% auto;
+  text-transform: uppercase;
+}
+
+.save-button {
+  border: none;
+  outline: 0;
+  display: block;
+  margin: auto;
+  padding: 8px;
+  color: white;
+	background-image: linear-gradient(260deg, #2376ae 0%, #c16ecf 100%);
+  text-align: center;
+  cursor: pointer;
+  width: 60%;
+  min-width: 100px;
+} 
+
+
 /* Wrapper */
 .wrapper {
-  margin: auto;
+  margin: 5% auto;
   position: absolute;
   padding: 2% 0;
   color : white;
@@ -189,10 +280,11 @@ input[type=text]:focus {
 
 .wrapper .login {
   width: 50%;
+  min-width: 500px;
   margin: auto;
   padding: 5%;
   padding-top: 2%;
-  background: url("https://images.pexels.com/photos/544268/pexels-photo-544268.jpeg?cs=srgb&dl=arriere-plan-astronomie-brillant-celebrites-544268.jpg&fm=jpg") no-repeat;
+  background: url("https://images.pexels.com/photos/2531237/pexels-photo-2531237.jpeg?cs=srgb&dl=aube-celebrites-ciel-etoile-ciel-nocturne-2531237.jpg&fm=jpg") no-repeat;
   background-size: cover;
   box-shadow: 0px 28px 72px -5px #000;
   transform-style:preserve-3d;
@@ -206,9 +298,8 @@ input[type=text]:focus {
 .wrapper .login .tabs .tab {
   max-width: 40%;
   display: inline-block;
-  /*position: relative;*/
-  margin-right: 9%;
   font-size: 22px;
+  text-transform: uppercase;
   letter-spacing: 2px;
   word-spacing: -1px;
   white-space: nowrap;
@@ -405,7 +496,7 @@ opacity: 1;}
 }
 
 .container::after,
-.row::after {
+.about-row::after {
   content: "";
   clear: both;
   display: table;
@@ -443,6 +534,11 @@ opacity: 1;}
     width: 100%;
     display: block;
   }
+
+  .profile-container {
+    width: 100%;
+    display: block;
+  }
 }
 
 /* Footer */
@@ -454,8 +550,11 @@ opacity: 1;}
   width: 100%;
   text-align: left;
   font: normal 16px;
-  padding: 45px 50px;
+  padding: 1% 3%;
   display:table;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
 }
 
 .footer-style .box-row {
@@ -569,7 +668,7 @@ opacity: 1;}
     display: block;
   }
 
-  .topnav input[type=text], .topnav .search-container {
+  .search, .topnav .search-form {
     display: none;
   }
 
