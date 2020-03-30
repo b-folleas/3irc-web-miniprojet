@@ -9,6 +9,7 @@
 	<link rel="icon" href="./assets/favicon.ico" type="image/gif" sizes="16x16">
 	<link rel="stylesheet" href="./assets/css/style.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="../js/scripts.js" defer async></script>
 </head>
 
 
@@ -70,8 +71,8 @@
 
 <!-- Navbar -->
 <div class="topnav" id="myTopnav">
-	<a href="#home"><i class="home fa fa-home"></i></a>
-	<a href="./recap.html"><i class="cart fa fa-shopping-cart"></i>Récapitulatif</a>
+	<a href="./index.html"><i class="home fa fa-home"></i></a>
+	<a href="#panier"><i class="cart fa fa-shopping-cart"></i>Panier</a>
 	<a href="#contact"><i class="cart fa fa-check"></i>Réservations</a>
 	<a href="#about"><i class="cart fa fa-map"></i>Destinations</a>
 	<form class="search-form">
@@ -85,90 +86,95 @@
 
 <body>
 
-
-
-
-
-
-
 	<!--
-  <div class="wrapper modal" id="myInfos">
-	<div class="login">
-		<span class="close">&times;</span>
-		<h1>Mes Informations</h1>
-	<form id="info-tabs">
-			<div class="input">
-				<input id="username" type="text" name="username"required/>
-				<label for="username">nom d'utilisateur</label>
+	<div class="grid-container" id="conteneur">
+		<template id="listeVoyage">
+			<div class="grid-item">
+				<img src="{{image}}" />
+				<div id="name"><p>{{name}}</p></div>
+				<div id="price"><p>{{price}}</p></div>
 			</div>
-			<div class="input">
-				<input id="email" type="email" name="email" required/>
-				<label for="email">email</label>
-			</div>
-			<div class="input">
-				<input id="password" type="password" name="password" required/>
-				<label for="password">mot de passe</label>
-			</div>
-			<div class="input">
-				<input id="password-validation" type="password" name="password-validation" required/>
-				<label for="password">validation mot de passe</label>
-			</div>
-			<div class="checking">
-				<input type="checkbox" class="check" id="checkinfos">
-				<label for="checkinfos"><span class="icon"></span>J'accepte et certifie avoir lu les conditions d'utilisation.</label>
-			</div>
-				<button class="upText" id="createButton">Mettre à jour mes Informations</button>
-	
-	  	</form>
-		
+		</template>
+	</div>-->
+
+
+	<!-- Grid -->
+
+	<h1>Nos meilleures destinations waouh</h1>
+
+	<main id="grid-container" class="grid">
+
+		<article>
+			<img src="https://picsum.photos/600/400?image=1083">
+			<div class="article-text">
+				<h3 id="article-name">{{name}}</h3>
+				<p id="article-description">{{description}}</p>
+				<p style="float: inline-end;"><b>{{price}}</b></p>
+				<a class="btn grid-btn" href="#">Ajouter au panier</a></div>
+		</article>
+		<template id="grid-template">
+			<article>
+				<img src={{image}}>
+				<div class="article-text">
+					<h3 id="article-name">{{name}}</h3>
+					<p id="article-description">{{description}}</p>
+					<p style="float: inline-end;"><b>{{price}}</b></p>
+					<a class="btn grid-btn" href="#">Ajouter au panier</a>
+				</div>
+			</article>
+		</template>
+	</main>
+
+
+
+
+
+
+	<!-- Contact Form 
+
+	<section class="contact">
+		<div class="contact-container">
+			<h2>Contactez-nous!</h2>
+			<p>N'hésitez pas à passer pour parler de votre projet autour d'une bonne tasse de <i
+					class="fa fa-coffee"></i>, ou laissez nous un message !</p>
+			<form name="contactform" method="post" action="">
+
+				<input type="text" name="name" placeholder="Votre nom" required>
+
+				<input type="email" name="email" placeholder="Votre email" required>
+
+				<textarea name="comments" placeholder="Votre message..."></textarea>
+
+				<button name="send" type="submit" class="submit"><i class="fa fa-paper-plane"></i>ENVOYER</button>
+
+			</form>
+
 		</div>
-    </div>
+	</section>
+
+
+	<section class="contact">
+		<div class="contact-container">
+			<h2>Contactez-nous!</h2>
+			<p>N'hésitez pas à passer pour parler de votre projet autour d'une bonne tasse de <i
+					class="fa fa-coffee"></i>, ou laissez nous un message !</p>
+			<form name="contactform" method="post" action="">
+
+				<input type="text" name="name" placeholder="Votre nom" required>
+
+				<input type="email" name="email" placeholder="Votre email" required>
+
+				<textarea name="comments" placeholder="Votre message..."></textarea>
+
+				<button name="send" type="submit" class="submit"><i class="fa fa-paper-plane"></i>ENVOYER</button>
+
+			</form>
+
+		</div>
+	</section>
+
 -->
-
-	<!-- Contact Form -->
-
-	<section class="contact">
-		<div class="contact-container">
-			<h2>Contactez-nous!</h2>
-			<p>N'hésitez pas à passer pour parler de votre projet autour d'une bonne tasse de <i
-					class="fa fa-coffee"></i>, ou laissez nous un message !</p>
-			<form name="contactform" method="post" action="">
-
-				<input type="text" name="name" placeholder="Votre nom" required>
-
-				<input type="email" name="email" placeholder="Votre email" required>
-
-				<textarea name="comments" placeholder="Votre message..."></textarea>
-
-				<button name="send" type="submit" class="submit"><i class="fa fa-paper-plane"></i>ENVOYER</button>
-
-			</form>
-
-		</div>
-	</section>
-
-
-	<section class="contact">
-		<div class="contact-container">
-			<h2>Contactez-nous!</h2>
-			<p>N'hésitez pas à passer pour parler de votre projet autour d'une bonne tasse de <i
-					class="fa fa-coffee"></i>, ou laissez nous un message !</p>
-			<form name="contactform" method="post" action="">
-
-				<input type="text" name="name" placeholder="Votre nom" required>
-
-				<input type="email" name="email" placeholder="Votre email" required>
-
-				<textarea name="comments" placeholder="Votre message..."></textarea>
-
-				<button name="send" type="submit" class="submit"><i class="fa fa-paper-plane"></i>ENVOYER</button>
-
-			</form>
-
-		</div>
-	</section>
-
-
+	<p></p>
 
 
 	<!-- Footer -->
@@ -201,17 +207,17 @@
 
 	<script>
 		// Récupère le body
-		var body = document.getElementsByTagName("body");
+		let body = document.getElementsByTagName("body");
 
 		// Récupère modal
-		var modal = document.getElementById("myModal");
-		var infos = document.getElementById("myInfos");
+		let modal = document.getElementById("myModal");
+		let infos = document.getElementById("myInfos");
 
 		// Récupère bouton profile
-		var profile_btn = document.getElementById("profileBtn");
+		let profile_btn = document.getElementById("profileBtn");
 
 		// Récupère bouton close
-		var close_btn = document.getElementsByClassName("close")[0];
+		let close_btn = document.getElementsByClassName("close")[0];
 
 		// Ouverture/fermeture du modal 
 		profile_btn.onclick = function () {
@@ -235,11 +241,11 @@
 		}
 
 		/* Changer de 'SE CONNECTER' à 'S'ENREGISTRER' */
-		var register_content = document.getElementById("register-tabs");
-		var sign_in_content = document.getElementById("sign_in-tabs");
+		let register_content = document.getElementById("register-tabs");
+		let sign_in_content = document.getElementById("sign_in-tabs");
 
-		var rg_btn = document.getElementById("register_btn");
-		var si_btn = document.getElementById("sign_in_btn");
+		let rg_btn = document.getElementById("register_btn");
+		let si_btn = document.getElementById("sign_in_btn");
 		si_btn.onclick = function () {
 			register_content.style.display = "none";
 			sign_in_content.style.display = "block";
@@ -257,17 +263,17 @@
 
 		/* Redirecton membre */
 
-		var member_redirect = document.getElementById("member");
+		let member_redirect = document.getElementById("member");
 		member_redirect.onclick = function () {
 			/* Trouver un moyen de rediriger ça */
 		}
 
 		/* Vérification formulaire */
 
-		var login = document.getElementById("loginButton");
-		var create = document.getElementById("createButton");
-		var password = document.getElementById("password");
-		var password_validation = document.getElementById("password-validation");
+		let login = document.getElementById("loginButton");
+		let create = document.getElementById("createButton");
+		let password = document.getElementById("password");
+		let password_validation = document.getElementById("password-validation");
 
 		/*login.onclick() = function() {
 			/* là on fait appel à la fausse base de données

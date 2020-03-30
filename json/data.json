@@ -1,0 +1,95 @@
+{
+    "countries":
+    {
+        "italia" :
+        {
+            "name" : "Italie",
+            "description" : "Nam quibusdam, quos audio sapientes habitos in Graecia, placuisse opinor mirabilia quaedam (sed nihil est quod illi non persequantur argutiis): partim fugiendas esse nimias amicitias, ne necesse sit unum sollicitum esse pro pluribus;",
+            "details" : "",
+            "price" : "450",
+            "image" : "../images/batman.png",
+            "temperatureReference" : "Rome,IT",
+            "tags" : [
+                "sunt",
+                "eu",
+                "ut",
+                "sunt",
+                "sint",
+                "aute",
+                "ipsum"
+            ]
+        },  
+        "japan" :
+        {
+            "name" : "",
+            "description" : "Nam quibusdam, quos audio sapientes habitos in Graecia, placuisse opinor mirabilia quaedam (sed nihil est quod illi non persequantur argutiis): partim fugiendas esse nimias amicitias, ne necesse sit unum sollicitum esse pro pluribus;",
+            "details" : "",
+            "price" : "1230",
+            "image" : "../images/",
+            "temperatureReference" : "Tokyo,JP",
+            "tags" : [
+                "sunt",
+                "eu",
+                "ut",
+                "sunt",
+                "sint",
+                "aute",
+                "ipsum"
+            ]
+        },  
+        "china" :
+        {
+            "name" : "Chine",
+            "description" : "Nam quibusdam, quos audio sapientes habitos in Graecia, placuisse opinor mirabilia quaedam (sed nihil est quod illi non persequantur argutiis): partim fugiendas esse nimias amicitias, ne necesse sit unum sollicitum esse pro pluribus;",
+            "details" : "",
+            "price" : "770",
+            "image" : "../images/",
+            "temperatureReference" : "Beijing,CN",
+            "tags" : [
+                "sunt",
+                "eu",
+                "ut",
+                "sunt",
+                "sint",
+                "aute",
+                "ipsum"
+            ]
+        },  
+        "switzerland" :
+        {
+            "name" : "Suisse",
+            "description" : "Nam quibusdam, quos audio sapientes habitos in Graecia, placuisse opinor mirabilia quaedam (sed nihil est quod illi non persequantur argutiis): partim fugiendas esse nimias amicitias, ne necesse sit unum sollicitum esse pro pluribus;",
+            "details" : "",
+            "price" : "320",
+            "image" : "../images/",
+            "temperatureReference" : "Berne,CH",
+            "tags" : [
+                "sunt",
+                "eu",
+                "ut",
+                "sunt",
+                "sint",
+                "aute",
+                "ipsum"
+            ]
+        },  
+        "usa" :
+        {
+            "name" : "USA",
+            "description" : "Nam quibusdam, quos audio sapientes habitos in Graecia, placuisse opinor mirabilia quaedam (sed nihil est quod illi non persequantur argutiis): partim fugiendas esse nimias amicitias, ne necesse sit unum sollicitum esse pro pluribus;",
+            "details" : "",
+            "price" : "800",
+            "image" : "../images/../images/",
+            "temperatureReference" : "New-York,US",
+            "tags" : [
+                "sunt",
+                "eu",
+                "ut",
+                "sunt",
+                "sint",
+                "aute",
+                "ipsum"
+            ]
+        }   
+    }
+}

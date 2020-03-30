@@ -70,14 +70,15 @@
 
 <!-- Navbar -->
 <div class="topnav" id="myTopnav">
-	<a href="#home"><i class="home fa fa-home"></i></a>
-	<a href="./recap.html"><i class="cart fa fa-shopping-cart"></i>Récapitulatif</a>
+	<a href="./index.html"><i class="home fa fa-home"></i></a>
+	<a href="#panier"><i class="cart fa fa-shopping-cart"></i>Panier</a>
 	<a href="#contact"><i class="cart fa fa-check"></i>Réservations</a>
 	<a href="#about"><i class="cart fa fa-map"></i>Destinations</a>
 	<form class="search-form">
 		<input class="search" type="text" placeholder=" Recherchez.."></input>
 	</form>
-	<a href="#profile" class="profile" id="profileBtn"><i class="fa fa-user"></i>Mon Profil</a>
+	<a href="#profile" class="profile" id="profileBtn"><img id="img-icon"
+			src="./assets/images/ghost-jira-removebg-preview.png" alt="Ghost">Mon Profil</a>
 	<a href="javascript:void(0);" class="icon" onclick="myFunction()">
 		<i class="fa fa-bars"></i>
 	</a>
@@ -92,31 +93,58 @@
 
 
 
-        <div class="about-row">
-          <div class="img-profile">
-            <img class="about-img" src="./assets/images/ghost-jira-removebg-preview.png" alt="Ghost">
-            <button class="edit-profile">editer votre photo</button>
-          </div>
-          <div class="profile-container">
-            <h2>Mes Informations</h2>
-            <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
-            <input type="text" id="email" name="email" placeholder="john@example.com">
-            <select name="Language">
-                <option value="0">Langue sélectionnée</option>
-                <option value="1">Français</option>
-                <option value="2">Anglais</option>s
-              </select>
+	<div class="about-row">
+		<div class="img-profile">
+			<img id="img-avatar" src="./assets/images/ghost-jira-removebg-preview.png" alt="Ghost">
+					<input type="file" name="file" id="file" class="input-file" />
+					<label class="btn" for="file">editer votre photo</label>
+		</div>
+		<div class="profile-container">
+			<div class="btn" id="settings-btn">
+				<i id="settings-i" class="cart fa fa-cogs"></i><a id="settings-a"></i>Paramètres</a>
+			</div>
+			<h1>Mes Informations</h1>
+			<h2>Générales</h2>
+			<label>Nom d'utilisateur</label>
+			<input class="long-input" type="text" id="uname" name="username" placeholder="John M. Doe">
+			<label>Nom</label>
+			<input class="long-input" type="text" id="lname" name="lastname" placeholder="John M. Doe">
+			<label>Prénom</label>
+			<input class="long-input" type="text" id="fname" name="firstname" placeholder="John M. Doe">
+			<label>Email</label>
+			<input class="long-input" type="email" id="email" name="email" placeholder="john@example.com">
+			<a class="btn" id="password-btn">modifier le mot de passe</a>
+			<label>Langue par défaut</label>
+			<select name="Language">
+				<option value="0">Langue sélectionnée</option>
+				<option value="1">Français</option>
+				<option value="2">Anglais</option>
+			</select>
+			<h2>Informations civils</h2>
+			<label>Adresse</label>
+			<input class="long-input" type="text" id="address_rue" name="rue" placeholder="Numéro de Rue et Rue">
+			<input type="text" id="address_code_postal" name="codePostal" placeholder="Code Postal">
+			<input type="text" id="city" name="city" placeholder="Ville">
+			<input type="text" id="country" name="country" placeholder="Pays">
 
-            <input class="address" type="text" id="address_rue" name="rue" placeholder="Rue" style="display: inline-block;">
-            <input class="address" type="text" id="address_code_postal" name="codePostal" placeholder="Code Postal">
-            <input class="address" type="text" id="city" name="city" placeholder="Ville">
+			<h2>Moyen de Paiement</h2>
+			<label for="cards">Carte de paiement acceptées</label>
+            <div class="cards-container">
+              <i class="fa fa-cc-visa" style="color:navy;"></i>
+              <i class="fa fa-cc-amex" style="color:blue;"></i>
+              <i class="fa fa-cc-mastercard" style="color:red;"></i>
+              <i class="fa fa-cc-discover" style="color:orange;"></i>
+			</div>
+			<input type="text" id="owner" name="card-owner" placeholder="Titulaire de la carte">
+			<input class="long-input" type="text" id="card-number" name="card-number" placeholder="Numéro de carte">
+			<input type="date" id="date-exp" name="date-expiration" title="Date d'expiration">
+			<input type="texte" id="cvv" name="cvv-code" placeholder="Code CVV"><i class="fa fa-info-circle" title="Plus d'informations"></i>
+			<a class="btn" id="add-card-btn">ajouter une nouvelle carte <i class="fa fa-plus-circle"></i></a>
+			<a class="btn" id="save-btn">enregistrer les modifications</a>
+		</div>
+	</div>
 
-
-            <p><a class="save-button">enregistrer</a></p>
-          </div>
-        </div>
-
-    <!-- Footer -->
+	<!-- Footer -->
 
 	<footer class="footer-style">
 		<div class="footer-social">
@@ -141,6 +169,14 @@
 
 
 	<script>
+		//Récupère le bouton img-btn et le img-upload
+		var img_btn = document.getElementById("img-btn");
+		var img_upload = document.getElementById("img-upload");
+
+		img_btn.onclick = function () {
+			img_upload.style.display = "block";
+		}
+
 		// Récupère le body
 		var body = document.getElementsByTagName("body");
 
@@ -158,7 +194,6 @@
 		profile_btn.onclick = function () {
 			modal.style.display = "block";
 			//body.style.style.background-color = 'red';
-
 		}
 
 		close_btn.onclick = function () {
