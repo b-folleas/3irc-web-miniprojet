@@ -100,4 +100,27 @@
 <!-- Footer -->
 <footer id="footer"></footer>
 
+<script>
+    /* Update page destination */
+    fetch("http://127.0.0.1:5500/json/data.json")
+    .then(function (resp) {
+      return resp.json();
+    })
+    .then(function (result) {
+        var data = result;
+      console.log("data",data);
+      updateFunction(data);
+    });
+    
+  
+    
+    
+    function updateFunction(data){
+    
+      idDestination = new URLSearchParams(window.location.search).get("id");
+      console.log("id",idDestination);
+      document.getElementById("place").innerHTML = data.destinations[idDestination-1].place;
+    }
+    </script>
+
 </html>

@@ -44,8 +44,8 @@ document.body.onload = function navig() {
 		<span class=" close" onclick="closeModalFunction()">&times;</span>
 		<h1>Vous devez d'abord vous connecter !</h1>
 		<div class="tabs">
-			<div class="tab active" id="register_btn" onclick="switchLoginFunction()">s'enregistrer</div>
-			<div class="tab" id="sign_in_btn" onclick="switchLoginFunction()">se connecter</div>
+			<div class="tab active" id="register_btn" onclick="switchLoginFunction(this)">s'enregistrer</div>
+			<div class="tab" id="sign_in_btn" onclick="switchLoginFunction(this)">se connecter</div>
 		</div>
 		<!-- Register form -->
 		<form id="register-tabs">
@@ -105,55 +105,8 @@ document.body.onload = function navig() {
 
 
 
-//let template = document.querySelector("#listeVoyage");
-let grid_template = document.querySelector("#grid-template");
-
-//récupération des données du fichier JSON
-
-fetch("http://127.0.0.1:5500/json/data.json").then(function (resp) {
-    resp.json().then(function (data) {
-        for (const d of data.destinations) {					
-            let clone = document.importNode(grid_template.content, true);      // clone template
-
-            newContent = clone.firstElementChild.innerHTML
-                .replace(/{{image}}/g, d.image)		// replace key by value from data (json)
-                .replace(/{{place}}/g, d.place)				// et {{name}} par
-                .replace(/{{price}}/g, d.price)
-                .replace(/{{description}}/g, d.description)
-                .replace(/{{currency}}/g,"$")
-                .replace(/{{id}}/g,d.id);
-                // Comment remplacer un élément avec une liste de valeurs du json
 
 
-
-            clone.firstElementChild.innerHTML = newContent
-            document.getElementById("grid-container").appendChild(clone);				// Adding clone
-        }
-    })
-})
-
-
-/* Update page destination */
-fetch("http://127.0.0.1:5500/json/data.json")
-.then(function (resp) {
-  return resp.json();
-})
-.then(function (data) {
-  console.log(data);
-  updateFunction();
-});
-
-
-function assignURLFunction(){
-  document.getElementById("place").innerHTML = data.destinations[data.list[idDestination]].place;
-}
-
-
-function updateFunction(){
-  idDestination = new URLSearchParams(window.location.search).get("id");
-
-  document.getElementById("place").innerHTML = data.destinations[data.list[idDestination]].place;
-}
 
 
 
@@ -202,27 +155,24 @@ function updateFunction(){
 		let register_content = document.getElementById("register-tabs");
 		let sign_in_content = document.getElementById("sign_in-tabs");
 
-		let rg_btn = document.getElementById("register_btn");
-		let si_btn = document.getElementById("sign_in_btn");
+	
     
-    function switchLoginFunction() {
-      if(this.classList.contains("active")){
-        document.getElementById("register-tabs").style.display = "none";
-        document.getElementById("sign_in-tabs").style.display = "block";
-        document.getElementById("sign_in_btn").classList.add("active");
-        document.getElementById("register_btn").classList.remove("active");
-      }
-      if(document.getElementById(register_btn).classList.contains("active")){
-
-      }
-      else if(document.getElementById(sign_in_btn).classList.contains("active")){
-        sign_in_content.style.display = "none";
-        register_content.style.display = "block";
-        rg_btn.classList.add("active");
-        si_btn.classList.remove("active");
+    function switchLoginFunction(event) {
+      console.log(event);
+      if(!event.classList.contains("active")){
+        if(event.id==="sign_in_btn"){
+          document.getElementById("register-tabs").style.display = "none";
+          document.getElementById("sign_in-tabs").style.display = "block";
+          document.getElementById("register_btn").classList.remove("active");
+        }
+        else if(event.id==="register_btn"){
+          document.getElementById("sign_in-tabs").style.display = "none";
+          document.getElementById("register-tabs").style.display = "block";
+          document.getElementById("sign_in_btn").classList.remove("active");
+        }
+        event.classList.add("active");
       }
     }
-    
 
 		/* Redirecton membre */
 /*
