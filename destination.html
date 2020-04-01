@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<title>Voyage</title>
+	<meta charset="utf-8" />
+	<meta name="miniprojet" content="width=device-width, initial-scale=1" />
+	<link rel="icon" href="./assets/favicon.ico" type="image/gif" sizes="16x16">
+	<link rel="stylesheet" href="./assets/css/style.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="assets/js/main.js"></script>
+    <script src="./js/scripts.js" defer async></script>
+</head>
+
+
+<!-- Modal -->
+
+<div class="wrapper modal" id="myModal">
+	<div class="login">
+		<span class=" close">&times;</span>
+		<h1>Vous devez d'abord vous connecter !</h1>
+		<div class="tabs">
+			<div class="tab active" id="register_btn">s'enregistrer</div>
+			<div class="tab" id="sign_in_btn">se connecter</div>
+		</div>
+		<!-- Register form -->
+		<form id="register-tabs">
+			<div class="input">
+				<input id="username" type="text" name="username" required />
+				<label for="username">nom d'utilisateur</label>
+			</div>
+			<div class="input">
+				<input id="email" type="email" name="email" required />
+				<label for="email">email</label>
+			</div>
+			<div class="input">
+				<input id="password" type="password" name="password" required />
+				<label for="password">mot de passe</label>
+			</div>
+			<div class="input">
+				<input id="password-validation" type="password" name="password-validation" required />
+				<label for="password">validation mot de passe</label>
+			</div>
+			<div class="checking">
+				<input id="checkregister" type="checkbox" class="check" checked>
+				<label for="checkregister"><span class="icon"></span>J'accepte et certifie avoir lu les conditions
+					d'utilisation.</label>
+			</div>
+			<button class="btn" id="sign-up-btn">Créer un compte</button>
+			<a id="member">Déjà membre ?</a>
+		</form>
+		<!-- Sign in form -->
+		<form id="sign_in-tabs">
+			<div class="input">
+				<input id="username" type="text" name="username" required />
+				<label for="username">nom d'utilisateur ou email</label>
+			</div>
+			<div class="input">
+				<input id="password" type="password" name="password" required />
+				<label for="password">mot de passe</label>
+			</div>
+			<div class="checking">
+				<input id="checksignin" type="checkbox" class="check" checked>
+				<label for="checksignin"><span class="icon"></span>Rester connecté</label>
+			</div>
+			<button class="btn" id="sign-in-btn">se connecter</button>
+			<a class="forgot">Mot de passe oublié ?</a>
+		</form>
+	</div>
+</div>
+
+<!-- Navbar -->
+<div id="topnav"></div>
+
+<body>
+    <!-- Destination details -->
+
+    <p id="place"></p>
+    <p id="country"></p>
+    <p id="continent"></p>
+    <p id="description"></p>
+    <p id="details"></p>
+    <p id="rate"></p>
+    <p id="price"></p>
+    <p id="image"></p>
+    <p id="image-alt"></p>
+    <p id="temperatureReference"></p>
+    <p id="tags"></p>
+
+
+	<!-- Scripts -->
+
+
+<div id="backToTopDiv"></div>
+<button onclick="topFunction()" class="btn" id="backToTopBtn" title="Go to top"><i class="fa fa-arrow-up"></i></button>
+
+</body>
+
+<!-- Footer -->
+<footer id="footer"></footer>
+
+</html>

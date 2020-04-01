@@ -9,6 +9,8 @@
 	<link rel="icon" href="./assets/favicon.ico" type="image/gif" sizes="16x16">
 	<link rel="stylesheet" href="./assets/css/style.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="assets/js/main.js"></script>
+    <script src="./js/scripts.js" defer async></script>
 </head>
 
 
@@ -69,29 +71,10 @@
 </div>
 
 <!-- Navbar -->
-<div class="topnav" id="myTopnav">
-	<a href="./index.html"><i class="home fa fa-home"></i></a>
-	<a href="#panier"><i class="cart fa fa-shopping-cart"></i>Panier</a>
-	<a href="#contact"><i class="cart fa fa-check"></i>Réservations</a>
-	<a href="#about"><i class="cart fa fa-map"></i>Destinations</a>
-	<form class="search-form">
-		<input class="search" type="text" placeholder=" Recherchez.."></input>
-	</form>
-	<a href="#profile" class="profile" id="profileBtn"><img id="img-icon"
-			src="./assets/images/ghost-jira-removebg-preview.png" alt="Ghost">Mon Profil</a>
-	<a href="javascript:void(0);" class="icon" onclick="myFunction()">
-		<i class="fa fa-bars"></i>
-	</a>
-</div>
+<div id="topnav"></div>
+
 
 <body>
-
-
-
-
-
-
-
 
 	<div class="about-row">
 		<div class="img-profile">
@@ -138,34 +121,11 @@
 			<input type="text" id="owner" name="card-owner" placeholder="Titulaire de la carte">
 			<input class="long-input" type="text" id="card-number" name="card-number" placeholder="Numéro de carte">
 			<input type="date" id="date-exp" name="date-expiration" title="Date d'expiration">
-			<input type="texte" id="cvv" name="cvv-code" placeholder="Code CVV"><i class="fa fa-info-circle" title="Plus d'informations"></i>
+			<input type="texte" id="cvv" name="cvv-code" placeholder="Code CVV"><i id="cvv-info" class="fa fa-info-circle" title="Il s'agit du cryptogramme au dos de votre carte"></i>
 			<a class="btn" id="add-card-btn">ajouter une nouvelle carte <i class="fa fa-plus-circle"></i></a>
 			<a class="btn" id="save-btn">enregistrer les modifications</a>
 		</div>
 	</div>
-
-	<!-- Footer -->
-
-	<footer class="footer-style">
-		<div class="footer-social">
-			<a class="facebook-link" href="#"><i class="fa fa-facebook" title="Retrouvez-nous sur Facebook !"></i></a>
-			<a class="twitter-link" href="#"><i class="fa fa-twitter" title="Retrouvez-nous sur Twitter !"></i></a>
-			<a class="linkedin-link" href="#"><i class="fa fa-linkedin" title="Retrouvez-nous sur Linkedin !"></i></a>
-			<a class="github-link" href="https://github.com/AmazingBrice/miniprojet"><i class="fa fa-github"
-					title="Retrouvez-nous sur Github !"></i></a>
-		</div>
-
-		<div class="footer-left">
-			<p class="footer-links">
-				<a href="#">A propos</a>
-				<a href="#">Contactez-nous</a>
-				<a href="#">Plus d'infos</a>
-			</p>
-			<p>miniprojet &copy; 2020</p>
-		</div>
-	</footer>
-
-
 
 
 	<script>
@@ -256,7 +216,12 @@
 
 	</script>
 
+<div id="backToTopDiv"></div>
+
 
 </body>
+
+<!-- Footer -->
+<footer id="footer"></footer>
 
 </html>

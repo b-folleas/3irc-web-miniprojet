@@ -1,34 +1,43 @@
 {
-    "countries":
+    "destinations":
     [
         {
-            "name" : "Italie",
+            "id" : "1",
+            "place" : "Rome",
+            "country" : "Italia",
+            "continent" : "Europe",
             "description" : "Nam quibusdam, quos audio sapientes habitos in Graecia, placuisse opinor mirabilia quaedam (sed nihil est quod illi non persequantur argutiis): partim fugiendas esse nimias amicitias, ne necesse sit unum sollicitum esse pro pluribus;",
             "details" : "",
+            "rate" : "",
             "price" : "450",
-            "image" : "https://picsum.photos/600/400?image=1083",
+            "image" : "../assets/images/rome.jpg",
+            "image-alt" : "",
             "temperatureReference" : "Rome,IT",
             "tags" : [
-                "sunt",
-                "eu",
-                "ut",
-                "sunt",
-                "sint",
-                "aute",
-                "ipsum"
+                "love",
+                "romantic",
+                "pizza",
+                "pasta",
+                "sea",
+                "history"
             ]
         },  
         {
-            "name" : "",
+            "id" : "2",
+            "place" : "Osaka",
+            "country" : "Japan",
+            "continent" : "Asia",
             "description" : "Nam quibusdam, quos audio sapientes habitos in Graecia, placuisse opinor mirabilia quaedam (sed nihil est quod illi non persequantur argutiis): partim fugiendas esse nimias amicitias, ne necesse sit unum sollicitum esse pro pluribus;",
             "details" : "",
+            "rate" : "",
             "price" : "1230",
-            "image" : "https://picsum.photos/600/400?image=1083",
-            "temperatureReference" : "Tokyo,JP",
+            "image" : "./assets/images/osaka.jpg",
+            "image-alt" : "",
+            "temperatureReference" : "Osaka,JP",
             "tags" : [
-                "sunt",
-                "eu",
-                "ut",
+                "ramen",
+                "",
+                "",
                 "sunt",
                 "sint",
                 "aute",
@@ -36,12 +45,17 @@
             ]
         },  
         {
-            "name" : "Chine",
+            "id" : "3",
+            "place" : "Paris",
+            "country" : "France",
+            "continent" : "Europe",
             "description" : "Nam quibusdam, quos audio sapientes habitos in Graecia, placuisse opinor mirabilia quaedam (sed nihil est quod illi non persequantur argutiis): partim fugiendas esse nimias amicitias, ne necesse sit unum sollicitum esse pro pluribus;",
             "details" : "",
+            "rate" : "",
             "price" : "770",
-            "image" : "https://picsum.photos/600/400?image=1083",
-            "temperatureReference" : "Beijing,CN",
+            "image" : "./assets/images/paris.jpg",
+            "image-alt" : "",
+            "temperatureReference" : "Paris,FR",
             "tags" : [
                 "sunt",
                 "eu",
@@ -53,12 +67,17 @@
             ]
         },  
         {
-            "name" : "Suisse",
+            "id" : "4",
+            "place" : "Santorin",
+            "country" : "Greece",
+            "continent" : "Europe",
             "description" : "Nam quibusdam, quos audio sapientes habitos in Graecia, placuisse opinor mirabilia quaedam (sed nihil est quod illi non persequantur argutiis): partim fugiendas esse nimias amicitias, ne necesse sit unum sollicitum esse pro pluribus;",
             "details" : "",
+            "rate" : "",
             "price" : "320",
-            "image" : "https://picsum.photos/600/400?image=1083",
-            "temperatureReference" : "Berne,CH",
+            "image" : "./assets/images/santorin.jpg",
+            "image-alt" : "",
+            "temperatureReference" : "Santorin,GE",
             "tags" : [
                 "sunt",
                 "eu",
@@ -70,12 +89,17 @@
             ]
         },  
         {
-            "name" : "USA",
+            "id" : "5",
+            "place" : "San Fransisco",
+            "country" : "USA",
+            "continent" : "America",
             "description" : "Nam quibusdam, quos audio sapientes habitos in Graecia, placuisse opinor mirabilia quaedam (sed nihil est quod illi non persequantur argutiis): partim fugiendas esse nimias amicitias, ne necesse sit unum sollicitum esse pro pluribus;",
             "details" : "",
+            "rate" : "",
             "price" : "800",
-            "image" : "https://picsum.photos/600/400?image=1083",
-            "temperatureReference" : "New-York,US",
+            "image" : "./assets/images/sanFrancisco.jpg",
+            "image-alt" : "",
+            "temperatureReference" : "San-Fransisco,US",
             "tags" : [
                 "sunt",
                 "eu",
