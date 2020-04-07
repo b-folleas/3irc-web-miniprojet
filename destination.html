@@ -3,97 +3,68 @@
 <html>
 
 <head>
-	<title>Voyage</title>
-	<meta charset="utf-8" />
-	<meta name="miniprojet" content="width=device-width, initial-scale=1" />
-	<link rel="icon" href="./assets/favicon.ico" type="image/gif" sizes="16x16">
-	<link rel="stylesheet" href="./assets/css/style.css" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script src="assets/js/main.js"></script>
-    <script src="./js/scripts.js" defer async></script>
-</head>
+  <title>Voyage</title>
+  <meta charset="utf-8" />
+  <meta name="miniprojet" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="./assets/favicon.ico" type="image/gif" sizes="16x16">
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="assets/js/main.js"></script>
+  <script src="./js/scripts.js" defer async></script>
+  <script src="./js/core.js" defer async></script>
 
+</head>
 
 <!-- Modal -->
 
-<div class="wrapper modal" id="myModal">
-	<div class="login">
-		<span class=" close">&times;</span>
-		<h1>Vous devez d'abord vous connecter !</h1>
-		<div class="tabs">
-			<div class="tab active" id="register_btn">s'enregistrer</div>
-			<div class="tab" id="sign_in_btn">se connecter</div>
-		</div>
-		<!-- Register form -->
-		<form id="register-tabs">
-			<div class="input">
-				<input id="username" type="text" name="username" required />
-				<label for="username">nom d'utilisateur</label>
-			</div>
-			<div class="input">
-				<input id="email" type="email" name="email" required />
-				<label for="email">email</label>
-			</div>
-			<div class="input">
-				<input id="password" type="password" name="password" required />
-				<label for="password">mot de passe</label>
-			</div>
-			<div class="input">
-				<input id="password-validation" type="password" name="password-validation" required />
-				<label for="password">validation mot de passe</label>
-			</div>
-			<div class="checking">
-				<input id="checkregister" type="checkbox" class="check" checked>
-				<label for="checkregister"><span class="icon"></span>J'accepte et certifie avoir lu les conditions
-					d'utilisation.</label>
-			</div>
-			<button class="btn" id="sign-up-btn">Créer un compte</button>
-			<a id="member">Déjà membre ?</a>
-		</form>
-		<!-- Sign in form -->
-		<form id="sign_in-tabs">
-			<div class="input">
-				<input id="username" type="text" name="username" required />
-				<label for="username">nom d'utilisateur ou email</label>
-			</div>
-			<div class="input">
-				<input id="password" type="password" name="password" required />
-				<label for="password">mot de passe</label>
-			</div>
-			<div class="checking">
-				<input id="checksignin" type="checkbox" class="check" checked>
-				<label for="checksignin"><span class="icon"></span>Rester connecté</label>
-			</div>
-			<button class="btn" id="sign-in-btn">se connecter</button>
-			<a class="forgot">Mot de passe oublié ?</a>
-		</form>
-	</div>
-</div>
+<div class="wrapper modal" id="myModal"></div>
 
 <!-- Navbar -->
 <div id="topnav"></div>
 
 <body>
-    <!-- Destination details -->
+  <!-- Destination details -->
 
-    <p id="place"></p>
-    <p id="country"></p>
-    <p id="continent"></p>
-    <p id="description"></p>
-    <p id="details"></p>
-    <p id="rate"></p>
-    <p id="price"></p>
-    <p id="image"></p>
-    <p id="image-alt"></p>
-    <p id="temperatureReference"></p>
-    <p id="tags"></p>
+  <div id="article" class="page-container article-container">
+
+    <article id="destination-article">
+      <img id="destination-image" onclick="assignURLFunction()" src={{image}} alt={{image-alt}}>
+      <div id="destination-text">
+        <h2 id="destination-place">{{place}}</h2>
+        <h3 id="destination-country">{{country}}</h3>
+        <p id="destination-details">{{details}}</p>
+        <p id="destination-price" style="margin-left: 80%;"><b>{{price}}{{currency}}</b></p>
+        <div id="destination-tags">{{tags}}</div>
+    
+    
+        <form style="display: none;" id="booking-form">
+          <span class=" close" onclick="hideBookingForm()">&times;</span>
+
+          <input type="date" id="arrive" class="" name="arrive" placeholder="Date d'arrivée"> 
+          <label for="arrive" class="label-date"><i class="fa fa-calendar"></i>Date d'arrivée</label>
+    
+          <input type="date" id="leave" class="" name="leave" value="">
+          <label for="leave" class="label-date"><i class="fa fa-calendar"></i>Date de départ</label>
+    
+          <input class="booking long-input" min="0" type="number" id="number-people" name="number-people" placeholder="Nombre de personnes adultes">
+          <input class="" min="0" type="number" id="number-kids" name="number-kids" placeholder="Nombre de personnes enfants">
+          <input class="" min="0" type="number" id="number-room" name="number-room" placeholder="Nombre de chambres">
+    
+          <textarea class="" id="booking-textarea" placeholder="Commentaire"></textarea>
+    
+        </form>
+        <btn id="destination-btn" class="btn grid-btn" onclick="displayBookingForm()">Réserver</btn>
+      </div>
+    </article>
 
 
-	<!-- Scripts -->
 
+    
+  </div>
 
-<div id="backToTopDiv"></div>
-<button onclick="topFunction()" class="btn" id="backToTopBtn" title="Go to top"><i class="fa fa-arrow-up"></i></button>
+  <div id="backToTopDiv"></div>
+  <button onclick="topFunction()" class="btn" id="backToTopBtn" title="Go to top"><i
+      class="fa fa-arrow-up"></i></button>
 
 </body>
 
@@ -101,26 +72,47 @@
 <footer id="footer"></footer>
 
 <script>
-    /* Update page destination */
-    fetch("http://127.0.0.1:5500/json/data.json")
+  /* Update page destination */
+  fetch("http://127.0.0.1:5500/json/data.json")
     .then(function (resp) {
       return resp.json();
     })
     .then(function (result) {
-        var data = result;
-      console.log("data",data);
+      var data = result;
+      console.log("data", data);
       updateFunction(data);
     });
-    
-  
-    
-    
-    function updateFunction(data){
-    
-      idDestination = new URLSearchParams(window.location.search).get("id");
-      console.log("id",idDestination);
-      document.getElementById("place").innerHTML = data.destinations[idDestination-1].place;
-    }
-    </script>
+
+  function updateFunction(data) {
+
+    idDestination = new URLSearchParams(window.location.search).get("id");
+    console.log("id", idDestination);
+
+    document.getElementById("article").innerHTML = document.getElementById("article").innerHTML
+      .replace(/{{image}}/g, data.destinations[idDestination - 1].image)	
+      .replace(/{{place}}/g, data.destinations[idDestination - 1].place)
+      .replace(/{{country}}/g, data.destinations[idDestination - 1].country)
+      .replace(/{{price}}/g, data.destinations[idDestination - 1].price)
+      .replace(/{{details}}/g, data.destinations[idDestination - 1].details)
+      .replace(/{{currency}}/g, "$")
+      .replace(/{{tags}}/g, data.destinations[idDestination - 1].tags.map((a) => { return '<span class="btn tag">' + a + '</span>'; }).reduce((a, b, idx) => { return idx == 0 ? a : a + b; }));
+    //d.tags tableau tags
+    //Map sert à 'mapper' prendre indiv chaque elemdu tab et appliquer une fonction
+    //Reduce() permet de transformerle tab en un seul élément (concatène mes chaînes de caractères) sinon concatène a + b
+    //Permet au final de transformer le tableau en une seule chaîne de caractères.
+
+    // Comment remplacer un élément avec une liste de valeurs du json
+  }
+
+  function displayBookingForm() {
+    document.getElementById("booking-form").style.display = 'block';
+    document.getElementById("destination-btn").innerText = 'Ajouter au panier'
+  }
+
+  function hideBookingForm() {
+    document.getElementById("booking-form").style.display= 'none';
+    document.getElementById("destination-btn").innerText = 'Réserver'
+  }
+</script>
 
 </html>

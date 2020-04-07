@@ -3,22 +3,26 @@
 <html>
 
 <head>
-	<title>Voyage</title>
+	<title id="web-title">Voyage</title>
 	<meta charset="utf-8" />
 	<meta name="miniprojet" content="width=device-width, initial-scale=1" />
 	<link rel="icon" href="./assets/favicon.ico" type="image/gif" sizes="16x16">
 	<link rel="stylesheet" href="./assets/css/style.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="assets/js/main.js"></script>
-    <script src="./js/scripts.js" defer async></script>
+	<script src="./js/scripts.js" defer async></script>
+	<script src="./js/grid.js" defer async></script>
+    <script src="./js/core.js" defer async></script>
 </head>
-
 
 <!-- Modal -->
 
-<div class="wrapper modal" id="myModal">
+<div class="wrapper modal" id="myModal"></div>
 	
-</div>
+	<!-- Title -->
+	<div id="title">
+		<h1>Sogni de Scapari - Agence de voyage</h1>
+	</div>
 
 <!-- Navbar -->
 <div id="topnav"></div>
@@ -26,69 +30,25 @@
 <body>
 
 	<!-- Grid -->
-	<div id="title"><h1>Nos meilleures destinations waouh</h1></div>
-
-	<main id="grid-container" class="grid">
+	<main id="grid-container" class="grid article-container">
 		<template id="grid-template">
-			<article>
+			<article id="grid-article">
 				<img id="grid-image" onclick="assignURLFunction()" src={{image}} alt={{image-alt}}>
-				<div class="grid-text">
+				<div id="grid-text">
 					<h3 id="grid-place">{{place}}</h3>
 					<p id="grid-description">{{description}}</p>
 					<p id="grid-price" style="margin-left: 80%;"><b>{{price}}{{currency}}</b></p>
 					<a class="btn grid-btn" href={{url}}>Voir en détails</a>
-					<div id="tag-template">{{tags}}</div>
+					<div id="grid-tags">{{tags}}</div>
 				</div>
 			</article>
 		</template>
 	</main>
 
-	<!-- Contact Form -->
-
-
-
-<div id="backToTopDiv"></div>
-<button onclick="topFunction()" class="btn" id="backToTopBtn" title="Go to top"><i class="fa fa-arrow-up"></i></button>
-
+	<div id="backToTopDiv"></div>
 </body>
 
 <!-- Footer -->
 <footer id="footer"></footer>
-
-<script>//let template = document.querySelector("#listeVoyage");
-	let grid_template = document.querySelector("#grid-template");
-	
-	//récupération des données du fichier JSON
-	
-	fetch("http://127.0.0.1:5500/json/data.json")
-	  .then(function (resp) {
-		resp.json().then(function (data) {
-			for (const d of data.destinations) {					
-				let clone = document.importNode(grid_template.content, true);      // clone template
-	
-				newContent = clone.firstElementChild.innerHTML
-					.replace(/{{image}}/g, d.image)		// replace key by value from data (json)
-					.replace(/{{place}}/g, d.place)				// et {{name}} par
-					.replace(/{{price}}/g, d.price)
-					.replace(/{{description}}/g, d.description)
-					.replace(/{{currency}}/g,"$")
-					.replace(/{{url}}/g,"/destination.html?id="+d.id)
-					.replace(/{{tags}}/g, d.tags.map((a) => { return '<span class="tag">' + a + '</span>'; }).reduce((a, b, idx) => {return idx == 0 ? a : a + b;}));
-					//d.tags tableau tags
-					//Map sert à 'mapper' prendre indiv chaque elemdu tab et appliquer une fonction
-					//Reduce() permet de transformerle tab en un seul élément (concatène mes chaînes de caractères) sinon concatène a + b
-					//Permet au final de transformer le tableau en une seule chaîne de caractères.
-
-					// Comment remplacer un élément avec une liste de valeurs du json
-	
-	
-	
-				clone.firstElementChild.innerHTML = newContent;
-				document.getElementById("grid-container").appendChild(clone);
-			}
-
-		})
-	})
-	</script>
 
 </html>
