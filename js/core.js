@@ -1,7 +1,10 @@
 /* Adding clone elements */
 
 document.body.onload = function navig() {
-    document.getElementById("topnav").innerHTML = 
+	
+	document.getElementById("title").innerHTML = `<h1>Sogni de Scapari - Agence de voyage</h1>`
+	
+	document.getElementById("topnav").innerHTML = 
     `<a href="./index.html"><i class="home fa fa-home"></i></a>
 	<a href="./cart.html"><i class="cart fa fa-shopping-cart"></i>Panier</a>
 	<a href="./booking.html"><i class="cart fa fa-check"></i>Réservations</a>
@@ -32,9 +35,6 @@ document.body.onload = function navig() {
         </span>
         <p>miniprojet &copy; 2020</p>
     </div>`;
-
-    document.getElementById("backToTopDiv").innerHTML = 
-    `<button onclick="topFunction()" class="btn" id="backToTopBtn" title="Go to top"><i class="fa fa-arrow-up"></i></button>`;
 
     document.getElementById("myModal").innerHTML =
     `<div class="login">
