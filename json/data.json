@@ -12,7 +12,7 @@
             "price" : "450",
             "image" : "../assets/images/rome.jpg",
             "image-alt" : "",
-            "temperatureReference" : "Rome,IT",
+            "idCity" : "3169070",
             "tags" : [
                 "love",
                 "romantic",
@@ -33,7 +33,7 @@
             "price" : "1230",
             "image" : "./assets/images/osaka.jpg",
             "image-alt" : "",
-            "temperatureReference" : "Osaka,JP",
+            "idCity" : "1853909",
             "tags" : [
                 "ramen",
                 "",
@@ -55,7 +55,7 @@
             "price" : "770",
             "image" : "./assets/images/paris.jpg",
             "image-alt" : "",
-            "temperatureReference" : "Paris,FR",
+            "idCity" : "2968815",
             "tags" : [
                 "sunt",
                 "eu",
@@ -77,7 +77,7 @@
             "price" : "320",
             "image" : "./assets/images/santorin.jpg",
             "image-alt" : "",
-            "temperatureReference" : "Santorin,GE",
+            "idCity" : "8133832",
             "tags" : [
                 "sunt",
                 "eu",
@@ -99,7 +99,7 @@
             "price" : "800",
             "image" : "./assets/images/sanFrancisco.jpg",
             "image-alt" : "",
-            "temperatureReference" : "San-Fransisco,US",
+            "idCity" : "2968815",
             "tags" : [
                 "sunt",
                 "eu",
