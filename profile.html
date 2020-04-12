@@ -5,13 +5,13 @@
 <head>
 	<title>Voyage</title>
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="icon" href="./assets/favicon.ico" type="image/gif" sizes="16x16">
 	<link rel="stylesheet" href="./assets/css/style.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="./js/core.js" defer async></script>
-	<script src="assets/js/main.js"></script>
 	<script src="./js/scroll.js" defer async></script>
+	<script src="./js/form.js" defer async></script>
 </head>
 
 
@@ -65,81 +65,26 @@
 			<label id="cards">Carte de paiement acceptées</label>
 			<div class="cards-container">
 				<i class="fa fa-cc-visa" style="color:navy;"></i>
-				<i class="fa fa-cc-amex" style="color:blue;"></i>
 				<i class="fa fa-cc-mastercard" style="color:red;"></i>
-				<i class="fa fa-cc-discover" style="color:orange;"></i>
 			</div>
-			<input type="text" id="card-owner" name="card-owner" placeholder="Titulaire de la carte">
-			<input class="long-input" type="text" id="card-number" name="card-number" placeholder="Numéro de carte" onfocusout="validateCreditCardNumber()">
-			<input type="date" id="date-exp" name="date-expiration" title="Date d'expiration" onfocusout="validateCreditCardDate()">
-			<input type="texte" id="card-cvv" name="cvv-code" placeholder="Code CVV" onfocusout="validateCCVNumber()"><i id="cvv-info"
-				class="fa fa-info-circle" title="Il s'agit du cryptogramme au dos de votre carte"></i>
-			<a class="btn" id="add-card-btn">ajouter une nouvelle carte <i class="fa fa-plus-circle"></i></a>
+			<form id="cardForm">
+				<row>
+					<input type="text" class="card-owner" name="card-owner" placeholder="Titulaire de la carte">
+					<input class="long-input" type="text" class="card-number" name="card-number"
+						placeholder="Numéro de carte">
+					<input type="text" class="card-exp" name="date-expiration" title="Date d'expiration"
+						placeholder="Date d'expiration">
+					<input type="text" class="card-cvv" name="cvv-code" placeholder="Code CVV">
+					<i id="cvv-info" class="fa fa-info-circle"
+						title="Il s'agit du cryptogramme au dos de votre carte"></i>
+					<i class="fa fa-trash" title="Supprimer cette carte"></i>
+				</row>
+			</form>
+			<a class="btn" id="add-card-btn" onclick="addingNewCard()">ajouter une nouvelle carte <i
+					class="fa fa-plus-circle"></i></a>
 			<a class="btn" id="save-btn">enregistrer les modifications</a>
 		</div>
 	</div>
-
-
-	<script>
-
-		/* Vérification formulaire */
-
-		// Store the regexes as globals so they're cached and not re-parsed on every call:
-		var onlyStringPattern = /^[a-zA-Z]+$/;
-		var visaPattern = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
-		var masterCardPattern = /^(?:5[1-5][0-9]{14})$/;
-
-		
-		// When the page is loaded, it will call the loadFunction
-		window.addEventListener("load", function() {
-			document.getElementById("card-owner").addEventListener("focusout",function(event) {
-			if (!onlyStringPattern.test(event.target.value)){
-				alert("Le nom du propriétaire de la carte n'est pas valide.");
-			}
-		 });// Optimized method to splitjava and html but wewon't use it on too complex functions
-		}
-		);
-		
-		// A adapter
-
-		function validateCreditCardNumber() {
-
-			var cardNumber = document.getElementById("card-number").value;
-
-			var isVisa = visaPattern.test(cardNumber) === true;
-			var isMast = masterCardPattern.test(cardNumber) === true;
-
-			if (isVisa || isMast || isAmex || isDisc) {
-				// at least one regex matches, so the card number is valid.
-
-				if (isVisa) {
-					// Visa-specific logic goes here
-				}
-				else if (isMast) {
-					// Mastercard-specific logic goes here
-				}
-			}
-			else {
-
-				alert("Veuillez entrer un numéro de carte valide.");
-				//Ca marche mais afficher une alerte à chaque onfocusout c'est bien trop pénible pour l'utilisateur
-			}
-		}
-
-		function validateCreditCardDate(){
-
-		}
-
-		function validateCCVNumber(){
-
-		}
-
-		let email = document.getElementById("email").innerText;
-		function validateEmail(email) {
-			var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-			return re.test(String(email).toLowerCase());
-		}
-	</script>
 
 	<div id="backToTopDiv"></div>
 
@@ -147,5 +92,34 @@
 
 <!-- Footer -->
 <footer id="footer"></footer>
+
+<script>
+	function addingNewCard() {
+		document.getElementById("cardForm").innerHTML +=
+			`<row>
+			<input type="text" class="card-owner" name="card-owner" placeholder="Titulaire de la carte">
+			<input class="long-input" type="text" class="card-number" name="card-number" placeholder="Numéro de carte">
+			<input type="text" class="card-exp" name="date-expiration" title="Date d'expiration" placeholder="Date d'expiration">
+			<input type="text" class="card-cvv" name="cvv-code" placeholder="Code CVV">
+			<i id="cvv-info" class="fa fa-info-circle" title="Il s'agit du cryptogramme au dos de votre carte"></i>
+			<i class="fa fa-trash" title="Supprimer cette carte"></i>		
+			</row>
+			`;
+	}
+
+	// Check if the date is valid, if not then execute if block
+	window.addEventListener("load", function () {
+		var trashIcon = document.getElementsByClassName("fa-trash");
+
+		for (i = 0; i < trashIcon.length; i++) {
+			trashIcon[i].addEventListener("onclick", function (event) {
+				var rowToRemove = event.currentTarget.parentNode;
+				rowToRemove.parentNode.removeChild(rowToRemove);
+			})
+		}
+	});
+
+
+</script>
 
 </html>

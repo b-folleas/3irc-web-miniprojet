@@ -9,7 +9,7 @@
   <link rel="icon" href="./assets/favicon.ico" type="image/gif" sizes="16x16">
   <link rel="stylesheet" href="./assets/css/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="assets/js/main.js"></script>
+  <script src="./js/destination.js" defer async></script>
   <script src="./js/scroll.js" defer async></script>
   <script src="./js/core.js" defer async></script>
 
@@ -33,30 +33,32 @@
     <article id="destination-article">
       <img id="destination-image" onclick="assignURLFunction()" src={{image}} alt={{image-alt}}>
       <div id="destination-text">
-        <h2 id="destination-place">{{place}}</h2>
+        <h2 id="destination-place">{{place}}</h2> 
         <h3 id="destination-country">{{country}}</h3>
+				<h2 class="grid-temp">{{temp}}</h2>
         <p id="destination-details">{{details}}</p>
-        <p id="destination-price" style="margin-left: 80%;"><b>{{price}}{{currency}}</b></p>
+        <p id="destination-price" style="margin-left: 80%;"><b>A partir de {{price}}{{currency}}</b></p>
         <div id="destination-tags">{{tags}}</div>
     
     
         <form style="display: none;" id="booking-form">
           <span class=" close" onclick="hideBookingForm()">&times;</span>
 
-          <input type="date" id="arrive" class="" name="arrive" placeholder="Date d'arrivée"> 
+          <input type="date" id="arrive" class="date" name="arrive" placeholder="Date d'arrivée"> 
           <label for="arrive" class="label-date"><i class="fa fa-calendar"></i>Date d'arrivée</label>
     
-          <input type="date" id="leave" class="" name="leave" value="">
+          <input type="date" id="leave" class="date" name="leave">
           <label for="leave" class="label-date"><i class="fa fa-calendar"></i>Date de départ</label>
     
-          <input class="booking long-input" min="0" type="number" id="number-people" name="number-people" placeholder="Nombre de personnes adultes">
-          <input class="" min="0" type="number" id="number-kids" name="number-kids" placeholder="Nombre de personnes enfants">
-          <input class="" min="0" type="number" id="number-room" name="number-room" placeholder="Nombre de chambres">
+          <input class="long-input" min="0" max="10" type="number" id="numberPeople" name="number-people" placeholder="Nombre de personnes adultes">
+          <input class="long-input" min="0" max="10" type="number" id="numberKids" name="number-kids" placeholder="Nombre de personnes enfants">
+          <input class="long-input" min="0" max="10" type="number" id="numberRooms" name="number-rooms" placeholder="Nombre de chambres">
+          <label class="" min="0" id="expectPrice" name="expect-price">Prix attendu : {{expectPrice}}</label>
     
           <textarea class="" id="booking-textarea" placeholder="Commentaire"></textarea>
     
         </form>
-        <btn id="destination-btn" class="btn grid-btn" onclick="displayBookingForm()">Réserver</btn>
+        <btn id="destination-btn" class="btn grid-btn" onclick="displayBookingForm()">Réserver ce voyage</btn>
       </div>
     </article>
     
@@ -68,49 +70,29 @@
 
 <!-- Footer -->
 <footer id="footer"></footer>
-
 <script>
-  /* Update page destination */
-  fetch("http://127.0.0.1:5500/json/data.json")
-    .then(function (resp) {
-      return resp.json();
-    })
-    .then(function (result) {
-      var data = result;
-      console.log("data", data);
-      updateFunction(data);
-    });
+  
+  //console.log("script = " + price);
 
-  function updateFunction(data) {
 
-    idDestination = new URLSearchParams(window.location.search).get("id");
-    console.log("id", idDestination);
+  document.addEventListener("load", function() {
+//    console.log(price);
 
-    document.getElementById("article").innerHTML = document.getElementById("article").innerHTML
-      .replace(/{{image}}/g, data.destinations[idDestination - 1].image)	
-      .replace(/{{place}}/g, data.destinations[idDestination - 1].place)
-      .replace(/{{country}}/g, data.destinations[idDestination - 1].country)
-      .replace(/{{price}}/g, data.destinations[idDestination - 1].price)
-      .replace(/{{details}}/g, data.destinations[idDestination - 1].details)
-      .replace(/{{currency}}/g, "$")
-      .replace(/{{tags}}/g, data.destinations[idDestination - 1].tags.map((a) => { return '<span class="btn tag">' + a + '</span>'; }).reduce((a, b, idx) => { return idx == 0 ? a : a + b; }));
-    //d.tags tableau tags
-    //Map sert à 'mapper' prendre indiv chaque elemdu tab et appliquer une fonction
-    //Reduce() permet de transformerle tab en un seul élément (concatène mes chaînes de caractères) sinon concatène a + b
-    //Permet au final de transformer le tableau en une seule chaîne de caractères.
+  var expectPrice = 0;
+  var nbPeople;
+  var nbKids;
+  var nbRooms;
 
-    // Comment remplacer un élément avec une liste de valeurs du json
-  }
+  console.log("Price=" + price);
+  console.log("expectPrice=" + expectPrice);
+ 
 
-  function displayBookingForm() {
-    document.getElementById("booking-form").style.display = 'block';
-    document.getElementById("destination-btn").innerText = 'Ajouter au panier'
-  }
+    document.getElementById("number-people").addEventListener("onchange",function(event) {
+        expectPrice += nbKids * 10 + nbPeople * 20 + nbRooms * 30;
+      });
+		});
 
-  function hideBookingForm() {
-    document.getElementById("booking-form").style.display= 'none';
-    document.getElementById("destination-btn").innerText = 'Réserver'
-  }
+
 </script>
 
 </html>

@@ -6,14 +6,11 @@ document.body.onload = function navig() {
 	
 	document.getElementById("topnav").innerHTML = 
     `<a href="./index.html"><i class="home fa fa-home"></i></a>
-	<a href="./cart.html"><i class="cart fa fa-shopping-cart"></i>Panier</a>
-	<a href="./booking.html"><i class="cart fa fa-check"></i>Réservations</a>
-	<a href="./about.html"><i class="cart fa fa-map"></i>Destinations</a>
-	<form class="search-form">
-		<input class="search" type="text" placeholder=" Recherchez..."></input>
-  </form>
-  <a href="#" id="loginBtn" onclick="openModalFunction()" >Ouvrir Modal</a>
-  <a href="./profile.html" class="profile" id="profileBtn"><img id="img-icon"
+	<a href="./cart.html"><i class="fa fa-shopping-cart"></i>Panier</a>
+	<a href="./booking.html"><i class="fa fa-check"></i>Réservations</a>
+	<a href="./index.html"><i class="fa fa-map"></i>Destinations</a>
+	<a href="#" id="loginBtn" onclick="openModalFunction()"><i class="fa fa-window-restore"></i>Ouvrir Modal</a>
+  	<a href="./profile.html" class="profile" id="profileBtn"><img id="img-icon"
 			src="./assets/images/ghost-jira-removebg-preview.png" alt="Ghost">Mon Profil</a>
 	<a href="javascript:void(0);" class="icon" onclick="displayResponsiveFunction()">
 		<i class="fa fa-bars"></i>
@@ -129,7 +126,6 @@ document.body.onload = function navig() {
 	
     
     function switchLoginFunction(event) {
-      console.log(event);
       if(!event.classList.contains("active")){
         if(event.id==="sign_in_btn"){
           document.getElementById("register-tabs").style.display = "none";
@@ -144,3 +140,12 @@ document.body.onload = function navig() {
         event.classList.add("active");
       }
     }
+
+	function displayResponsiveFunction() {
+		var x = document.getElementById("topnav");
+		if (x.className === "topnav") {
+		  x.className += " responsive";
+		} else {
+		  x.className = "topnav";
+		}
+	  }

@@ -9,7 +9,6 @@
 	<link rel="icon" href="./assets/favicon.ico" type="image/gif" sizes="16x16">
 	<link rel="stylesheet" href="./assets/css/style.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script src="assets/js/main.js"></script>
 	<script src="./js/scroll.js" defer async></script>
 	<script src="./js/grid.js" defer async></script>
     <script src="./js/core.js" defer async></script>
@@ -30,15 +29,15 @@
 	<!-- Grid -->
 	<main id="grid-container" class="grid article-container">
 		<template id="grid-template">
-			<article id="grid-article">
-				<img id="grid-image" onclick="assignURLFunction()" src={{image}} alt={{image-alt}}>
-				<div id="grid-text">
-					<h3 id="grid-place">{{place}}</h3>
-					<p id="grid-description">{{description}}</p>
-					<p id="grid-price" style="margin-left: 80%;"><b>{{price}}{{currency}}</b></p>
+			<article class="grid-article">
+				<a href={{url}} ><img class="grid-image" onclick="assignURLFunction()" src={{image}} alt={{image-alt}}></a>
+				<div class="grid-text">
+					<h3 class="grid-place">{{place}}</h3>
+					<h2 class="grid-temp">{{temp}}</h2>
+					<p class="grid-description">{{description}}</p>
+					<p class="grid-price"><b>{{price}}{{currency}}</b></p>
 					<a class="btn grid-btn" href={{url}}>Voir en détails</a>
-					<div id="temp">{{temp}}</div>
-					<div id="tag-template">{{tags}}</div>
+					<div class="tag-template">{{tags}}</div>
 				</div>
 			</article>
 		</template>
