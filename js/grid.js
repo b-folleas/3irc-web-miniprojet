@@ -17,8 +17,6 @@ fetch("http://127.0.0.1:5500/json/data.json")
                     if (this.readyState == 4 && this.status == 200) {
                         var obj = JSON.parse(this.responseText);
                         tempTab[d] = obj.main.temp;
-                        console.log(data.destinations[d].place);
-                        console.log(tempTab.length);
                         if (tempTab.length == data.destinations.length && testTempTab()) {
                             for (i = 0; i < data.destinations.length; i++) {
                                 let clone = document.importNode(grid_template.content, true);     

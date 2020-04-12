@@ -88,14 +88,14 @@ window.addEventListener("load", function () {
 
             // convert current date to format to "YYYY-MM-DD"
             var currentDate = new Date().toJSON().slice(0, 10);
-            
+
             // get date from input field, by default is "YYYY-MM-DD" format
             var inputDate = document.getElementById(dateTab[i].value);
 
             if (currentDate > inputDate) {
                 alert("La date sélectionnée précède la date d'aujourd'hui");
             }
-            
+
         })
     }
 

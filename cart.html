@@ -3,16 +3,22 @@
 <html>
 
 <head>
-    <title>Voyage</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="./assets/favicon.ico" type="image/gif" sizes="16x16">
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="./js/scroll.js" defer async></script>
-    <script src="./js/core.js" defer async></script>
-    <script src="./js/grid.js"></script>
+  <title>Voyage</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="./assets/favicon.ico" type="image/gif" sizes="16x16">
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="./js/destination.js" defer async></script>
+  <script src="./js/scroll.js" defer async></script>
+  <script src="./js/core.js" defer async></script>
+  <script src="./js/rating.js" defer async></script>
+
 </head>
+
+<!-- Modal -->
+
+<div class="wrapper modal" id="myModal"></div>
 
 <!-- Title -->
 <div id="title"></div>
@@ -20,32 +26,31 @@
 <!-- Navbar -->
 <div id="topnav"></div>
 
-<!-- My Modal -->
-
-<div class="wrapper modal" id="myModal"></div>
-
 <body>
+  <!-- Destination details -->
 
-    <!-- Cart -->
-	<main style="background: black;" id="cart-container" class="cart article-container">
-		<template id="cart-template">
-			<article class="cart-article">
-				<img class="cart-image" src={{image}} alt={{image-alt}}>
-				<div class="cart-text">
-					<h3 class="cart-place">TEST</h3>
-					<p class="cart-price"><b>{{price}}{{currency}}</b></p>
-                    <i class="cart fa fa-trash"></i>
-                </div>
-			</article>
-		</template>
-	</main>
+  <div id="article" class="page-container cart-article">
+
+      <img class="cart-image" src={{image}} alt={{image-alt}}>
+        <h3 class="cart-place">{{place}}</h3>
+        <p class="cart-country">{{country}}</p>
+        <p class="cart-price">A partir de {{price}}{{currency}}</p>
+        <btn id="destination-btn" class="btn cart-btn">Revenir sur cette destination</btn>
+		<i class="fa fa-edit" title="Modifier cette destination"></i>
+		<i class="fa fa-trash" title="Supprimer cette destination"></i>
 
 
-    <div id="backToTopDiv"></div>
+  </div>
+
+  <div id="backToTopDiv"></div>
 
 </body>
 
 <!-- Footer -->
 <footer id="footer"></footer>
+<script>
+
+  }
+</script>
 
 </html>

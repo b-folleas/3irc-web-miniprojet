@@ -12,6 +12,7 @@
   <script src="./js/destination.js" defer async></script>
   <script src="./js/scroll.js" defer async></script>
   <script src="./js/core.js" defer async></script>
+  <script src="./js/rating.js" defer async></script>
 
 </head>
 
@@ -33,35 +34,55 @@
     <article id="destination-article">
       <img id="destination-image" onclick="assignURLFunction()" src={{image}} alt={{image-alt}}>
       <div id="destination-text">
-        <h2 id="destination-place">{{place}}</h2> 
+        <h2 id="destination-place">{{place}}</h2>
         <h3 id="destination-country">{{country}}</h3>
-				<h2 class="grid-temp">{{temp}}</h2>
+        <h2 class="grid-temp">{{temp}}</h2>
         <p id="destination-details">{{details}}</p>
         <p id="destination-price" style="margin-left: 80%;"><b>A partir de {{price}}{{currency}}</b></p>
         <div id="destination-tags">{{tags}}</div>
-    
-    
+
+
         <form style="display: none;" id="booking-form">
           <span class=" close" onclick="hideBookingForm()">&times;</span>
 
-          <input type="date" id="arrive" class="date" name="arrive" placeholder="Date d'arrivée"> 
+          <input type="date" id="arrive" class="date" name="arrive" placeholder="Date d'arrivée">
           <label for="arrive" class="label-date"><i class="fa fa-calendar"></i>Date d'arrivée</label>
-    
+
           <input type="date" id="leave" class="date" name="leave">
           <label for="leave" class="label-date"><i class="fa fa-calendar"></i>Date de départ</label>
-    
-          <input class="long-input" min="0" max="10" type="number" id="numberPeople" name="number-people" placeholder="Nombre de personnes adultes">
-          <input class="long-input" min="0" max="10" type="number" id="numberKids" name="number-kids" placeholder="Nombre de personnes enfants">
-          <input class="long-input" min="0" max="10" type="number" id="numberRooms" name="number-rooms" placeholder="Nombre de chambres">
+
+          <input class="long-input" min="0" max="10" type="number" id="numberPeople" name="number-people"
+            placeholder="Nombre de personnes adultes">
+          <input class="long-input" min="0" max="10" type="number" id="numberKids" name="number-kids"
+            placeholder="Nombre de personnes enfants">
+          <input class="long-input" min="0" max="10" type="number" id="numberRooms" name="number-rooms"
+            placeholder="Nombre de chambres">
           <label class="" min="0" id="expectPrice" name="expect-price">Prix attendu : {{expectPrice}}</label>
-    
+
           <textarea class="" id="booking-textarea" placeholder="Commentaire"></textarea>
-    
+
         </form>
         <btn id="destination-btn" class="btn grid-btn" onclick="displayBookingForm()">Réserver ce voyage</btn>
       </div>
+      <div id="destination-rate">
+        <h2>
+          Ce qu'en pensent nos utilisateurs :
+          <div class="star-rating" data-current="5">
+            <span>★</span>
+            <span>★</span>
+            <span>★</span>
+            <span>★</span>
+            <span>★</span>
+          </div>
+        </h2>
+      </div>
+      <div id="others-destinations">
+        <h2>
+          Découvrez ces autres destinations qui pourraient vous plaire
+        </h2>
+      </div>
     </article>
-    
+
   </div>
 
   <div id="backToTopDiv"></div>
@@ -71,28 +92,35 @@
 <!-- Footer -->
 <footer id="footer"></footer>
 <script>
-  
+
   //console.log("script = " + price);
 
 
-  document.addEventListener("load", function() {
-//    console.log(price);
+  document.addEventListener("load", function () {
+    //    console.log(price);
 
-  var expectPrice = 0;
-  var nbPeople;
-  var nbKids;
-  var nbRooms;
+    var expectPrice = 0;
+    var nbPeople;
+    var nbKids;
+    var nbRooms;
 
-  console.log("Price=" + price);
-  console.log("expectPrice=" + expectPrice);
- 
-
-    document.getElementById("number-people").addEventListener("onchange",function(event) {
-        expectPrice += nbKids * 10 + nbPeople * 20 + nbRooms * 30;
-      });
-		});
+    console.log("Price=" + price);
+    console.log("expectPrice=" + expectPrice);
 
 
+    document.getElementById("number-people").addEventListener("onchange", function (event) {
+      expectPrice += nbKids * 10 + nbPeople * 20 + nbRooms * 30;
+    });
+  });
+
+
+
+  function getOthersDestinations(){
+    var currentTags = document.getElementById("destination-tags");
+     
+    // Get all tags from data
+    // Compare this tags, if tags match then show destination
+  }
 </script>
 
 </html>
