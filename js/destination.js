@@ -34,15 +34,49 @@ function updateFunction(data) {
 }
 
 
+window.addEventListener("load", function () {
+
+  let bookingBtn = document.getElementById("booking-btn");
+  const arriveDate = document.getElementById("arrive-date");
+  const leaveDate = document.getElementById("leave-date");
+  const numberPeople = document.getElementById("number-people");
+  const numberKids = document.getElementById("number-kids");
+  const numberRooms = document.getElementById("number-rooms");
 
 
-function displayBookingForm() {
-  document.getElementById("booking-form").style.display = 'block';
-  document.getElementById("destination-btn").innerText = 'Ajouter au panier'
-}
+// Nathan
+    bookingBtn.onclick = function () {
 
-function hideBookingForm() {
-  document.getElementById("booking-form").style.display = 'none';
-  document.getElementById("destination-btn").innerText = 'Réserver'
-}
+      if (bookingBtn.innerText == "Réserver ce voyage".toLowerCase) {
+        document.getElementById("booking-form").style.display = "block";
+        bookingBtn.innerText = "Ajouter au panier";
+      }
+      else if (bookingBtn.innerText == "Ajouter au panier") {
+        if (!arriveDate.value) {
+        }
+        if (!leaveDate.value) {
+        }
+        if (!numberPeople.value == null) {
+          localStorage.setItem("numberPeople", numberPeople.value);
+        }
+        if (!numberKids.value == null) {
+          localStorage.setItem("numberKids", numberKids.value);
+        }
+        if (!numberRooms.value == null) {
+          localStorage.setItem("numberRooms", numberRooms.value);
+        }
+      }
+    };
 
+  document.getElementById("close-booking-btn").onclick = function () {
+    document.getElementById("booking-form").style.display = 'none';
+    bookingBtn.innerText = 'Réserver ce voyage';
+  };
+
+
+
+
+
+
+
+}); 

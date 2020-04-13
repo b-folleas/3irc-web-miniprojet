@@ -43,26 +43,26 @@
 
 
         <form style="display: none;" id="booking-form">
-          <span class=" close" onclick="hideBookingForm()">&times;</span>
+          <span id="close-booking-btn"class="close">&times;</span>
 
-          <input type="date" id="arrive" class="date" name="arrive" placeholder="Date d'arrivée">
+          <input type="date" id="arrive-date" class="date" name="arrive" placeholder="Date d'arrivée">
           <label for="arrive" class="label-date"><i class="fa fa-calendar"></i>Date d'arrivée</label>
 
-          <input type="date" id="leave" class="date" name="leave">
+          <input type="date" id="leave-date" class="date" name="leave">
           <label for="leave" class="label-date"><i class="fa fa-calendar"></i>Date de départ</label>
 
-          <input class="long-input" min="0" max="10" type="number" id="numberPeople" name="number-people"
+          <input class="long-input" min="0" max="10" type="number" id="number-people" name="number-people"
             placeholder="Nombre de personnes adultes">
-          <input class="long-input" min="0" max="10" type="number" id="numberKids" name="number-kids"
+          <input class="long-input" min="0" max="10" type="number" id="number-kids" name="number-kids"
             placeholder="Nombre de personnes enfants">
-          <input class="long-input" min="0" max="10" type="number" id="numberRooms" name="number-rooms"
+          <input class="long-input" min="0" max="10" type="number" id="number-rooms" name="number-rooms"
             placeholder="Nombre de chambres">
           <label class="" min="0" id="expectPrice" name="expect-price">Prix attendu : {{expectPrice}}</label>
 
           <textarea class="" id="booking-textarea" placeholder="Commentaire"></textarea>
 
         </form>
-        <btn id="destination-btn" class="btn grid-btn" onclick="displayBookingForm()">Réserver ce voyage</btn>
+        <a id="booking-btn" class="btn grid-btn">Réserver ce voyage</a>
       </div>
       <div id="destination-rate">
         <h2>

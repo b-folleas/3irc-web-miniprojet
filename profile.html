@@ -12,6 +12,7 @@
 	<script src="./js/core.js" defer async></script>
 	<script src="./js/scroll.js" defer async></script>
 	<script src="./js/form.js" defer async></script>
+	<script src="./js/profile.js" defer async></script>
 </head>
 
 
@@ -39,15 +40,29 @@
 			</div>
 			<h1>Mes Informations</h1>
 			<h2>Générales</h2>
-			<label>Nom d'utilisateur</label>
-			<input class="long-input" type="text" id="uname" name="username" placeholder="John M. Doe">
-			<label>Nom</label>
-			<input class="long-input" type="text" id="lname" name="lastname" placeholder="John M. Doe">
-			<label>Prénom</label>
-			<input class="long-input" type="text" id="fname" name="firstname" placeholder="John M. Doe">
-			<label>Email</label>
-			<input class="long-input" type="email" id="email" name="email" placeholder="john@example.com">
-			<a class="btn" id="password-btn">modifier le mot de passe</a>
+			<form id="generalForm">
+				<label>Nom d'utilisateur</label>
+				<input class="long-input" type="text" id="uname" name="username" placeholder="Votre nom d'utilisateur">
+				<label>Email</label>
+				<input class="long-input email" type="email" id="email" name="email" placeholder="Votre adresse email">
+				<label>Nom</label>
+				<input class="long-input" type="text" id="lname" name="lastname" placeholder="Votre nom">
+				<label>Prénom</label>
+				<input class="long-input" type="text" id="fname" name="firstname" placeholder="Votre prénom">
+			</form>
+			<div id="changePassword">
+				<label>Mot de passe 
+					<i id="consign-passwd" class="fa fa-info-circle" title="Votre mot de passe doit contenit au moins 8 caractères dont une majuscule, une minuscule, un chiffre et un caractère spécial (#, !, ?, @, etc...)"></i></label>
+				<form id="newPasswordForm">
+					<input class="long-input" type="text" id="old-passwd" placeholder="Ancien mot de passe">
+					<input class="long-input input-passwd" type="text" id="new-passwd" placeholder="Nouveau mot de passe">
+					<input class="long-input input-passwd" type="text" id="confirm-passwd" placeholder="Confirmation mot de passe">
+					<i id="eye-passwd" class="fa fa-eye" title="Afficher le mot de passe"></i>
+				</form>
+				<a class="btn" id="password-btn">modifier le mot de passe</a>
+				<a class="link" id="password-forgot">Mot de passe oublié</a>
+
+			</div>
 			<label>Langue par défaut</label>
 			<select name="Language">
 				<option value="0">Langue sélectionnée</option>
@@ -56,19 +71,17 @@
 			</select>
 			<h2>Informations civils</h2>
 			<label>Adresse</label>
-			<input class="long-input" type="text" id="address_rue" name="rue" placeholder="Numéro de Rue et Rue">
-			<input type="text" id="address_code_postal" name="codePostal" placeholder="Code Postal">
-			<input type="text" id="city" name="city" placeholder="Ville">
-			<input type="text" id="country" name="country" placeholder="Pays">
+			<form id="addressForm">
+				<input class="long-input" type="text" id="address_rue" name="rue" placeholder="Numéro de Rue et Rue">
+				<input type="text" id="address_code_postal" name="codePostal" placeholder="Code Postal">
+				<input type="text" id="city" name="city" placeholder="Ville">
+				<input type="text" id="country" name="country" placeholder="Pays">
+			</form>
 
 			<h2>Moyen de Paiement</h2>
-			<label id="cards">Carte de paiement acceptées</label>
-			<div class="cards-container">
-				<i class="fa fa-cc-visa" style="color:navy;"></i>
-				<i class="fa fa-cc-mastercard" style="color:red;"></i>
-			</div>
-			<form id="cardForm">
-				<row>
+
+			<form id="card-form">
+				<row class="card-row">
 					<input type="text" class="card-owner" name="card-owner" placeholder="Titulaire de la carte">
 					<input class="long-input" type="text" class="card-number" name="card-number"
 						placeholder="Numéro de carte">
@@ -95,8 +108,8 @@
 
 <script>
 	function addingNewCard() {
-		document.getElementById("cardForm").innerHTML +=
-			`<row>
+		document.getElementById("card-form").innerHTML +=
+			`<row class="card-row">
 			<input type="text" class="card-owner" name="card-owner" placeholder="Titulaire de la carte">
 			<input class="long-input" type="text" class="card-number" name="card-number" placeholder="Numéro de carte">
 			<input type="text" class="card-exp" name="date-expiration" title="Date d'expiration" placeholder="Date d'expiration">
@@ -107,9 +120,10 @@
 			`;
 	}
 
+	// Nathan
 	// Check if the date is valid, if not then execute if block
 	window.addEventListener("load", function () {
-		var trashIcon = document.getElementsByClassName("fa-trash");
+		let trashIcon = document.getElementsByClassName("fa-trash");
 
 		for (i = 0; i < trashIcon.length; i++) {
 			trashIcon[i].addEventListener("onclick", function (event) {

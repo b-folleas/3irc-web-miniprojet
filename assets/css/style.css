@@ -12,12 +12,19 @@ body {
   background-size: cover;
   }
 
+ /*
 .row {
   width: 100%;
+}*/
+
+.link {
+  color: #1161ed;
+  cursor: pointer;
 }
 
-
-
+.link:hover {
+  text-decoration: underline;
+}
 
 /* Navbar */
 
@@ -73,7 +80,7 @@ body {
   text-decoration: none;
 }
 
-/* Search */
+/* Search 
 
 #topnav .search-form{
   color: #f2f2f2;
@@ -100,9 +107,9 @@ body {
 
 .search:focus {
   width: 100%;
-}
+} */
 
-/* Contact */
+/* Contact 
 
 .contact {width:100%;
   display: block;
@@ -165,6 +172,7 @@ body {
 .contact .contact-container form .required {
 	color:#b43838;
 }
+*/
 
 /* Profile */
 
@@ -182,16 +190,17 @@ body {
 }
 
 .page-container input, .page-container textarea, .page-container label, .page-container select, .page-container h1, .page-container h2 {
-  padding:5px 10px;
   display: flex;
 }
 
-.page-container h1, .page-container h2 {
-  margin-top: 2%;
+.page-container h1, .page-container h2, .page-container, .page-container h3, .page-container label {
+  margin: 2%;
+  margin-bottom: 0%;
 }
 
 .page-container input, .page-container select, .page-container textarea {
-  margin: 2%;
+  padding:5px 10px;
+  margin: 1%;
   min-height:30px;
   font-size: 12px;
 	color:#999;
@@ -203,7 +212,7 @@ body {
 	-ms-transition:all .1s ease-in-out;
 	-o-transition:all .1s ease-in-out;
   transition:all .1s ease-in-out;
-  display:  inline-flex;
+  display: inline-flex;
 }
 
 .page-container textarea {
@@ -248,6 +257,8 @@ body {
   display: block;
   font-weight: 600;
   font-size: 14px;
+  text-decoration: none;
+  background: #1161ed;
 } 
 
 .btn:focus {
@@ -295,12 +306,13 @@ body {
 /* Password Button */
 
 #password-btn {
-  background: #1161ed;
   margin: 2%;
+  display: inline-flex;
+  max-height: 38px;
 }
 
-#password-btn:hover {
-  background: #4082f5;
+#consign-passwd {
+  padding:  0 10%;
 }
 
 /* Save Changes Button */
@@ -348,6 +360,10 @@ body {
 
 #cvv-info {
   margin-left: 1%;
+}
+
+.card-row {
+  display: block;
 }
 
 #add-card-btn {
@@ -409,8 +425,6 @@ body {
 
 .grid-btn {
   margin: 5% auto;
-  text-decoration: none;
-  background: #1161ed;
 }
 
 .grid-btn:hover {
@@ -795,8 +809,6 @@ opacity: 1;}
   margin: 0;
 }
 
-
-
 /* Footer links */
 
 .footer-a {
@@ -846,7 +858,6 @@ text-decoration: underline;
 
 #footer p.footer-a a:hover{text-decoration:underline;}
 
-
 /* Font Awesome */
 
 .footer-links>i {
@@ -869,9 +880,13 @@ text-decoration: underline;
 	background: #2c4762;
 }
 
-
 .fa-trash:hover {
   color: red;
+  cursor: pointer;
+}
+
+.fa-eye:hover {
+  color: #1161ed;
   cursor: pointer;
 }
 
@@ -905,7 +920,6 @@ text-decoration: underline;
     text-align: left;
   }
 
-
   .about-row {
     display: block;
   }
@@ -925,13 +939,15 @@ text-decoration: underline;
     margin: auto;
   }
 
-  #footer .footer-left,#footer .footer-center, #footer .footer-links {
+  #footer * {
     text-align: center;
   }
+
   #footer .footer-links {
     float: none;
     margin: 0 auto 20px;
   }
+
   #footer .footer-left p.footer-a {
     line-height: 1.8;
   }
