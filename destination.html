@@ -12,7 +12,7 @@
   <script src="./js/destination.js" defer async></script>
   <script src="./js/scroll.js" defer async></script>
   <script src="./js/core.js" defer async></script>
-  <script src="./js/rating.js" defer async></script>
+
 
 </head>
 
@@ -43,44 +43,39 @@
 
 
         <form style="display: none;" id="booking-form">
-          <span id="close-booking-btn"class="close">&times;</span>
+          <span id="close-form-btn" class="close">&times;</span>
 
-          <input type="date" id="arrive-date" class="date" name="arrive" placeholder="Date d'arrivée">
-          <label for="arrive" class="label-date"><i class="fa fa-calendar"></i>Date d'arrivée</label>
+          <row class="form-row">
+            <label for="arrive" class="label-date"><i class="fa fa-calendar"></i>Date d'arrivée</label>
+            <input type="date" id="arrive-date" class="date" name="arrive" placeholder="Date d'arrivée">
 
-          <input type="date" id="leave-date" class="date" name="leave">
-          <label for="leave" class="label-date"><i class="fa fa-calendar"></i>Date de départ</label>
+            <label for="leave" class="label-date"><i class="fa fa-calendar"></i>Date de départ</label>
+            <input type="date" id="leave-date" class="date" name="leave">
 
-          <input class="long-input" min="0" max="10" type="number" id="number-people" name="number-people"
+            <div class="checking">
+              <input id="breakfast" name="breakfast" type="checkbox" class="check">
+              <label for="breakfast" id="breakfast-label"><span class="icon"></span>Prendre le petit déjeuner</label>
+            </div>
+          </row>
+
+
+          <input class="long-input" min="1" max="10" type="number" id="number-people" name="number-people"
             placeholder="Nombre de personnes adultes">
           <input class="long-input" min="0" max="10" type="number" id="number-kids" name="number-kids"
-            placeholder="Nombre de personnes enfants">
-          <input class="long-input" min="0" max="10" type="number" id="number-rooms" name="number-rooms"
+            placeholder="Nombre d'enfants (-12 ans)">
+          <input class="long-input" min="1" max="10" type="number" id="number-rooms" name="number-rooms"
             placeholder="Nombre de chambres">
-          <label class="" min="0" id="expectPrice" name="expect-price">Prix attendu : {{expectPrice}}</label>
+          <label class="" min="0" id="expect-price" name="expect-price">Total : {{currentPrice}}{{currency}} TTC</label>
 
-          <textarea class="" id="booking-textarea" placeholder="Commentaire"></textarea>
+          <textarea class="" id="booking-textarea" placeholder="Une remarque à nous faire parvenir ? N'hésitez pas à nous demander !"></textarea>
 
         </form>
-        <a id="booking-btn" class="btn grid-btn">Réserver ce voyage</a>
-      </div>
-      <div id="destination-rate">
-        <h2>
-          Ce qu'en pensent nos utilisateurs :
-          <div class="star-rating" data-current="5">
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
-            <span>★</span>
-          </div>
-        </h2>
-      </div>
-      <div id="others-destinations">
-        <h2>
-          Découvrez ces autres destinations qui pourraient vous plaire
-        </h2>
-      </div>
+        <a id="show-form-btn" class="btn grid-btn">Réserver ce voyage</a>
+        <row>
+          <a id="cancel-btn" class="btn">Annuler</a>
+          <a id="add-cart-btn" class="btn grid-btn">Ajouter au panier</a>
+        </row>
+        </div>
     </article>
 
   </div>
@@ -96,28 +91,10 @@
   //console.log("script = " + price);
 
 
-  document.addEventListener("load", function () {
-    //    console.log(price);
 
-    var expectPrice = 0;
-    var nbPeople;
-    var nbKids;
-    var nbRooms;
-
-    console.log("Price=" + price);
-    console.log("expectPrice=" + expectPrice);
-
-
-    document.getElementById("number-people").addEventListener("onchange", function (event) {
-      expectPrice += nbKids * 10 + nbPeople * 20 + nbRooms * 30;
-    });
-  });
-
-
-
-  function getOthersDestinations(){
+  function getOthersDestinations() {
     var currentTags = document.getElementById("destination-tags");
-     
+
     // Get all tags from data
     // Compare this tags, if tags match then show destination
   }

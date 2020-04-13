@@ -193,7 +193,7 @@ body {
   display: flex;
 }
 
-.page-container h1, .page-container h2, .page-container, .page-container h3, .page-container label {
+.page-container h1, .page-container h2, .page-container h3, .page-container label {
   margin: 2%;
   margin-bottom: 0%;
 }
@@ -225,6 +225,20 @@ body {
 
 .page-container label {
   width: fit-content;
+  padding:5px 10px;
+  margin: 1%;
+  min-height:30px;
+  font-size: 12px;
+	color:#000;
+  letter-spacing:1px;
+	background: #FFF;
+  -webkit-transition:all .1s ease-in-out;
+	-moz-transition:all .1s ease-in-out;
+	-ms-transition:all .1s ease-in-out;
+	-o-transition:all .1s ease-in-out;
+  transition:all .1s ease-in-out;
+  display: inline-flex;
+
 }
 
 
@@ -300,7 +314,8 @@ body {
 #img-avatar {
   padding: 5px;
   margin: auto;
-  display: block;      
+  display: block;
+  max-width: 300px;
 }
 
 /* Password Button */
@@ -332,12 +347,12 @@ body {
   margin: 2%;
   float: right;
   display: inline-flex;
-  background-color: #696969;
+  background: #696969;
   max-height: 38px;
 }
 
 #settings-btn:hover {
-  background: #4082f5;
+  background: #c0c0c0;
 }
 
 #settings-i {
@@ -439,12 +454,47 @@ body {
   padding-bottom: 0%; /*To avoid too much space between image and place (h2) */
 }
 
+.booking-form .checking .check:checked + label{
+  color:#000;
+}
+
+.form-row {
+display: inline-flex;
+width: 100%;
+justify-content: start;
+}
+
 #destination-place {
   margin-top: 0%;
 }
 
 #destination-country {
   color: #696969;
+}
+
+#breakfast {
+  display: none;
+}
+
+#breakfast-label {
+  color: #000; /* Different than other check label */
+  min-width: 200px;
+  margin: 5%;
+}
+
+#breakfast-label .icon {
+  width: 17px;
+  height: 17px;
+  border: 1px solid blue;
+}
+
+#cancel-btn {
+  background: #696969;
+  display: none;
+}
+
+#cancel-btn:hover {
+  background: #c0c0c0;
 }
 
 /* Tags */
@@ -466,28 +516,10 @@ body {
   background: none;
 }
 
-/* Rating */
-
-.star-rating{
-  width: 96px;
-  height: 16px;
-  overflow: hidden;
-  position: relative;
-  text-align: center;
-}
-
-.star-rating span {
-  color: rgba(255,2555,255, .3);
-  line-height: 16px;
-  letter-spacing: -3px;
-  cursor: pointer;
-}
-
-.star-rating span.hover {
-  color: #000;
-}
-
 /* Cart */
+#add-cart-btn {
+  display: none;
+}
 
 .cart {
   display: block;

@@ -13,6 +13,7 @@
 	<script src="./js/scroll.js" defer async></script>
 	<script src="./js/form.js" defer async></script>
 	<script src="./js/profile.js" defer async></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 
 
@@ -32,7 +33,7 @@
 		<div class="img-profile">
 			<img id="img-avatar" src="./assets/images/ghost-jira-removebg-preview.png" alt="Ghost">
 			<input type="file" name="file" id="file" class="input-file" />
-			<label class="btn" for="file">editer votre photo</label>
+			<label id="edit-photo" class="btn" for="file">editer votre photo</label>
 		</div>
 		<div class="page-container" id="profile-container">
 			<div class="btn" id="settings-btn">
@@ -72,8 +73,8 @@
 			<h2>Informations civils</h2>
 			<label>Adresse</label>
 			<form id="addressForm">
-				<input class="long-input" type="text" id="address_rue" name="rue" placeholder="Numéro de Rue et Rue">
-				<input type="text" id="address_code_postal" name="codePostal" placeholder="Code Postal">
+				<input class="long-input" type="text" id="address-road" name="rue" placeholder="Numéro de Rue et Rue">
+				<input type="text" id="address-cp" name="codePostal" placeholder="Code Postal">
 				<input type="text" id="city" name="city" placeholder="Ville">
 				<input type="text" id="country" name="country" placeholder="Pays">
 			</form>
@@ -83,7 +84,7 @@
 			<form id="card-form">
 				<row class="card-row">
 					<input type="text" class="card-owner" name="card-owner" placeholder="Titulaire de la carte">
-					<input class="long-input" type="text" class="card-number" name="card-number"
+					<input class="card-number long-input" type="text" name="card-number"
 						placeholder="Numéro de carte">
 					<input type="text" class="card-exp" name="date-expiration" title="Date d'expiration"
 						placeholder="Date d'expiration">
@@ -107,33 +108,22 @@
 <footer id="footer"></footer>
 
 <script>
-	function addingNewCard() {
-		document.getElementById("card-form").innerHTML +=
-			`<row class="card-row">
-			<input type="text" class="card-owner" name="card-owner" placeholder="Titulaire de la carte">
-			<input class="long-input" type="text" class="card-number" name="card-number" placeholder="Numéro de carte">
-			<input type="text" class="card-exp" name="date-expiration" title="Date d'expiration" placeholder="Date d'expiration">
-			<input type="text" class="card-cvv" name="cvv-code" placeholder="Code CVV">
-			<i id="cvv-info" class="fa fa-info-circle" title="Il s'agit du cryptogramme au dos de votre carte"></i>
-			<i class="fa fa-trash" title="Supprimer cette carte"></i>		
-			</row>
-			`;
-	}
+// Image upload
+$('document').ready(function () {
+    $("#file").change(function () {
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+				$('#img-avatar').attr('src', e.target.result);
+                $('#img-icon').attr('src', e.target.result);
+				
+            }
+            reader.readAsDataURL(this.files[0]);
+        }
+    });
+    });
 
-	// Nathan
-	// Check if the date is valid, if not then execute if block
-	window.addEventListener("load", function () {
-		let trashIcon = document.getElementsByClassName("fa-trash");
-
-		for (i = 0; i < trashIcon.length; i++) {
-			trashIcon[i].addEventListener("onclick", function (event) {
-				var rowToRemove = event.currentTarget.parentNode;
-				rowToRemove.parentNode.removeChild(rowToRemove);
-			})
-		}
-	});
-
-
+// Idea : Add img src url in localStrorage
 </script>
 
 </html>

@@ -8,6 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="./assets/favicon.ico" type="image/gif" sizes="16x16">
   <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="./js/destination.js" defer async></script>
   <script src="./js/scroll.js" defer async></script>
@@ -29,17 +31,23 @@
 <body>
   <!-- Destination details -->
 
+  <div id="article" class="page-container">
+    <div class="cart-article">
+      <img class="cart-image" src={{image}} alt={{image-alt}}>
+      <p class="cart-place">{{place}}</p>
+      <p class="cart-country">{{country}}</p>
+      <p class="cart-price">{{price}}{{currency}}</p>
+      <btn id="destination-btn" class="btn cart-btn" href={{url}}>Revenir sur cette destination</btn>
+      <i class="fas fa-pen-square" title="Modifier cette destination"></i>
+      <i class="fa fa-trash" title="Supprimer cette destination"></i>
+      
+    </div>
+  </div>
+  
   <div id="article" class="page-container cart-article">
 
-      <img class="cart-image" src={{image}} alt={{image-alt}}>
-        <h3 class="cart-place">{{place}}</h3>
-        <p class="cart-country">{{country}}</p>
-        <p class="cart-price">A partir de {{price}}{{currency}}</p>
-        <btn id="destination-btn" class="btn cart-btn">Revenir sur cette destination</btn>
-		<i class="fa fa-edit" title="Modifier cette destination"></i>
-		<i class="fa fa-trash" title="Supprimer cette destination"></i>
-
-
+    <p class="cart-total">Total : {{totalPrice}}{{currency}}</p>
+    
   </div>
 
   <div id="backToTopDiv"></div>

@@ -11,7 +11,7 @@ document.body.onload = function navig() {
 	<a href="./index.html"><i class="fa fa-map"></i>Destinations</a>
 	<a href="#" id="loginBtn" onclick="openModalFunction()"><i class="fa fa-window-restore"></i>Ouvrir Modal</a>
   	<a href="./profile.html" class="profile" id="profileBtn"><img id="img-icon"
-			src="./assets/images/ghost-jira-removebg-preview.png" alt="Ghost">Mon Profil</a>
+			src="./assets/images/ghost-jira-removebg-preview.png" alt="Photo de profil">Mon Profil</a>
 	<a href="javascript:void(0);" class="icon" onclick="displayResponsiveFunction()">
 		<i class="fa fa-bars"></i>
 	</a>`;
@@ -26,7 +26,7 @@ document.body.onload = function navig() {
     </div>
     <div class="footer-left">
         <span>
-            <a class="footer-a" href="./about.html">A propos</a>
+            <a class="footer-a" href="./about.html">À propos</a>
             <a class="footer-a" href="./about.html">Contactez-nous</a>
             <a class="footer-a" href="./about.html">Plus d'infos</a>
         </span>
@@ -104,21 +104,7 @@ document.body.onload = function navig() {
     function closeModalFunction() {
 			modal.style.display = "none";
     }
-    /*
-		login_btn.onclick = function () {
-			modal.style.display = "block";
-		}
-*/
-
-
-		// Quand l'utilisateur clique en dehors de la fenêtre modal, cette dernière se ferme
-/*		window.onclick = function (event) {
-			if (event.target == modal) {
-				modal.style.display = "none";
-			}
-
-		}
-*/
+    
 		/* Changer de 'SE CONNECTER' à 'S'ENREGISTRER' */
 		let register_content = document.getElementById("register-tabs");
 		let sign_in_content = document.getElementById("sign_in-tabs");
