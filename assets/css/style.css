@@ -488,13 +488,17 @@ justify-content: start;
   border: 1px solid blue;
 }
 
-#cancel-btn {
+#reset-btn {
   background: #696969;
   display: none;
 }
 
-#cancel-btn:hover {
+#reset-btn:hover {
   background: #c0c0c0;
+}
+
+#booking-form-btn * {
+  display: inline;
 }
 
 /* Tags */

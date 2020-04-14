@@ -46,8 +46,8 @@
           <span id="close-form-btn" class="close">&times;</span>
 
           <row class="form-row">
-            <label for="arrive" class="label-date"><i class="fa fa-calendar"></i>Date d'arrivée</label>
-            <input type="date" id="arrive-date" class="date" name="arrive" placeholder="Date d'arrivée">
+            <label for="arrival" class="label-date"><i class="fa fa-calendar"></i>Date d'arrivée</label>
+            <input type="date" id="arrival-date" class="date" name="arrival" placeholder="Date d'arrivée">
 
             <label for="leave" class="label-date"><i class="fa fa-calendar"></i>Date de départ</label>
             <input type="date" id="leave-date" class="date" name="leave">
@@ -65,14 +65,14 @@
             placeholder="Nombre d'enfants (-12 ans)">
           <input class="long-input" min="1" max="10" type="number" id="number-rooms" name="number-rooms"
             placeholder="Nombre de chambres">
-          <label class="" min="0" id="expect-price" name="expect-price">Total : {{currentPrice}}{{currency}} TTC</label>
+          <label class="" min="0" id="expect-price" name="expect-price"></label>
 
-          <textarea class="" id="booking-textarea" placeholder="Une remarque à nous faire parvenir ? N'hésitez pas à nous demander !"></textarea>
+          <textarea class="" id="comment-textarea" placeholder="Une remarque à nous faire parvenir ? N'hésitez pas à nous demander !"></textarea>
 
         </form>
         <a id="show-form-btn" class="btn grid-btn">Réserver ce voyage</a>
-        <row>
-          <a id="cancel-btn" class="btn">Annuler</a>
+        <row id="booking-form-btn">
+          <a id="reset-btn" class="btn"><i class="fa fa-undo"></i></a>
           <a id="add-cart-btn" class="btn grid-btn">Ajouter au panier</a>
         </row>
         </div>
@@ -87,11 +87,6 @@
 <!-- Footer -->
 <footer id="footer"></footer>
 <script>
-
-  //console.log("script = " + price);
-
-
-
   function getOthersDestinations() {
     var currentTags = document.getElementById("destination-tags");
 

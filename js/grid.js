@@ -34,7 +34,8 @@ fetch("http://127.0.0.1:5500/json/data.json")
                                 //Map sert à 'mapper' prendre indiv chaque elemdu tab et appliquer une fonction
                                 //Reduce() permet de transformerle tab en un seul élément (concatène mes chaînes de caractères) sinon concatène a + b
                                 //Permet au final de transformer le tableau en une seule chaîne de caractères.
-
+                                
+                                // Mettre la température dans le json ou le localStorage pour pouvoir l'appeler dans d'autres pages html
                                 clone.firstElementChild.innerHTML = newContent;
                                 document.getElementById("grid-container").appendChild(clone);
                             }

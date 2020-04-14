@@ -7,6 +7,7 @@ const addrRoad = document.getElementById("address-road");
 const addrCp = document.getElementById("address-cp");
 const city = document.getElementById("city");
 const country = document.getElementById("country");
+const addCardBtn = document.getElementById("add-card-btn");
 
 // Get card infos fields
 let cardOwnerTab = document.getElementsByClassName("card-owner");
@@ -25,6 +26,7 @@ const visaPattern = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
 const masterCardPattern = /^(?:5[1-5][0-9]{14})$/;
 const cvvPattern = /[0-9]\d\d/;
 const dateCardPattern = /^(0[1-9]|10|11|12)(-)[0-9]{2}$/;
+const emailPattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const unamePattern = /^.{4,}$/; // At least 4 caracters username
 const passwdPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}$/;
 /*
@@ -91,6 +93,37 @@ window.addEventListener("load", function () {
         })
     }
 
+    // Adding new card on click listener
+    
+    addCardBtn.addEventListener("click", function () {
+
+        document.getElementById("card-form").innerHTML +=
+            `<row class="card-row">
+			<input type="text" class="card-owner" name="card-owner" placeholder="Titulaire de la carte">
+			<input class="card-number long-input" type="text" name="card-number" placeholder="Numéro de carte">
+			<input type="text" class="card-exp" name="date-expiration" title="Date d'expiration" placeholder="Date d'expiration">
+			<input type="text" class="card-cvv" name="cvv-code" placeholder="Code CVV">
+			<i id="cvv-info" class="fa fa-info-circle" title="Il s'agit du cryptogramme au dos de votre carte"></i>
+			<i class="fa fa-trash" title="Supprimer cette carte"></i>		
+			</row>
+            `;
+
+        // Refresh Listeners for Cards (Because we just added new cards, we have to re-affect the variables to their new lists of items)
+        cardOwnerTab = document.getElementsByClassName("card-owner");
+        cardNumberTab = document.getElementsByClassName("card-number");
+        cardExpTab = document.getElementsByClassName("card-exp");
+        cardCvvTab = document.getElementsByClassName("card-cvv");
+
+
+        // Add the trash icon to the list of trash buttons for cards
+        for (i = 0; i < trashIcon.length; i++) {
+            trashIcon[i].addEventListener("click", function (event) {
+                var rowToRemove = event.currentTarget.parentNode;
+                rowToRemove.parentNode.removeChild(rowToRemove);
+            })
+        }
+    });
+
     // Add the trash icon to the list of trash buttons for the first card (so index 0)
     trashIcon[0].addEventListener("click", function (event) {
         var rowToRemove = event.currentTarget.parentNode;
@@ -134,7 +167,8 @@ window.addEventListener("load", function () {
         console.log(card.cardOwner);
     }
 
-    document.getElementById("save-btn").onclick = function (event) {
+
+    document.getElementById("save-btn").addEventListener("click", function (event) {
         console.log("save");
 
         // Add user general data to localStorage
@@ -165,7 +199,6 @@ window.addEventListener("load", function () {
             localStorage.setItem("country", country.value);
         }
 
-
         // Add a list of cards in localStorage
         for (i = 0; i < cardOwnerTab.length; i++) { //Here we take cardOwnerTab for the length but it doesn't matter as long as we have the number of cards
             currentCard = { "cardOwner": cardOwnerTab.item(i).value, "cardNumber": cardNumberTab.item(i).value, "cardExp": cardExpTab.item(i).value, "cardCvv": cardCvvTab.item(i).value };
@@ -174,10 +207,8 @@ window.addEventListener("load", function () {
             console.log("Cards Tab :" + JSON.stringify(cardsTab[i]));
         }
         localStorage.setItem("cardsTab", cardsTab);
-    };
-});
+    });
 
-window.addEventListener("load", function () {
 
     // Check if the username is valid, if not then execute if block
     if (this.document.getElementById("uname")) {
@@ -192,6 +223,18 @@ window.addEventListener("load", function () {
         })
     }
 
+    let emailTab = document.getElementsByClassName("email");
+
+    for (i = 0; i < emailTab.length; i++) {
+        emailTab[i].addEventListener("focusout", function (event) {
+            if (!emailPattern.test(String(event.target.value).toLowerCase())) {
+                event.target.style.border = "2px solid red";
+                //console.log("L'adresse email n'est pas valide.");
+            }
+
+
+        })
+    }
 
     //Password Verification
     let oldPasswd = document.getElementById("old-passwd");
@@ -210,7 +253,8 @@ window.addEventListener("load", function () {
         })
     }
 
-    document.getElementById("password-btn").onclick = function () {
+
+    document.getElementById("password-btn").addEventListener("click", function () {
         // Check if password are equals
         console.log("test mdp");
         if (newPasswd.value == confirmPasswd.value) {
@@ -218,10 +262,10 @@ window.addEventListener("load", function () {
             localStorage.setItem("passwd", newPasswd.value);
             console.log(localStorage);
         }
-    };
+    });
 
     // Change vision of password field
-    this.document.getElementById("eye-passwd").onclick = function () {
+    document.getElementById("eye-passwd").addEventListener("click", function () {
         if (oldPasswd.getAttribute("type") == "password") {
             oldPasswd.setAttribute("type", "text");
             newPasswd.setAttribute("type", "text");
@@ -232,40 +276,7 @@ window.addEventListener("load", function () {
             newPasswd.setAttribute("type", "password");
             confirmPasswd.setAttribute("type", "password");
         }
-    }
+    });
 
 
 });
-
-// Adding new cards and removing them
-
-
-function addingNewCard() {
-
-    document.getElementById("card-form").innerHTML +=
-        `<row class="card-row">
-			<input type="text" class="card-owner" name="card-owner" placeholder="Titulaire de la carte">
-			<input class="card-number long-input" type="text" name="card-number" placeholder="Numéro de carte">
-			<input type="text" class="card-exp" name="date-expiration" title="Date d'expiration" placeholder="Date d'expiration">
-			<input type="text" class="card-cvv" name="cvv-code" placeholder="Code CVV">
-			<i id="cvv-info" class="fa fa-info-circle" title="Il s'agit du cryptogramme au dos de votre carte"></i>
-			<i class="fa fa-trash" title="Supprimer cette carte"></i>		
-			</row>
-            `;
-
-    // Refresh Listeners for Cards (Because we just added new cards, we have to re-affect the variables to their new lists of items)
-    cardOwnerTab = document.getElementsByClassName("card-owner");
-    cardNumberTab = document.getElementsByClassName("card-number");
-    cardExpTab = document.getElementsByClassName("card-exp");
-    cardCvvTab = document.getElementsByClassName("card-cvv");
-
-
-    // Add the trash icon to the list of trash buttons for cards
-    for (i = 0; i < trashIcon.length; i++) {
-        trashIcon[i].addEventListener("click", function (event) {
-            var rowToRemove = event.currentTarget.parentNode;
-            rowToRemove.parentNode.removeChild(rowToRemove);
-        })
-    }
-}
-
