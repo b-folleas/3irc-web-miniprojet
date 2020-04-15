@@ -29,6 +29,7 @@ const visaPattern = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
 const masterCardPattern = /^(?:5[1-5][0-9]{14})$/;
 const cvvPattern = /[0-9]\d\d/;
 const dateCardPattern = /^(0[1-9]|10|11|12)(-)[0-9]{2}$/;
+
 window.addEventListener("load", function () {
 
     // Check if the owner name is valid, if not then execute if block
@@ -36,10 +37,10 @@ window.addEventListener("load", function () {
         cardOwnerTab[i].addEventListener("change", function (event) {
             if (!onlyStringPattern.test(event.target.value)) {
                 console.log("Le nom du propriétaire de la carte n'est pas valide.");
-                event.target.style.border = "2px solid #b20000";
+                event.target.style.border = "2px solid red";
             }
             else {
-                event.target.style.border = "2px solid #32cd32";
+                event.target.style.border = "2px solid green";
             }
         })
     }
@@ -48,11 +49,11 @@ window.addEventListener("load", function () {
     for (i = 0; i < cardNumberTab.length; i++) {
         cardNumberTab[i].addEventListener("change", function (event) {
             if (!visaPattern.test(event.target.value || !masterCardPattern.test(event.target.value))) {
-                event.target.style.border = "2px solid #b20000";
+                event.target.style.border = "2px solid red";
                 console.log("Le numéro de carte n'est pas valide.");
             }
             else {
-                event.target.style.border = "2px solid #32cd32";
+                event.target.style.border = "2px solid green";
             }
         })
     }
@@ -61,11 +62,11 @@ window.addEventListener("load", function () {
     for (i = 0; i < cardExpTab.length; i++) {
         cardExpTab[i].addEventListener("change", function (event) {
             if (!dateCardPattern.test(event.target.value)) {
-                event.target.style.border = "2px solid #b20000";
+                event.target.style.border = "2px solid red";
                 console.log("Le date d'expiration n'est pas valide.");
             }
             else {
-                event.target.style.border = "2px solid #32cd32";
+                event.target.style.border = "2px solid green";
             }
         })
     }
@@ -75,11 +76,11 @@ window.addEventListener("load", function () {
         cardCvvTab[i].addEventListener("change", function (event) {
             if (!cvvPattern.test(event.target.value)) {
                 console.log(cardCvvTab[i]);
-                event.target.style.border = "2px solid #b20000";
+                event.target.style.border = "2px solid red";
                 console.log("Le numéro CVV de la carte n'est pas valide.");
             }
             else {
-                event.target.style.border = "2px solid #32cd32";
+                event.target.style.border = "2px solid green";
             }
         })
     }

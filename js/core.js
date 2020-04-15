@@ -22,7 +22,7 @@ window.addEventListener("load", function () {
 	<a href="./index.html"><i class="fa fa-map"></i>Destinations</a>
 	<a href="#" id="modal-btn" onclick="openModalFunction()"><i class="fa fa-window-restore"></i>Ouvrir Modal</a>
   	<a class="profile" id="profile-btn"><img id="img-icon"
-			src="./assets/images/ghost-jira-removebg-preview.png" alt="Photo de profil">Mon Profil</a>
+			src="./assets/images/ghost.png" alt="Photo de profil">Mon Profil</a>
 	<a href="javascript:void(0);" class="icon" onclick="displayResponsiveFunction()">
 		<i class="fa fa-bars"></i>
 	</a>`;
@@ -38,7 +38,6 @@ window.addEventListener("load", function () {
     <div class="footer-left">
         <span>
             <a class="footer-a" href="./about.html">À propos</a>
-            <a class="footer-a" href="./about.html">Contactez-nous</a>
             <a class="footer-a" href="./about.html">Plus d'infos</a>
         </span>
         <p>miniprojet &copy; 2020</p>

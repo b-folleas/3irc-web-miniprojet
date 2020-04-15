@@ -6,7 +6,7 @@ let backToTopBtn = null;
 // When the page is loaded, it will call the loadFunction
 window.addEventListener("load", loadFunction);
 
-// When the user scrolls down 20px from the top of the document, show the button
+// When the user scrolls down 30px from the top of the document, show the button
 window.addEventListener("scroll", scrollFunction);
 
 function loadFunction() {
@@ -19,7 +19,7 @@ function loadFunction() {
 }
 
 function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+  if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
     backToTopBtn.style.display = "block";
   } else {
     backToTopBtn.style.display = "none";

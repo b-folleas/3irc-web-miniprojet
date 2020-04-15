@@ -36,7 +36,10 @@
       <p class="cart-place">{{place}}</p>
       <p class="cart-country">{{country}}</p>
       <p class="cart-price">{{price}}{{currency}}</p>
-      <btn id="destination-btn" class="btn cart-btn" href={{url}}>Revenir sur cette destination</btn>
+      <p class="cart-people">{{nbPeople}} Adultes</p>
+      <p class="cart-kids">{{nbKids}} Enfants</p>
+      <p class="cart-rooms">{{nbRooms}} Chambres</p>
+      <btn id="destination-btn" class="btn cart-btn" href={{url}}>Revoir</btn>
       <i class="fas fa-pen-square" title="Modifier cette destination"></i>
       <i class="fa fa-trash" title="Supprimer cette destination"></i>
       
@@ -46,6 +49,8 @@
   <div id="article" class="page-container cart-article">
 
     <p class="cart-total">Total : {{totalPrice}}{{currency}}</p>
+    <btn id="payment-btn" class="btn cart-btn" href={{url}}>Procéder au paiement</btn>
+
     
   </div>
 

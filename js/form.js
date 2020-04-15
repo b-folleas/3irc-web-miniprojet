@@ -26,11 +26,11 @@ window.addEventListener("load", function () {
         for (i = 0; i < unameTab.length; i++) {
             unameTab[i].addEventListener("change", function (event) {
                 if (!unamePattern.test(String(event.target.value))) {
-                    event.target.style.border = "2px solid #b20000";
+                    event.target.style.border = "2px solid red";
                     console.log("Le nom d'utilisateur n'est pas valide.");
                 }
                 else {
-                    event.target.style.border = "2px solid #32cd32";
+                    event.target.style.border = "2px solid green";
                 }
             })
         }
@@ -39,11 +39,11 @@ window.addEventListener("load", function () {
     for (i = 0; i < emailTab.length; i++) {
         emailTab[i].addEventListener("change", function (event) {
             if (!emailPattern.test(String(event.target.value).toLowerCase())) {
-                event.target.style.border = "2px solid #b20000";
+                event.target.style.border = "2px solid red";
                 console.log("L'adresse email n'est pas valide.");
             }
             else {
-                event.target.style.border = "2px solid #32cd32";
+                event.target.style.border = "2px solid green";
             }
         })
     }
@@ -53,12 +53,12 @@ window.addEventListener("load", function () {
         passwdTab[i].addEventListener("change", function (event) {
             console.log("Checking passwd");
             if (!passwdPattern.test(String(event.target.value))) {
-                event.target.style.border = "2px solid #b20000";
+                event.target.style.border = "2px solid red";
                 console.log(event.target.value);
                 console.log("Le mot de passe n'est pas valide.");
             }
             else {
-                event.target.style.border = "2px solid #32cd32";
+                event.target.style.border = "2px solid green";
             }
         })
     }

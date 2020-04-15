@@ -168,7 +168,7 @@ window.addEventListener("load", function () {
         event.target.style.border = "2px solid red";
       }
       else {
-        event.target.style.border = "2px solid #32cd32";
+        event.target.style.border = "2px solid green";
 
         //Get 1 day in milliseconds
         let oneDay = 1000 * 60 * 60 * 24;
