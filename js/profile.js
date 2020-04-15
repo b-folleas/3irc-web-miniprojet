@@ -8,6 +8,9 @@ const addrCp = document.getElementById("address-cp");
 const city = document.getElementById("city");
 const country = document.getElementById("country");
 const addCardBtn = document.getElementById("add-card-btn");
+const oldPasswd = document.getElementById("old-passwd");
+const newPasswd = document.getElementById("new-passwd");
+const confirmPasswd = document.getElementById("confirm-passwd");
 
 // Get card infos fields
 let cardOwnerTab = document.getElementsByClassName("card-owner");
@@ -26,18 +29,6 @@ const visaPattern = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
 const masterCardPattern = /^(?:5[1-5][0-9]{14})$/;
 const cvvPattern = /[0-9]\d\d/;
 const dateCardPattern = /^(0[1-9]|10|11|12)(-)[0-9]{2}$/;
-const emailPattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-const unamePattern = /^.{4,}$/; // At least 4 caracters username
-const passwdPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}$/;
-/*
-/^
-(?=.*\d)          // should contain at least one digit
-(?=.*[a-z])       // should contain at least one lower case
-(?=.*[A-Z])       // should contain at least one upper case
-[a-zA-Z0-9]{8,}   // should contain at least 8 from the mentioned characters
-$/  
-*/
-
 window.addEventListener("load", function () {
 
     // Check if the owner name is valid, if not then execute if block
@@ -57,7 +48,7 @@ window.addEventListener("load", function () {
     for (i = 0; i < cardNumberTab.length; i++) {
         cardNumberTab[i].addEventListener("change", function (event) {
             if (!visaPattern.test(event.target.value || !masterCardPattern.test(event.target.value))) {
-                event.target.style.border = "2px solid red";
+                event.target.style.border = "2px solid #b20000";
                 console.log("Le numéro de carte n'est pas valide.");
             }
             else {
@@ -70,7 +61,7 @@ window.addEventListener("load", function () {
     for (i = 0; i < cardExpTab.length; i++) {
         cardExpTab[i].addEventListener("change", function (event) {
             if (!dateCardPattern.test(event.target.value)) {
-                event.target.style.border = "2px solid red";
+                event.target.style.border = "2px solid #b20000";
                 console.log("Le date d'expiration n'est pas valide.");
             }
             else {
@@ -84,7 +75,7 @@ window.addEventListener("load", function () {
         cardCvvTab[i].addEventListener("change", function (event) {
             if (!cvvPattern.test(event.target.value)) {
                 console.log(cardCvvTab[i]);
-                event.target.style.border = "2px solid red";
+                event.target.style.border = "2px solid #b20000";
                 console.log("Le numéro CVV de la carte n'est pas valide.");
             }
             else {
@@ -210,50 +201,7 @@ window.addEventListener("load", function () {
     });
 
 
-    // Check if the username is valid, if not then execute if block
-    if (this.document.getElementById("uname")) {
-
-        let username = document.getElementById("uname");
-
-        username.addEventListener("change", function (event) {
-            if (!unamePattern.test(String(event.target.value).toLowerCase())) {
-                event.target.style.border = "2px solid red";
-                console.log("Le nom d'utilisateur n'est pas valide.");
-            }
-        })
-    }
-
-    let emailTab = document.getElementsByClassName("email");
-
-    for (i = 0; i < emailTab.length; i++) {
-        emailTab[i].addEventListener("focusout", function (event) {
-            if (!emailPattern.test(String(event.target.value).toLowerCase())) {
-                event.target.style.border = "2px solid red";
-                //console.log("L'adresse email n'est pas valide.");
-            }
-
-
-        })
-    }
-
-    //Password Verification
-    let oldPasswd = document.getElementById("old-passwd");
-    let newPasswd = document.getElementById("new-passwd");
-    let confirmPasswd = document.getElementById("confirm-passwd");
-
-    let passwdTab = document.getElementsByClassName("input-passwd");
-
-    for (i = 0; i < passwdTab.length; i++) {
-        passwdTab[i].addEventListener("change", function (event) {
-            console.log("Check passwd");
-            if (!passwdPattern.test(String(event.target.value))) {
-                console.log("Le mot de passe n'est pas valide.");
-                event.target.style.border = "2px solid red";
-            }
-        })
-    }
-
-
+    // Password Verification
     document.getElementById("password-btn").addEventListener("click", function () {
         // Check if password are equals
         console.log("test mdp");

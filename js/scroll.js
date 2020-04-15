@@ -10,12 +10,12 @@ window.addEventListener("load", loadFunction);
 window.addEventListener("scroll", scrollFunction);
 
 function loadFunction() {
-  document.getElementById("backToTopDiv").innerHTML =
-    `<button onclick="topFunction()" class="btn" id="backToTopBtn" title="Go to top"><i class="fa fa-arrow-up"></i></button>`;
+  document.getElementById("back-top-div").innerHTML =
+    `<button onclick="topFunction()" class="btn" id="back-top-btn" title="Go to top"><i class="fa fa-arrow-up"></i></button>`;
 
   //Get the button:
-  backToTopBtn = document.getElementById("backToTopBtn");
-
+  backToTopBtn = document.getElementById("back-top-btn");
+  console.log(backToTopBtn);
 }
 
 function scrollFunction() {
