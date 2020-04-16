@@ -2,6 +2,10 @@ let expectPrice;
 let currentPrice;
 let startingPrice;
 
+// Init variables tostock data
+let currentPlace;
+let currentCountry;
+let destinationsTab = [];
 const stringPrice = "Total : {{currentPrice}}{{currency}} TTC";
 
 // Form Inputs
@@ -39,11 +43,13 @@ function updateFunction(data) {
 
   idDestination = new URLSearchParams(window.location.search).get("id");
   startingPrice = 1 * (data.destinations[idDestination - 1].price);
+  currentPlace = data.destinations[idDestination - 1].place;
+  currentCountry = data.destinations[idDestination - 1].country;
 
   document.getElementById("article").innerHTML = document.getElementById("article").innerHTML
     .replace(/{{image}}/g, data.destinations[idDestination - 1].image)
-    .replace(/{{place}}/g, data.destinations[idDestination - 1].place)
-    .replace(/{{country}}/g, data.destinations[idDestination - 1].country)
+    .replace(/{{place}}/g, currentPlace)
+    .replace(/{{country}}/g, currentCountry)
     .replace(/{{price}}/g, startingPrice)
     .replace(/{{details}}/g, data.destinations[idDestination - 1].details)
     .replace(/{{currency}}/g, "$")
@@ -110,37 +116,37 @@ window.addEventListener("load", function () {
   // Onchange Listeners
   arrivalDate.addEventListener("change", function (event) {
     arDate = arrivalDate.value;
-    localStorage.setItem("arrivalDate", arDate);
+    //localStorage.setItem("arrivalDate", arDate);
     updatePrice();
   });
 
   leaveDate.addEventListener("change", function (event) {
     leDate = leaveDate.value;
-    localStorage.setItem("leaveDate", leDate);
+    //localStorage.setItem("leaveDate", leDate);
     updatePrice();
   });
 
   numberPeople.addEventListener("change", function (event) {
     nbPeople = 1 * numberPeople.value;
-    localStorage.setItem("nbPeople", nbPeople);
+    //localStorage.setItem("nbPeople", nbPeople);
     updatePrice();
   });
 
   numberKids.addEventListener("change", function (event) {
     nbKids = 1 * numberKids.value;
-    localStorage.setItem("nbKids", nbKids);
+   //localStorage.setItem("nbKids", nbKids);
     updatePrice();
   });
 
   numberRooms.addEventListener("change", function (event) {
     nbRooms = 1 * numberRooms.value;
-    localStorage.setItem("nbRooms", nbRooms);
+ //localStorage.setItem("nbRooms", nbRooms);
     updatePrice();
   });
 
   breakfast.addEventListener("change", function (event) {
     isBreakfast = breakfast.value;
-    localStorage.setItem("isBreakfast", isBreakfast);
+    //localStorage.setItem("isBreakfast", isBreakfast);
     updatePrice();
   });
 
@@ -176,7 +182,7 @@ window.addEventListener("load", function () {
         // Convert both dates to milliseconds
         let newArDate = new Date(arDate);
         let newLeDate = new Date(leDate);
-        
+
         let arrivalDate_ms = newArDate.getTime();
         let leavingDate_ms = newLeDate.getTime();
         // milliseconds since Jan 1, 1970, 00:00:00.000 GMT
@@ -190,9 +196,36 @@ window.addEventListener("load", function () {
     })
   }
 
-  addToCartBtn.addEventListener("click", function () {
+  // Stock data of the destination in localStorage
+  addToCartBtn.addEventListener("click", function (event) {
     console.log("Adding to Cart");
-    // Stock data of the destination in localStorage
+
+    for (i = 0; i < 2; i++) {
+
+      currentDestination = {
+        "place": currentPlace,
+        "country": currentCountry,
+        "price": currentPrice,
+        "arDate": arDate,
+        "leDate": leDate,
+        "nbDays": nbDays,
+        "nbPeople": nbPeople,
+        "nbKids": nbKids,
+        "nbRooms": nbRooms,
+        "isBreakfast": isBreakfast,
+        "commment": comment,
+        "id": idDestination
+      };
+
+      destinationsTab.push(currentDestination);
+
+    }
+
+
+    // Only one element here as the destinationsTab must not be refreshed
+    localStorage.setItem("destinationsTab", JSON.stringify(destinationsTab));
+
+    console.log("Destination Tab :" + localStorage.getItem("destinationsTab"));
   });
 
 });
@@ -209,11 +242,18 @@ function updatePrice() {
     let breakfastAdd = 0; // Initialisaiton
     if (isBreakfast.checked == true) {
       breakfastAdd = 12;
-    } 
+    }
 
-    currentPrice = (nbDays * (startingPrice + (1 * breakfastAdd)) * (nbPeople + (0.4 * nbKids))) ;//startingPrice = 1 night for 1 adult for 1 room     
+    currentPrice = (nbDays * (startingPrice + (1 * breakfastAdd)) * (nbPeople + (0.4 * nbKids)));//startingPrice = 1 night for 1 adult for 1 room     
+    //ex: currentPrice = 55.6845;
+    round = currentPrice * 100;          // 556.845
+    round = Math.round(round);   // 556
+    round = round / 100;          //5.56
+    currentPrice = round;
 
-    console.log(nbDays + "*" + "(" + startingPrice + "+" + breakfastAdd + ")" + "*" + "(" + nbPeople + "+" + "(" + "0.4" + "*" + nbKids + ")" + ")") ;//startingPrice = 1 night for 1 adult for 1 room     
+
+
+    console.log(nbDays + "*" + "(" + startingPrice + "+" + breakfastAdd + ")" + "*" + "(" + nbPeople + "+" + "(" + "0.4" + "*" + nbKids + ")" + ")");//startingPrice = 1 night for 1 adult for 1 room     
     console.log(currentPrice);
 
 

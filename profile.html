@@ -42,23 +42,41 @@
 			<h1>Mes Informations</h1>
 			<h2>Générales</h2>
 			<form id="generalForm">
-				<label>Nom d'utilisateur</label>
-				<input class="long-input uname" type="text" id="uname" name="username" placeholder="Votre nom d'utilisateur">
-				<label>Email</label>
-				<input class="long-input email" type="email" id="email" name="email" placeholder="Votre adresse email">
-				<label>Nom</label>
-				<input class="long-input" type="text" id="lname" name="lastname" placeholder="Votre nom">
-				<label>Prénom</label>
-				<input class="long-input" type="text" id="fname" name="firstname" placeholder="Votre prénom">
+				<div>
+					<label>Nom d'utilisateur</label>
+					<input class="long-input uname" type="text" id="uname" name="username"
+						placeholder="Votre nom d'utilisateur">
+				</div>
+				<div>
+					<label>Email</label>
+					<input class="long-input email" type="email" id="email" name="email"
+						placeholder="Votre adresse email">
+				</div>
+				<br>
+				<div>
+					<label>Nom</label>
+					<input class="long-input" type="text" id="lname" name="lastname" placeholder="Votre nom">
+				</div>
+				<div>
+					<label>Prénom</label>
+					<input class="long-input" type="text" id="fname" name="firstname" placeholder="Votre prénom">
+				</div>
 			</form>
-			<div id="changePassword">
-				<label>Mot de passe 
-					<i id="consign-passwd" class="fa fa-info-circle" title="Votre mot de passe doit contenir au moins 8 caractères dont une majuscule, une minuscule, un chiffre et un caractère spécial (#, !, ?, @, etc...)"></i></label>
+			<div id="change-password">
+				<label>Mot de passe</label>
+					<i id="consign-passwd" class="fa fa-info-circle"
+						title="Votre mot de passe doit contenir au moins 8 caractères dont une majuscule, une minuscule, un chiffre et un caractère spécial (#, !, ?, @, etc...)"></i>
 				<form id="newPasswordForm">
-					<input class="long-input" type="text" id="old-passwd" placeholder="Ancien mot de passe">
-					<input class="long-input input-passwd" type="text" id="new-passwd" placeholder="Nouveau mot de passe">
-					<input class="long-input input-passwd" type="text" id="confirm-passwd" placeholder="Confirmation mot de passe">
-					<i id="eye-passwd" class="fa fa-eye" title="Afficher le mot de passe"></i>
+					<div>
+						<input class="long-input" type="text" id="old-passwd" placeholder="Ancien mot de passe">
+						<input class="long-input input-passwd" type="text" id="new-passwd"
+							placeholder="Nouveau mot de passe">
+					</div>
+					<div>
+						<input class="long-input input-passwd" type="text" id="confirm-passwd"
+							placeholder="Confirmation mot de passe">
+						<i id="eye-passwd" class="fa fa-eye" title="Afficher le mot de passe"></i>
+					</div>
 				</form>
 				<a class="btn" id="password-btn">modifier le mot de passe</a>
 				<a class="link" id="password-forgot">Mot de passe oublié</a>
@@ -84,18 +102,18 @@
 			<form id="card-form">
 				<row class="card-row">
 					<input type="text" class="card-owner" name="card-owner" placeholder="Titulaire de la carte">
-					<input class="card-number long-input" type="text" name="card-number"
-						placeholder="Numéro de carte">
+					<input class="card-number long-input" type="text" name="card-number" placeholder="Numéro de carte">
 					<input type="text" class="card-exp" name="date-expiration" title="Date d'expiration"
 						placeholder="Date d'expiration">
+					<i id="cvv-info" class="fa fa-info-circle"
+						title="Au format MM-AA"></i>
 					<input type="text" class="card-cvv" name="cvv-code" placeholder="Code CVV">
 					<i id="cvv-info" class="fa fa-info-circle"
 						title="Il s'agit du cryptogramme au dos de votre carte"></i>
 					<i class="fa fa-trash" title="Supprimer cette carte"></i>
 				</row>
 			</form>
-			<a class="btn" id="add-card-btn">ajouter une nouvelle carte <i
-					class="fa fa-plus-circle"></i></a>
+			<a class="btn" id="add-card-btn">ajouter une nouvelle carte <i class="fa fa-plus-circle"></i></a>
 			<a class="btn" id="save-btn">enregistrer les modifications</a>
 		</div>
 	</div>
@@ -108,20 +126,20 @@
 <footer id="footer"></footer>
 
 <script>
-// Image upload
-$('document').ready(function () {
-    $("#file").change(function () {
-        if (this.files && this.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-				$('#img-avatar').attr('src', e.target.result);
-                $('#img-icon').attr('src', e.target.result);
-				
-            }
-            reader.readAsDataURL(this.files[0]);
-        }
-    });
-    });
+	// Image upload
+	$('document').ready(function () {
+		$("#file").change(function () {
+			if (this.files && this.files[0]) {
+				var reader = new FileReader();
+				reader.onload = function (e) {
+					$('#img-avatar').attr('src', e.target.result);
+					$('#img-icon').attr('src', e.target.result);
+
+				}
+				reader.readAsDataURL(this.files[0]);
+			}
+		});
+	});
 
 // Idea : Add img src url in localStrorage
 </script>

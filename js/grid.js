@@ -1,5 +1,5 @@
-/* Clone des data json dans l'html */
-let grid_template = document.querySelector("#grid-template");
+    /* Clone des data json dans l'html */
+let gridTemplate = document.querySelector("#grid-template");
 
 //récupération des données du fichier JSON
 var xhttp = [];
@@ -19,9 +19,9 @@ fetch("http://127.0.0.1:5500/json/data.json")
                         tempTab[d] = obj.main.temp;
                         if (tempTab.length == data.destinations.length && testTempTab()) {
                             for (i = 0; i < data.destinations.length; i++) {
-                                let clone = document.importNode(grid_template.content, true);     
+                                let clone = document.importNode(gridTemplate.content, true);     
 
-                                newContent = clone.firstElementChild.innerHTML
+                                clone.firstElementChild.innerHTML = clone.firstElementChild.innerHTML
                                     .replace(/{{image}}/g, data.destinations[i].image)		// replace key by value from data (json)
                                     .replace(/{{place}}/g, data.destinations[i].place)				
                                     .replace(/{{price}}/g, data.destinations[i].price)
@@ -35,8 +35,6 @@ fetch("http://127.0.0.1:5500/json/data.json")
                                 //Reduce() permet de transformerle tab en un seul élément (concatène mes chaînes de caractères) sinon concatène a + b
                                 //Permet au final de transformer le tableau en une seule chaîne de caractères.
                                 
-                                // Mettre la température dans le json ou le localStorage pour pouvoir l'appeler dans d'autres pages html
-                                clone.firstElementChild.innerHTML = newContent;
                                 document.getElementById("grid-container").appendChild(clone);
                             }
                         }

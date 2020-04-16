@@ -11,9 +11,9 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
     integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="./js/destination.js" defer async></script>
   <script src="./js/scroll.js" defer async></script>
   <script src="./js/core.js" defer async></script>
+  <script src="./js/cart.js" defer async></script>
 
 </head>
 
@@ -29,29 +29,31 @@
 
 <body>
   <!-- Destination details -->
+  <main id="cart-container">
+    <template id="cart-list">
+      <article id="cart-article">
+        <p class="cart-place">{{place}}</p>
+        <p class="cart-country">{{country}}</p>
+        <p class="cart-price">{{price}}{{currency}}</p>
+        <p class="cart-arDate">Date d'arrivée : {{arDate}}</p>
+        <p class="cart-leDate">Date de fin : {{leDate}}</p>
+        <p class="cart-people">{{nbPeople}} Adultes</p>
+        <p class="cart-kids">{{nbKids}} Enfants</p>
+        <p class="cart-rooms">{{nbRooms}} Chambres</p>
+        <a id="destination-btn" class="btn cart-btn" href={{url}}>Revoir la destination</a>
+        <i class="fas fa-pen-square" title="Modifier cette destination"></i>
+        <i class="fa fa-trash" title="Supprimer cette destination"></i>
+      </article>
+    </template>
 
-  <div id="article" class="page-container">
-    <div class="cart-article">
-      <img class="cart-image" src={{image}} alt={{image-alt}}>
-      <p class="cart-place">{{place}}</p>
-      <p class="cart-country">{{country}}</p>
-      <p class="cart-price">{{price}}{{currency}}</p>
-      <p class="cart-people">{{nbPeople}} Adultes</p>
-      <p class="cart-kids">{{nbKids}} Enfants</p>
-      <p class="cart-rooms">{{nbRooms}} Chambres</p>
-      <btn id="destination-btn" class="btn cart-btn" href={{url}}>Revoir</btn>
-      <i class="fas fa-pen-square" title="Modifier cette destination"></i>
-      <i class="fa fa-trash" title="Supprimer cette destination"></i>
-      
-    </div>
-  </div>
-  
-  <div id="article" class="page-container cart-article">
+  </main>
 
-    <p class="cart-total">Total : {{totalPrice}}{{currency}}</p>
-    <btn id="payment-btn" class="btn cart-btn" href={{url}}>Procéder au paiement</btn>
+  <div id="cart-total">
 
-    
+    <p id="total-price">Total : {{totalPrice}}{{currency}}</p>
+    <a id="payment-btn" class="btn cart-btn">Procéder au paiement</a>
+
+
   </div>
 
   <div id="back-top-div"></div>
@@ -60,9 +62,4 @@
 
 <!-- Footer -->
 <footer id="footer"></footer>
-<script>
-
-
-</script>
-
 </html>

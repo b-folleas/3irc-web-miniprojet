@@ -21,6 +21,13 @@ let cardCvvTab = document.getElementsByClassName("card-cvv");
 let cardsTab = [];
 let currentCard;
 
+// Cards validators 
+let cardOwnerIsValid;
+let cardNumberIsValid;
+let cardExpDateIsValid;
+let cardCvvIsValid;
+
+
 let trashIcon = document.getElementsByClassName("fa-trash");
 
 // Store the regexes as globals so they're cached and not re-parsed on every call:
@@ -41,6 +48,7 @@ window.addEventListener("load", function () {
             }
             else {
                 event.target.style.border = "2px solid green";
+                cardOwnerIsValid = true;
             }
         })
     }
@@ -54,6 +62,7 @@ window.addEventListener("load", function () {
             }
             else {
                 event.target.style.border = "2px solid green";
+                cardNumberIsValid = true;
             }
         })
     }
@@ -67,6 +76,7 @@ window.addEventListener("load", function () {
             }
             else {
                 event.target.style.border = "2px solid green";
+                cardExpDateIsValid = true;
             }
         })
     }
@@ -81,12 +91,13 @@ window.addEventListener("load", function () {
             }
             else {
                 event.target.style.border = "2px solid green";
+                cardCvvIsValid = true;
             }
         })
     }
 
     // Adding new card on click listener
-    
+
     addCardBtn.addEventListener("click", function () {
 
         document.getElementById("card-form").innerHTML +=
@@ -156,7 +167,13 @@ window.addEventListener("load", function () {
         console.log(cardsTab);
         let card = JSON.parse(localStorage.getItem("cardsTab"));
 
-        console.log(card.cardOwner);
+        console.log(card[0].cardOwner);
+        for (i = 0; i < cardOwnerTab.length; i++) { // Here we take cardOwnerTab for the length but it doesn't matter as long as we have the number of cards
+        cardOwnerTab[i].value = card[i].cardOwner;
+        cardNumberTab[i].value = card[i].cardNumber.replace(/.{12}$/,"-****-****-****");
+        cardExpTab[i].value = card[i].cardExp;
+        cardCvvTab[i].value = card[i].cardCvv;
+        }
     }
 
 
@@ -191,14 +208,22 @@ window.addEventListener("load", function () {
             localStorage.setItem("country", country.value);
         }
 
+        // Setting cardsTab as empty
+        cardsTab = [];
         // Add a list of cards in localStorage
         for (i = 0; i < cardOwnerTab.length; i++) { //Here we take cardOwnerTab for the length but it doesn't matter as long as we have the number of cards
-            currentCard = { "cardOwner": cardOwnerTab.item(i).value, "cardNumber": cardNumberTab.item(i).value, "cardExp": cardExpTab.item(i).value, "cardCvv": cardCvvTab.item(i).value };
-            cardsTab.push(currentCard);
-            // We assume that the card is valid due to previous validation
-            console.log("Cards Tab :" + JSON.stringify(cardsTab[i]));
+            // We check if the card is valid first 
+
+            if (cardOwnerIsValid && cardNumberIsValid && cardExpDateIsValid && cardCvvIsValid) {
+                currentCard = { "cardOwner": cardOwnerTab.item(i).value, "cardNumber": cardNumberTab.item(i).value, "cardExp": cardExpTab.item(i).value, "cardCvv": cardCvvTab.item(i).value };
+                cardsTab.push(currentCard);
+            }
+            else {
+                console.log("La carte de paiement n'a pas pu être ajoutée");
+            }
         }
-        localStorage.setItem("cardsTab", cardsTab);
+        localStorage.setItem("cardsTab", JSON.stringify(cardsTab));
+        console.log("Cards Tab :" + localStorage.getItem("cardsTab"));
     });
 
 

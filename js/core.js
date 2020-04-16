@@ -13,12 +13,11 @@ let registerCheckIcon;
 let profileBtn;
 
 window.addEventListener("load", function () {
-	document.getElementById("title").innerHTML = `<h1>Sogni de Scapari - Agence de voyage</h1>`
+	document.getElementById("title").innerHTML = `<h1 id="web-title">Sogni de Scapari - Agence de voyage</h1>`
 
 	document.getElementById("topnav").innerHTML =
 		`<a href="./index.html"><i class="home fa fa-home"></i></a>
 	<a href="./cart.html"><i class="fa fa-shopping-cart"></i>Panier</a>
-	<a href="./booking.html"><i class="fa fa-check"></i>Réservations</a>
 	<a href="./index.html"><i class="fa fa-map"></i>Destinations</a>
 	<a href="#" id="modal-btn" onclick="openModalFunction()"><i class="fa fa-window-restore"></i>Ouvrir Modal</a>
   	<a class="profile" id="profile-btn"><img id="img-icon"
