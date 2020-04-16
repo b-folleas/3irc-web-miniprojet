@@ -128,7 +128,7 @@ body {
   resize: vertical;
   display: flex;
   width: 96%;
-  /* car 2% de chaque côté */
+  /* because 2% of margin */
   min-height: 200px;
 }
 
@@ -205,10 +205,6 @@ body {
   background-image: linear-gradient(260deg, #2376ae 0%, #c16ecf 100%);
   margin: 5% auto;
   max-height: 38px;
-}
-
-.input-file:focus+label, .input-file+label:hover {
-  background: #d3d5d8;
 }
 
 .input-file:focus+label {
@@ -337,6 +333,24 @@ body {
   height: 250px;
 }
 
+/* Zoom In Effect */
+
+.grid-article figure {
+  overflow: hidden;
+}
+
+.grid-article figure img {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
+.grid-article figure:hover img {
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3);
+}
+
 .grid-text, #destination-text {
   padding: 20px;
 }
@@ -438,14 +452,6 @@ body {
   display: none;
 }
 
-.cart {
-  display: block;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  grid-gap: 20px;
-  align-items: stretch;
-  margin: 2%;
-}
-
 .cart-article {
   display: inline-flex;
   width: 96%;
@@ -535,10 +541,6 @@ body {
   font-size: 14px;
   color: #fff;
   transition: all 0.3s ease;
-}
-
-.wrapper .login form .input input#password {
-  margin-bottom: 7.5%;
 }
 
 .wrapper .login form .input input:focus {
@@ -669,7 +671,6 @@ body {
   text-align: center;
   margin: 2%;
   color: #001aff;
-  /*#c16ecf*/
 }
 
 /* About members is the right columnon the about page */
@@ -686,11 +687,6 @@ body {
 
 .column {
   float: left;
-}
-
-.about-card {
-  margin-bottom: 2%;
-  /* Margin only on bottom ~ between cards */
 }
 
 #about-contact {
@@ -782,12 +778,6 @@ body {
   margin: 0;
 }
 
-#footer .footer-center p {
-  color: #8f9296;
-  font-size: 14px;
-  margin: 0;
-}
-
 /* Footer links */
 
 .footer-a {
@@ -842,10 +832,6 @@ body {
 }
 
 /* Font Awesome */
-
-.footer-links>i {
-  color: white;
-}
 
 .facebook-link {
   background: #3B5998;
