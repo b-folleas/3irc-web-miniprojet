@@ -1,7 +1,7 @@
 /* Scroll back to top button script */
 
 // To be declared as global in the script and used in every function
-let backToTopBtn = null;
+let backToTopBtn;
 
 // When the page is loaded, it will call the loadFunction
 window.addEventListener("load", loadFunction);
@@ -15,7 +15,6 @@ function loadFunction() {
 
   //Get the button:
   backToTopBtn = document.getElementById("back-top-btn");
-  console.log(backToTopBtn);
 }
 
 function scrollFunction() {

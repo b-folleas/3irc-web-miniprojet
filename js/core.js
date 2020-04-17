@@ -149,6 +149,7 @@ window.addEventListener("load", function () {
 loginBtn.addEventListener("click", function () {
 	localStorage.setItem("email", loginEmail.value);
 	window.location.assign("./profile.html");
+	alert("Complétez vos informations afin de pouvoir commander sur notre site !");
 });
 
 
@@ -195,12 +196,20 @@ function switchLoginFunction(event) {
 }
 
 function displayResponsiveFunction() {
-	var x = document.getElementById("topnav");
-	if (x.className === "topnav") {
-		x.className += " responsive";
+	let x = document.getElementById("topnav");
+	if (x.classList.contains("responsive")) {
+		x.classList.remove("responsive");
 	} else {
-		x.className = "topnav";
+		x.classList.add("responsive");
 	}
 }
 
-
+/* 
+function displayResponsiveFunction() {
+	let x = document.getElementById("topnav");
+	if (x.classList.contains("responsive")) {
+		x.classList..add("topnav").add("responsive") += " responsive";
+	} else {
+		x.className = "topnav";
+	}
+}*/

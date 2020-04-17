@@ -89,6 +89,7 @@ body {
 
 #profile-container {
   min-width: 300px;
+  width: 96%;
 }
 
 .profile-row {
@@ -104,14 +105,13 @@ body {
   margin: 2%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   background-color: #FFF;
-  width: 96%;
 }
 
 .page-container input, .page-container textarea, .page-container label, .page-container select, .page-container h1, .page-container h2 {
   display: flex;
 }
 
-.page-container h1, .page-container h2, .page-container h3, .page-container label {
+.page-container h1, .page-container h3,.page-container h2, .page-container label {
   margin: 2%;
   margin-bottom: 0%;
 }
@@ -262,21 +262,28 @@ body {
   background: #4082f5;
 }
 
-/* Settings Button */
+/* logout Button */
 
-#settings-btn {
+#logout-btn {
   margin: 2%;
   float: right;
   display: inline-flex;
-  background: #696969;
+  background: none;
+  color: orangered;
+  border: 2px solid white;
   max-height: 38px;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
 }
 
-#settings-btn:hover {
-  background: #c0c0c0;
+#logout-btn:hover {
+  border: 2px solid red;
+  color: red;
 }
 
-#settings-i {
+#logout-i {
   vertical-align: middle;
   margin: auto;
   padding: 0 4px;
@@ -366,7 +373,7 @@ body {
   transform: scale(1.3);
 }
 
-.grid-text, #destination-text {
+.grid-text, .destination-text {
   padding: 20px;
 }
 
@@ -374,8 +381,10 @@ body {
   height: 130px;
 }
 
-.grid-price, .grid-temp {
-  margin-left: 80%;
+.grid-right {
+  direction: rtl;
+  margin-right: 2%;
+  margin-bottom: 2%;
 }
 
 .grid-btn {
@@ -400,14 +409,22 @@ body {
 }
 
 .form-row {
-  display: inline-flex;
+  /*display: inline-flex;*/
   width: 100%;
   justify-content: start;
 }
 
+#destination-place, #destination-country {
+  display: inline;
+}
+
+#destination-details{
+  margin-top: 2%;
+}
+/*
 #destination-place {
   margin-top: 0%;
-}
+}*/
 
 #destination-country {
   color: #696969;
@@ -430,17 +447,21 @@ body {
 }
 
 #reset-btn {
-  background: #696969;
   display: none;
 }
 
-#reset-btn:hover {
-  background: #c0c0c0;
+#reset-btn>i{
+  color: gray;
 }
 
+#reset-btn>i:hover {
+  color: #c0c0c0;
+  cursor: pointer;
+}
+/*
 #booking-form-btn * {
   display: inline;
-}
+}*/
 
 /* Tags */
 
@@ -489,7 +510,7 @@ body {
   background-color: #FFF;
 }
 
-#cart-total >* {
+#cart-total>* {
   display: inline-flex;
   padding: 5px 10px;
   margin: 1%;
@@ -498,6 +519,7 @@ body {
 #total-price {
   font-weight: bold;
 }
+
 /* Wrapper */
 
 .wrapper {
@@ -689,14 +711,14 @@ body {
 /* Close Button */
 
 .close {
-  color: #aaaaaa;
+  color: gray;
   float: right;
   font-size: 28px;
   font-weight: bold;
 }
 
 .close:hover, .close:focus {
-  color: #fff;
+  color: #c0c0c0;
   text-decoration: none;
   cursor: pointer;
 }
@@ -939,10 +961,9 @@ body {
   }
   .page-container {
     display: block;
-    margin: auto;
     padding: 1px;
   }
-  .page-container label{
+  .page-container label {
     display: block;
   }
   .profile-row {

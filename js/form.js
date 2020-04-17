@@ -1,7 +1,7 @@
 // Get general infos and address form fields
-let unameTab = document.getElementsByClassName("uname");
-let emailTab = document.getElementsByClassName("email");
-let passwdTab = document.getElementsByClassName("input-passwd");
+let unameTab;  
+let emailTab;
+let passwdTab;
 
 // Store the regexes as globals so they're cached and not re-parsed on every call:
 
@@ -21,6 +21,12 @@ $/
 */
 
 window.addEventListener("load", function () {
+
+
+    unameTab = document.getElementsByClassName("uname");
+    emailTab = document.getElementsByClassName("email");
+    passwdTab = document.getElementsByClassName("input-passwd");
+    
 
     // Check if the username is valid, if not then execute if block
         for (i = 0; i < unameTab.length; i++) {

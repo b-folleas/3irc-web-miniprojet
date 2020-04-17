@@ -1,4 +1,4 @@
-    /* Clone des data json dans l'html */
+/* Clone des data json dans l'html */
 let gridTemplate = document.querySelector("#grid-template");
 
 //récupération des données du fichier JSON
@@ -19,11 +19,11 @@ fetch("http://127.0.0.1:5500/json/data.json")
                         tempTab[d] = obj.main.temp;
                         if (tempTab.length == data.destinations.length && testTempTab()) {
                             for (i = 0; i < data.destinations.length; i++) {
-                                let clone = document.importNode(gridTemplate.content, true);     
+                                let clone = document.importNode(gridTemplate.content, true);
 
                                 clone.firstElementChild.innerHTML = clone.firstElementChild.innerHTML
                                     .replace(/{{image}}/g, data.destinations[i].image)		// replace key by value from data (json)
-                                    .replace(/{{place}}/g, data.destinations[i].place)				
+                                    .replace(/{{place}}/g, data.destinations[i].place)
                                     .replace(/{{price}}/g, data.destinations[i].price)
                                     .replace(/{{description}}/g, data.destinations[i].description)
                                     .replace(/{{currency}}/g, "$")
@@ -34,7 +34,7 @@ fetch("http://127.0.0.1:5500/json/data.json")
                                 //Map sert à 'mapper' prendre indiv chaque elemdu tab et appliquer une fonction
                                 //Reduce() permet de transformerle tab en un seul élément (concatène mes chaînes de caractères) sinon concatène a + b
                                 //Permet au final de transformer le tableau en une seule chaîne de caractères.
-                                
+
                                 document.getElementById("grid-container").appendChild(clone);
                             }
                         }
@@ -47,8 +47,8 @@ fetch("http://127.0.0.1:5500/json/data.json")
         })
     })
 
-    // Check if there is no temperature undefined
-    function testTempTab() {
+// Check if there is no temperature undefined
+function testTempTab() {
     for (const v of tempTab) {
         if (typeof v === 'undefined') {
             return false;

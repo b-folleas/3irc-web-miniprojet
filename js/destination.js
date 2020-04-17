@@ -5,7 +5,6 @@ let startingPrice;
 // Init variables tostock data
 let currentPlace;
 let currentCountry;
-let destinationsTab = [];
 const stringPrice = "Total : {{currentPrice}}{{currency}} TTC";
 
 // Form Inputs
@@ -28,6 +27,12 @@ let nbRooms;
 let isBreakfast = false; // Init at 0 to avoid over verification
 let comment;
 
+//récupération des données du fichier JSON
+var xhttp = [];
+var tempTab = [];
+var idcity;
+
+
 /* Update page destination */
 fetch("http://127.0.0.1:5500/json/data.json")
   .then(function (resp) {
@@ -41,34 +46,65 @@ fetch("http://127.0.0.1:5500/json/data.json")
 
 function updateFunction(data) {
 
+
+
   idDestination = new URLSearchParams(window.location.search).get("id");
   startingPrice = 1 * (data.destinations[idDestination - 1].price);
   currentPlace = data.destinations[idDestination - 1].place;
   currentCountry = data.destinations[idDestination - 1].country;
 
-  document.getElementById("article").innerHTML = document.getElementById("article").innerHTML
-    .replace(/{{image}}/g, data.destinations[idDestination - 1].image)
-    .replace(/{{place}}/g, currentPlace)
-    .replace(/{{country}}/g, currentCountry)
-    .replace(/{{price}}/g, startingPrice)
-    .replace(/{{details}}/g, data.destinations[idDestination - 1].details)
-    .replace(/{{currency}}/g, "$")
-    .replace(/{{tags}}/g, data.destinations[idDestination - 1].tags.map((a) => { return '<span class="btn tag">' + a + '</span>'; }).reduce((a, b, idx) => { return idx == 0 ? a : a + b; }));
-  //d.tags tableau tags
-  //Map sert à 'mapper' prendre indiv chaque elemdu tab et appliquer une fonction
-  //Reduce() permet de transformerle tab en un seul élément (concatène mes chaînes de caractères) sinon concatène a + b
-  //Permet au final de transformer le tableau en une seule chaîne de caractères.
 
+
+  cityId = data.destinations[idDestination - 1].idCity; //destination -1 because index start at 0 but id at 1
+
+  xhttp[data] = new XMLHttpRequest(); // Create XMLHttpRequest
+  console.log(xhttp[data]);
+  xhttp[data].open("GET", `http://api.openweathermap.org/data/2.5/weather?id=${cityId}&units=metric&appid=b8e89339dec32ca1b99bece160747eb5`, true); // GET method, API url and true for asynchronous
+  xhttp[data].send();
+
+
+  xhttp[data].onreadystatechange = function () { // Called each time readyState change, min 4 times
+
+    if (this.readyState == 4 && this.status == 200) { // 4 when the response is ready, 200 status is OK
+      var obj = JSON.parse(this.responseText); // Response as a Text parsed to return object
+      tempTab[data] = obj.main.temp;
+
+      document.getElementById("article").innerHTML = document.getElementById("article").innerHTML
+        .replace(/{{image}}/g, data.destinations[idDestination - 1].image)
+        .replace(/{{place}}/g, currentPlace)
+        .replace(/{{country}}/g, currentCountry)
+        .replace(/{{price}}/g, startingPrice)
+        .replace(/{{details}}/g, data.destinations[idDestination - 1].details)
+        .replace(/{{temp}}/g, Math.round(tempTab[data]) + "°")
+        .replace(/{{currency}}/g, "$")
+        .replace(/{{tags}}/g, data.destinations[idDestination - 1].tags.map((a) => { return '<span class="btn tag">' + a + '</span>'; }).reduce((a, b, idx) => { return idx == 0 ? a : a + b; }));
+      //d.tags tableau tags
+      //Map sert à 'mapper' prendre indiv chaque elemdu tab et appliquer une fonction
+      //Reduce() permet de transformerle tab en un seul élément (concatène mes chaînes de caractères) sinon concatène a + b
+      //Permet au final de transformer le tableau en une seule chaîne de caractères.
+    }
+  }
+}
+
+
+// Check if there is no temperature undefined
+function testTempTab() {
+  for (const v of tempTab) {
+    if (typeof v === 'undefined') {
+      return false;
+    }
+  }
+  return true;
 }
 
 // Update form functions 
 window.addEventListener("load", function () {
 
   // Get Buttons
-  const showFormBtn = document.getElementById("show-form-btn");
-  const closeFormBtn = document.getElementById("close-form-btn");
-  const addToCartBtn = document.getElementById("add-cart-btn");
-  const resetBtn = document.getElementById("reset-btn");
+  let showFormBtn = document.getElementById("show-form-btn");
+  let closeFormBtn = document.getElementById("close-form-btn");
+  let addToCartBtn = document.getElementById("add-cart-btn");
+  let resetBtn = document.getElementById("reset-btn");
   expectPrice = document.getElementById("expect-price");
 
   // Form
@@ -134,13 +170,13 @@ window.addEventListener("load", function () {
 
   numberKids.addEventListener("change", function (event) {
     nbKids = 1 * numberKids.value;
-   //localStorage.setItem("nbKids", nbKids);
+    //localStorage.setItem("nbKids", nbKids);
     updatePrice();
   });
 
   numberRooms.addEventListener("change", function (event) {
     nbRooms = 1 * numberRooms.value;
- //localStorage.setItem("nbRooms", nbRooms);
+    //localStorage.setItem("nbRooms", nbRooms);
     updatePrice();
   });
 
@@ -198,29 +234,35 @@ window.addEventListener("load", function () {
 
   // Stock data of the destination in localStorage
   addToCartBtn.addEventListener("click", function (event) {
-    console.log("Adding to Cart");
-
-    for (i = 0; i < 2; i++) {
-
-      currentDestination = {
-        "place": currentPlace,
-        "country": currentCountry,
-        "price": currentPrice,
-        "arDate": arDate,
-        "leDate": leDate,
-        "nbDays": nbDays,
-        "nbPeople": nbPeople,
-        "nbKids": nbKids,
-        "nbRooms": nbRooms,
-        "isBreakfast": isBreakfast,
-        "commment": comment,
-        "id": idDestination
-      };
-
-      destinationsTab.push(currentDestination);
-
+    // Add Verification
+    
+    let destinationsTab;
+    let destinationsTabItem = localStorage.getItem("destinationsTab");
+    if (destinationsTabItem) {
+      destinationsTab = JSON.parse(destinationsTabItem);
+    }
+    else {
+      destinationsTab = [];
     }
 
+    alert("La destination à été ajoutée au panier");
+
+    currentDestination = {
+      "place": currentPlace,
+      "country": currentCountry,
+      "price": currentPrice,
+      "arDate": arDate,
+      "leDate": leDate,
+      "nbDays": nbDays,
+      "nbPeople": nbPeople,
+      "nbKids": nbKids,
+      "nbRooms": nbRooms,
+      "isBreakfast": isBreakfast,
+      "commment": comment,
+      "id": idDestination
+    };
+
+    destinationsTab.push(currentDestination);
 
     // Only one element here as the destinationsTab must not be refreshed
     localStorage.setItem("destinationsTab", JSON.stringify(destinationsTab));

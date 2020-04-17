@@ -11,8 +11,8 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="./js/scroll.js" defer async></script>
 	<script src="./js/grid.js" defer async></script>
-	<script src="./js/form.js" defer async></script>
 	<script src="./js/core.js" defer async></script>
+	<script src="./js/form.js" defer async></script>
 </head>
 
 <!-- Modal -->
@@ -34,9 +34,9 @@
 				<a href={{url}}><figure><img class="grid-img" onclick="assignURLFunction()" src={{image}} alt={{image-alt}}></figure></a>
 				<div class="grid-text">
 					<h3 class="grid-place">{{place}}</h3>
-					<h2 class="grid-temp">{{temp}}</h2>
+					<h2 class="grid-right">{{temp}}</h2>
 					<p class="grid-description">{{description}}</p>
-					<p class="grid-price"><b>{{price}}{{currency}}</b></p>
+					<p class="grid-right"><b>{{price}}{{currency}}</b></p>
 					<a class="btn grid-btn" href={{url}}>Voir en détails</a>
 					<div class="tag-template">{{tags}}</div>
 				</div>

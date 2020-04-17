@@ -42,13 +42,16 @@ window.addEventListener("load", function (){
 
     document.getElementById("payment-btn").addEventListener("click", function(){
         console.log("checking payment info");
-        if (localStorage.getItem("email") && (localStorage.getItem("cardsTab").length >= 1)){
+        if (localStorage.getItem("cardsTab")){
             alert("La commande a bien pu être effectuée");
         }
-        else {
+        else if (localStorage.getItem("email")){
             alert("Il nous manque des informations");
             window.location.assign("./profile.html");
         }
+        else{
+            openModalFunction();
+            }
     });
 
 

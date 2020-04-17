@@ -11,8 +11,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="./js/destination.js" defer async></script>
   <script src="./js/scroll.js" defer async></script>
-  <script src="./form.js" defer async></script>
   <script src="./js/core.js" defer async></script>
+  <script src="./js/form.js" defer async></script>
 
 
 </head>
@@ -34,12 +34,12 @@
 
     <article id="destination-article">
       <img id="destination-image" src={{image}} alt={{image-alt}}>
-      <div id="destination-text">
+      <div class="destination-text">
         <h2 id="destination-place">{{place}}</h2>
         <h3 id="destination-country">{{country}}</h3>
-        <h2 class="grid-temp">{{temp}}</h2>
+        <h2 id="destination-temp" class="grid-right">{{temp}}</h2>
         <p id="destination-details">{{details}}</p>
-        <p id="destination-price" style="margin-left: 80%;"><b>A partir de {{price}}{{currency}} la nuit</b></p>
+        <p id="destination-price" class="grid-right"><b>A partir de {{price}}{{currency}} la nuit</b></p>
         <div id="destination-tags">{{tags}}</div>
 
 
@@ -66,16 +66,15 @@
             placeholder="Nombre d'enfants (-12 ans)">
           <input class="long-input" min="1" max="10" type="number" id="number-rooms" name="number-rooms"
             placeholder="Nombre de chambres">
-          <label class="" min="0" id="expect-price" name="expect-price"></label>
-
+          <row>
+            <label class="" min="0" id="expect-price" name="expect-price"></label>
+            <a id="reset-btn" class="grid-right"><i class="fa fa-undo"></i></a>
+          </row>
           <textarea class="" id="comment-textarea" placeholder="Une remarque à nous faire parvenir ? N'hésitez pas à nous demander !"></textarea>
 
         </form>
         <a id="show-form-btn" class="btn grid-btn">Réserver ce voyage</a>
-        <row id="booking-form-btn">
-          <a id="reset-btn" class="btn"><i class="fa fa-undo"></i></a>
           <a id="add-cart-btn" class="btn grid-btn">Ajouter au panier</a>
-        </row>
         </div>
     </article>
 

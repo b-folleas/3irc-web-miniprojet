@@ -132,6 +132,7 @@ Ce projet contient les fichiers javascript suivants :
 - grid.js
 - profile.js
 - scroll.js
+- cart.js
 
 #### core.js
 
@@ -158,6 +159,10 @@ Ce script reprend les événements en lien avec le formulaire de la page html pr
 #### scroll.js
 
 Ce script permet quant à lui de définir des fonctions relatives au bouton de remise en haut de page. Ce script instancie donc une variable qui correspond au bouton, et ajoute deux listeners. Le premier permettant de récupérer le bouton lorsque la page est chargée (événement "load") et de lui assigner la fonction de remise en haut de page lors de l'évènement "click", le deuxième permettant d'afficher le bouton lorsque la page est défilée (événement "scroll"). Enfin nous avons une fonction pour replacer l'utilisateur en haut de page lorsque le bouton est cliqué.
+
+#### cart.js
+
+TODO
 
 ### Fichiers css
 
@@ -189,22 +194,16 @@ Conceptuellement on peut citer de nombreux points d'améliorations qui n'ont pas
 - créer un carrousel d'images pour l'affichage en détail de la destination afin d'avoir plus d'images par destination
 - créer des options de filtrages complètes afin de rendre la recherche de destination très spécifique
 - ajouter un système de note ou d'avis des utilisateurs pour les destinations
-- ajouter des modales avant la suppression d'un élément (carte bancaire ou destination du panier)
+- ajouter des modales avant l'ajout ou la suppression d'un élément (carte bancaire ou destination du panier) ou à la place des alert() qui ne sont pas vraiemnt adapté pour ce genre de situations 
 - ajouter des paramètres dans la page de profil de l'utilisateur
 - la sauvegarde de l'image de profil pour l'utilisateur
 
 ### Techniquement
 
-Au niveau technique, de nombreuses technologies étaient nouvelles au binôme créant ainsi une véritable curiosité intellectuelle afin d'exploiter au mieux les outils présentés en cours. Bien qu'ils soient tous très intéressant, certains ont cependant été mis de côté par manque de temps ou d'organisation. On regrette par exemple l'utilisation inexistante de la bibliothèque javascript jQuery ou de l’architecture AJAX.
-
-  
+Au niveau technique, de nombreuses technologies étaient nouvelles au binôme créant ainsi une véritable curiosité intellectuelle afin d'exploiter au mieux les outils présentés en cours. Bien qu'ils soient tous très intéressant, certains ont cependant été mis de côté par manque de temps ou d'organisation. On regrette par exemple l'utilisation limitée de la bibliothèque javascript jQuery ou de l’architecture AJAX.
 
 ### Humainement
 
-  
-
 Le projet n'a pas toujours su se montrer productif au cours de son développement. En effet, un manque de communication entre les membres de l'équipe s'est initié dès les premières semaines, empêchant ainsi le projet d'atteindre son plein potentiel. Ce retard, partiellement rattrapé, est toutefois regrettable au vu des bons échanges qui ont été aperçu sur les dernières semaines.
-
-  
 
 #### Réalisé par Brice Folléas et Thierry Spanu
