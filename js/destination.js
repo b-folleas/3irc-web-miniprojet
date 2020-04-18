@@ -143,7 +143,6 @@ window.addEventListener("load", function () {
     numberPeople.value = null;
     numberKids.value = null;
     numberRooms.value = null;
-    console.log("Breakfast previous value :" + breakfast.value);
     breakfast.checked = false;
     commentTextArea.value = null;
     console.log("Reset parameters");
@@ -235,7 +234,7 @@ window.addEventListener("load", function () {
   // Stock data of the destination in localStorage
   addToCartBtn.addEventListener("click", function (event) {
     // Add Verification
-    
+
     let destinationsTab;
     let destinationsTabItem = localStorage.getItem("destinationsTab");
     if (destinationsTabItem) {
@@ -267,7 +266,6 @@ window.addEventListener("load", function () {
     // Only one element here as the destinationsTab must not be refreshed
     localStorage.setItem("destinationsTab", JSON.stringify(destinationsTab));
 
-    console.log("Destination Tab :" + localStorage.getItem("destinationsTab"));
   });
 
 });
@@ -287,17 +285,13 @@ function updatePrice() {
     }
 
     currentPrice = (nbDays * (startingPrice + (1 * breakfastAdd)) * (nbPeople + (0.4 * nbKids)));//startingPrice = 1 night for 1 adult for 1 room     
-    //ex: currentPrice = 55.6845;
-    round = currentPrice * 100;          // 556.845
+    // ex: currentPrice = 55.6845;
+    round = currentPrice * 100;  // 556.845
     round = Math.round(round);   // 556
-    round = round / 100;          //5.56
+    round = round / 100;         // 5.56
     currentPrice = round;
 
-
-
-    console.log(nbDays + "*" + "(" + startingPrice + "+" + breakfastAdd + ")" + "*" + "(" + nbPeople + "+" + "(" + "0.4" + "*" + nbKids + ")" + ")");//startingPrice = 1 night for 1 adult for 1 room     
     console.log(currentPrice);
-
 
     expectPrice.innerText = stringPrice
       .replace(/{{currentPrice}}/g, currentPrice)

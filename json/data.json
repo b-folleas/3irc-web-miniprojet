@@ -4,7 +4,7 @@
         {
             "id" : "1",
             "place" : "Rome",
-            "country" : "Italia",
+            "country" : "Italie",
             "continent" : "Europe",
             "description" : "Près de 2 800 ans d'histoire s'emmêlent, se boudent et se retrouvent dans un désordre urbain fascinant, résultat des trois époques qui ont fait l'histoire de la ville. Rome sera <i>ad vitam aeternam</i> le paradis des hédonistes !",
             "details" : "Rome est la capitale de l'Italie et surtout l'une des villes les plus célèbres et les plus visitées d'Europe. Elle fut pendant 5 siècles le centre de l'Empire romain qui domina l'Europe, l'Afrique du Nord et le Moyen Orient. Son centre historique est classé à l'Unesco : celui-ci abrite de nombreux monuments antiques comme le Colisée, le quartier du Forum romain, le Capitole, des aqueducs, mais aussi le lieu le plus important du catholicisme, la Cité du Vatican. Un Etat indépendant au sein de la cité ! Rome est aussi célèbre pour ses fontaines, et notamment la fontaine de Trevi, la plus grande et connue de la capitale italienne ! Elle doit également sa renommée à sa gastronomie, ses glaciers, ou encore sa vie étudiante et nocturne. En somme, Rome dispose de tous les atouts pour séduire et captiver ses visiteurs. Chacun, qu’il soit amateur d’Histoire, gourmand ou passionné d’art, saura trouver en Rome un petit bout de paradis.",
@@ -13,17 +13,16 @@
             "image-alt" : "Rome",
             "idCity" : "3169070",
             "tags" : [
-                "love",
-                "romantic",
-                "food",
-                "history"
+                "romantisme",
+                "gastronomie",
+                "histoire"
             ]
         },  
         {
             "id" : "2",
             "place" : "Kyoto",
-            "country" : "Japan",
-            "continent" : "Asia",
+            "country" : "Japon",
+            "continent" : "Asie",
             "description" : "Kyoto est une grande ville située sur l'île principale Honshu, dans la région du Kansai. Ancienne capitale du Japon nommée Heian-kyo à l'époque des empereurs, on la considère souvent comme la cité japonaise traditionnelle par excellence.",
             "details" : "Autrefois capitale du Japon, Kyoto est aujourd'hui entrée dans le panthéon. Ville sanctuaire aux traits traditionnels, elle incarne le portrait d'un pays riche en histoire et en patrimoine. A elle seule, Kyoto renferme les plus fabuleux trésors du pays classés au patrimoine mondial de l'UNESCO. Près de 2000 temples (dont les non moins connus Kinkaku-ji et Higashi Hongan-ji) et plus de 200 jardins habillent cette destination à la beauté stupéfiante. Ville à la jeunesse éternelle, Kyoto a su préserver une authenticité presque divinatoire tout en se modernisant, entre urbanisme et industrie.",
             "price" : "63",
@@ -31,7 +30,7 @@
             "image-alt" : "Kyoto",
             "idCity" : "1853909",
             "tags" : [
-                "history",
+                "histoire",
                 "kawaii",
                 "shogun",
                 "kimono"
@@ -50,35 +49,34 @@
             "idCity" : "2968815",
             "tags" : [
                 "monuments",
-                "food",
+                "gastronomie",
                 "mode",
-                "love",
-                "romantic"
+                "romantisme"
             ]
         },  
         {
             "id" : "4",
             "place" : "Santorin",
-            "country" : "Greece",
+            "country" : "Grèce",
             "continent" : "Europe",
-            "description" : "Santorin est une éruption de charme. Cette île des Cyclades vous offrira des moments mythiques. Des sensations magiques à la hauteur de ses contrastes: la terre noire face aux villages blanchis à la chaux de la Caldera, les sculptures volcaniques face aux lignes cycladiques raffinées.",
+            "description" : "Santorin vous offrira des moments mythiques. Des sensations magiques à la hauteur de ses contrastes: la terre noire face aux villages blanchis à la chaux de la Caldera, les sculptures volcaniques face aux lignes cycladiques raffinées.",
             "details" : "L’arrivée en ferry dans la baie de Santorin surplombée par des falaises de pierre ponce rouge-brun est un spectacle pour les yeux. L'île principale de Santorin, aussi appelée Théra ou Thira en Grèce, vous coupera le souffle avec ses maisons blanches typiques des Cyclades réparties, ses coupoles bleues, ses plages de sable noir bordées par des eaux cristallines. Presqu’unique île des Cyclades d’origine volcanique, elle ne ressemble à aucune autre et impressionne par son élégance. Santorin n’a rien d’une destination secrète mais c’est un joyau qu’il faut avoir vu une fois dans sa vie ! L’île de Santorin arbore mille et une beautés et offre l’un des spectacles naturels les plus saisissants de Méditerranée. Et pour vous aider à organiser votre visite de l’île, nous vous avons préparé un guide complet sur Santorin.",
             "price" : "32",
             "image" : "./assets/images/santorin.jpg",
             "image-alt" : "Santorin",
             "idCity" : "8133832",
             "tags" : [
-                "sun",
-                "sea",
-                "beach"
+                "soleil",
+                "mer",
+                "plage"
             ]
         },  
         {
             "id" : "5",
             "place" : "San Fransisco",
             "country" : "USA",
-            "continent" : "America",
-            "description" : "Elle fait partie des plus belles destinations de l’ouest des Etats Unis. Aller à San Francisco en Californie, c’est bien plus qu’un voyage. Vous y découvrez des paysages très différents, des styles architecturaux remarquables et une atmosphère inégalée à travers les magnifiques quartiers.",
+            "continent" : "Amériques",
+            "description" : "Aller à San Francisco en Californie, c’est bien plus qu’un voyage. Vous y découvrez des paysages très différents, des styles architecturaux remarquables et une atmosphère inégalée à travers les magnifiques quartiers.",
             "details" : "Berceau du mouvement hippie, bobo, ainsi que hipster, San Francisco est une ville touristique du Nord de l’État de Californie assez prisée des voyageurs. Il s’agit aussi de l'endroit où les plus grandes multinationales ont choisi de s'installer. Par exemple, vous trouverez les sièges de Google et Facebook, mais bien d’autres encore. Opposée en tout point à Los Angeles, vous ne verrez pas de gratte-ciels à perdre de vue ! Au contraire, attendez-vous plutôt à découvrir des rues pentues bordées de maisons victoriennes, de petites épiceries et de boulangeries à l’ancienne. On la dit souvent « plus belle ville du monde » et ce n’est pas sans raison ! Cela résulte notamment de sa magnifique baie que surplombe le Golden Bridge, ses divers quartiers éthniques. N'oublions pas ses rues fleuries et son parc de plus de 400 hectares. Il est indéniable que la ville est un lieu magnifique qui en fait rêver plus d’un. Vous aussi, vous souhaitez visiter San Francisco et découvrir toutes les merveilles qui s’y cachent ? Alors, Génération Voyage vous a préparé ce guide de voyage de San Francisco. Nous avons regroupé toutes les informations pour organiser au mieux votre séjour !",
             "price" : "54",
             "image" : "./assets/images/sanFrancisco.jpg",
@@ -86,25 +84,25 @@
             "idCity" : "2968815",
             "tags" : [
                 "monuments",
-                "sea",
-                "beach"
+                "mer",
+                "pont"
             ]
         },
         {
             "id" : "6",
-            "place" : "Buenos Aires",
-            "country" : "Argentina",
-            "continent" : "America",
-            "description" : "Depuis Buenos Aires, capitale nostalgique dont le tango est la sublime traduction, un itinéraire du nord au sud parcourant les paysages grandioses de la région de Salta jusqu’à la Patagonie. L'Argentine regorge de joyaux que vous ne tarderez pas à découvrir",
-            "details" : "",
+            "place" : "Patagonie",
+            "country" : "Argentine",
+            "continent" : "Amériques",
+            "description" : " Buenos Aires, paysages grandioses de la région de Salta et Patagonie, l'Argentine regorge de joyaux que vous ne tarderez pas à découvrir, ébahi par cette magnificence",
+            "details" : "Quand on suit du doigt sur une mappemonde les contours de l’Argentine, nous voilà emporté jusqu’à ce point ultime où le continent sud-américain s’émiette en îlots, jusqu'au mythique cap Horn. On imagine déjà l’aventure que représente un tel voyage au bout du monde.Du tropique du Capricorne aux 50es hurlants, des eaux profondes et noires de l’Atlantique aux lacs bleus de Patagonie, la nature argentine recèle une force singulière qui lui confère une dimension théâtrale. Beauté minérale des Andes, vertigineux fracas des chutes d’Iguazú, silence assourdissant des canaux de Patagonie et des centaines de kilomètres carrés de pampa vibrant sous le galop des gauchos... La nature s’exprime ici dans tout ce qu'elle a de plus sauvage.",
             "price" : "40",
-            "image" : "./assets/images/buenosaires.jpg",
+            "image" : "./assets/images/patagonie.jpg",
             "image-alt" : "Buenos Aires",
             "idCity" : "3435907",
             "tags" : [
                 "monuments",
-                "landscape",
-                "dance"
+                "paysages",
+                "tango"
             ]
         }   
    

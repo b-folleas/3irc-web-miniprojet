@@ -204,12 +204,3 @@ function displayResponsiveFunction() {
 	}
 }
 
-/* 
-function displayResponsiveFunction() {
-	let x = document.getElementById("topnav");
-	if (x.classList.contains("responsive")) {
-		x.classList..add("topnav").add("responsive") += " responsive";
-	} else {
-		x.className = "topnav";
-	}
-}*/

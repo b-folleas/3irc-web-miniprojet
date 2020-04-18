@@ -3,12 +3,12 @@
 <html>
 
 <head>
-	<title>Voyage</title>
+	<title>Sogni de scapari</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="icon" href="./assets/favicon.ico" type="image/gif" sizes="16x16">
 	<link rel="stylesheet" href="./assets/css/style.css" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://kit.fontawesome.com/f8660b51c1.js" crossorigin="anonymous"></script>
 	<script src="./js/core.js" defer async></script>
 	<script src="./js/scroll.js" defer async></script>
 	<script src="./js/form.js" defer async></script>
@@ -37,42 +37,44 @@
 		</div>
 		<div class="page-container" id="profile-container">
 			<div class="btn" id="logout-btn">
-				<i id="logout-i" class="fa fa-cogs"></i><a id="logout-a"></i>Se déconnecter</a>
+				<i id="logout-i" class="inner-i fa fa-cogs"></i><a id="logout-a"></i>Se déconnecter</a>
 			</div>
 			<h1>Mes Informations</h1>
 			<h2>Générales</h2>
 			<form id="generalForm">
-				<div>
+				<div class="inner-row">
 					<label>Nom d'utilisateur</label>
 					<input class="long-input uname" type="text" id="uname" name="username"
 						placeholder="Votre nom d'utilisateur">
 				</div>
-				<div>
+				<div class="inner-row">
 					<label>Email</label>
 					<input class="long-input email" type="email" id="email" name="email"
 						placeholder="Votre adresse email">
 				</div>
 				<br>
-				<div>
+				<div class="inner-row">
 					<label>Nom</label>
 					<input class="long-input" type="text" id="lname" name="lastname" placeholder="Votre nom">
 				</div>
-				<div>
+				<div class="inner-row">
 					<label>Prénom</label>
 					<input class="long-input" type="text" id="fname" name="firstname" placeholder="Votre prénom">
 				</div>
 			</form>
 			<div id="change-password">
-				<label>Mot de passe</label>
+				<div class="inner-row">
+					<label>Mot de passe</label>
 					<i id="consign-passwd" class="fa fa-info-circle"
 						title="Votre mot de passe doit contenir au moins 8 caractères dont une majuscule, une minuscule, un chiffre et un caractère spécial (#, !, ?, @, etc...)"></i>
+				</div>
 				<form id="newPasswordForm">
-					<div>
+					<div class="inner-row">
 						<input class="long-input" type="text" id="old-passwd" placeholder="Ancien mot de passe">
 						<input class="long-input input-passwd" type="text" id="new-passwd"
 							placeholder="Nouveau mot de passe">
 					</div>
-					<div>
+					<div class="inner-row">
 						<input class="long-input input-passwd" type="text" id="confirm-passwd"
 							placeholder="Confirmation mot de passe">
 						<i id="eye-passwd" class="fa fa-eye" title="Afficher le mot de passe"></i>
@@ -110,7 +112,7 @@
 					<input type="text" class="card-cvv" name="cvv-code" placeholder="Code CVV">
 					<i id="cvv-info" class="fa fa-info-circle"
 						title="Il s'agit du cryptogramme au dos de votre carte"></i>
-					<i class="fa fa-trash" title="Supprimer cette carte"></i>
+					<i class="fas fa-trash" title="Supprimer cette carte"></i>
 				</row> -->
 			</form>
 			<a class="btn" id="add-card-btn">ajouter une nouvelle carte <i class="fa fa-plus-circle"></i></a>

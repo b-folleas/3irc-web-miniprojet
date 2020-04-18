@@ -3,14 +3,12 @@
 <html>
 
 <head>
-  <title>Voyage</title>
+  <title>Sogni de scapari</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="./assets/favicon.ico" type="image/gif" sizes="16x16">
   <link rel="stylesheet" href="./assets/css/style.css" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://kit.fontawesome.com/f8660b51c1.js" crossorigin="anonymous"></script>
   <script src="./js/scroll.js" defer async></script>
   <script src="./js/core.js" defer async></script>
   <script src="./js/cart.js" defer async></script>
@@ -42,19 +40,16 @@
         <p class="cart-kids">{{nbKids}} Enfants</p>
         <p class="cart-rooms">{{nbRooms}} Chambres</p>
         <a id="destination-btn" class="btn cart-btn" href={{url}}>Revoir la destination</a>
-        <i class="fas fa-pen-square" title="Modifier cette destination"></i>
-        <i class="fa fa-trash" title="Supprimer cette destination"></i>
+        <i class="fas fa-pen" title="Modifier cette destination"></i>
+        <i class="fas fa-trash" title="Supprimer cette destination"></i>
       </article>
     </template>
 
   </main>
 
-  <div id="cart-total">
-
+  <div id="cart-total" class="inline-row">
     <p id="total-price">Total : {{totalPrice}}{{currency}}</p>
     <a id="payment-btn" class="btn cart-btn">Procéder au paiement</a>
-
-
   </div>
 
   <div id="back-top-div"></div>

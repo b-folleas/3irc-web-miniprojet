@@ -3,17 +3,14 @@ let cartList = document.getElementById("cart-list");
 
 
 // LocalStorage 
-console.log("Welcome to cart script");
 if (localStorage.getItem("destinationsTab")) {
     let allDest = localStorage.getItem("destinationsTab");
 
     let destObj = JSON.parse(allDest);
 
-    console.log("destObj.length :" + destObj.length)
 
     for (i = 0; i < destObj.length; i++) {
         let clone = document.importNode(cartList.content, true);
-        console.log("destObj :" + destObj[i].id)
 
         clone.firstElementChild.innerHTML = clone.firstElementChild.innerHTML
             .replace(/{{place}}/g, destObj[i].place)
@@ -46,7 +43,7 @@ window.addEventListener("load", function (){
             alert("La commande a bien pu être effectuée");
         }
         else if (localStorage.getItem("email")){
-            alert("Il nous manque des informations");
+            alert("Il nous manque vos informations bancaires");
             window.location.assign("./profile.html");
         }
         else{

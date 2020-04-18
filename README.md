@@ -6,7 +6,13 @@ Bienvenue sur notre site d'agence de voyage ! De Buenos Aires à Rome, en passan
 
 Vous pourrez ainsi découvrir nos meilleures destinations dès vote accueil sur notre plateforme, vous pourrez également rajouter vos destinations préférées à votre panier.
 
-Alors n'attendez plus et lancer vous sur <i>Sogni de Scapari</i> !
+Alors n'attendez plus et lancer vous sur <b><i>Sogni de Scapari</i></b> !
+
+## Installation du projet
+
+Afin que le projet fonctionne à merveille, il faut pour cela que vous ayez installé sur votre machine le logiciel Visual Code Studio dont l'extension Live Server qui permettra les différentes requêtes http, pour l'extraction des informations du fichier json. Lors de l'installation de l'extension Live Server, veuillez à configurer le port de déploiement de Live Server sur le port 5500 (Bien qu'il s'agisse de la valeur par défaut en théorie). Cette option est configurable en rentrant `"liveServer.settings.port": 5500` dans votre fichier de configuration : settings.json. Enfin, vous pouvez installer localement ce <i>repository</i> git afin de pouvoir parcourir les différents fichiers.
+
+Bien que pouvant paraître superflu, je vous conseil de lire ce fichier README.md jusqu'au bout, notamment la partie 'Architecture Logicielle' qui vous permettra de comprendre la logique conceptuelle de l'application.
 
 ## Objectifs du projet
 
@@ -143,6 +149,7 @@ Parmi les éléments injectés dynamiquement nous avions également créé une m
 #### destination.js
 
 Ce script gère les événements liés à la page de destination tel que l'affichage du formulaire de réservation ou la mise à jour dynamique du prix en fonction des paramètres de réservations (dates, nombre de personnes, option petit déjeuner, etc.). Une fois ce formulaire remplie, les informations des champs du formulaire sont enregistrés dans le localStorage afin de pouvoir transiter vers la page cart.html qui correspond au panier.
+Ce fichier comporte sans doute une erreur à laquelle nous n'avons pas trouvé de solutions à ce jour. En effet, lorsque nous souhaitons afficher le formulaire, le bouton "showFormBtn" qui affiche "Réserver ce voyage" ne fonctionne pas très bien. La seule alternative pour afficher ce formulaire est de, APRES AVOIR DEJA APPUYÉ SUR LE BOUTON, et donc déjà apposé un focus sur le bouton, rafraîchir la page en vidant le cache (MAJ+F5) et enfin le formulaire apparaitra. Ce problème très agaçant nous as déjà pris pas mal de temps pour essayer de lui trouver une solution et est d'autant plus suprenant qu'il suit le même pattern que les autres boutons qui fonctionnent parfaitement bien. 
 
 #### form.js
 
@@ -151,6 +158,7 @@ Ce script correspond à l'ajout de listeners de validation de champ de texte qui
 #### grid.js
 
 Ce script reprend la génération des différents blocs de la grille de l'accueil en injectant dynamiquement les informations stockées pour chaque destination du fichier .json. Pour se faire, on utilise la fonction fetch pour récupérer l'ensemble des données du fichier json et nous passons ces données dans une boucle for afin d'affecter à chaque article de la grille les informations relatives à la destination. C'est également ici que nous faisons un appel via l'API d'OpenWeatherMap afin de récupérer la température. Ces températures sont récupérées grâce à l'identificateur de destination stockée dans le fichier json. Cet id permet, une fois passé en paramètre de l'appel API, de récupérer la température. Ces températures sont alors stockées dans un tableau afin de pouvoir parcourir ce tableau en même temps que les autres informations de la destination.
+Ce fichier permet également la sélection de l'ordre de la liste de destinations, en les classant par prix croissants ou décroissants.
 
 #### profile.js
 
@@ -162,13 +170,13 @@ Ce script permet quant à lui de définir des fonctions relatives au bouton de r
 
 #### cart.js
 
-TODO
+Ce fichier a pour objectif d'effectuer toutes les actions relatives à la page panier. Le point majeur de ce fichier est l'affichage de la liste des destinations enregistrées via le localStorage. Outre cet aspect, il s'agit d'une page qui agit peur puisqu'elle ne fait que rediriger vers les autres pages.
 
 ### Fichiers css
 
 Un fichier css propre à ce projet, sobrement appelé "style.css", à été créé dans le répertoire assets/css/ et regroupe l'ensemble des règles de mise en page de toutes les pages du site. Ce fichier conséquent est commenté afin de créer des sections en fonctions des éléments qu'il met en page. Nous avons par exemple une section "/* Grid */" ou "/* Footer */" pour ne citer qu'elles.
 
-Un lien vers la bibliothèque css Font Awesomeest également importée sur chaque page html afin de pouvoir afficher les différents icons. 
+Un lien vers ma bibliothèque css Font Awesome est également importée sur chaque page html afin de pouvoir afficher les différents icons. 
 
 ### Fichier json
 

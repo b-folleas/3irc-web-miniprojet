@@ -3,12 +3,12 @@
 <html>
 
 <head>
-	<title id="web-title">Voyage</title>
+	<title id="web-title">Sogni de scapari</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="icon" href="./assets/favicon.ico" type="image/gif" sizes="16x16">
+	<script src="https://kit.fontawesome.com/f8660b51c1.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="./assets/css/style.css" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="./js/scroll.js" defer async></script>
 	<script src="./js/grid.js" defer async></script>
 	<script src="./js/core.js" defer async></script>
@@ -26,7 +26,18 @@
 <div id="topnav"></div>
 
 <body>
-
+	<div id="filter-row" class="inline-row">
+		<div>
+			<i class="inner-i fas fa-filter"></i>
+			<p id="filter-title">Trier par : </p>&nbsp;
+				<select id="filter-selector" name="Filter" style="color: black;">
+					<option value="0" selected>Pertinence</option>
+					<option value="1">Prix croissant</option>
+					<option value="2">Prix décroissant</option>
+				</select>
+			</div>
+		</div>
+	
 	<!-- Grid -->
 	<main id="grid-container" class="grid article-container">
 		<template id="grid-template">

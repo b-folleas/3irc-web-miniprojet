@@ -52,7 +52,7 @@ window.addEventListener("load", function () {
 			<i id="cvv-info" class="fa fa-info-circle" title="Au format MM-AA"></i>
 			<input type="text" class="card-cvv" name="cvv-code" placeholder="Code CVV">
 			<i id="cvv-info" class="fa fa-info-circle" title="Il s'agit du cryptogramme au dos de votre carte"></i>
-			<i class="fa fa-trash" title="Supprimer cette carte"></i>		
+			<i class="fas fa-trash" title="Supprimer cette carte"></i>		
 			</row>
             `;
 
@@ -64,22 +64,6 @@ window.addEventListener("load", function () {
         trashIcon = document.getElementsByClassName("fa-trash");
         // Display the value of cards if not null to user when the listof card is changed
         updateCardList();
-        /*
-        // Add the trash icon to the list of trash buttons for cards
-        for (i = 0; i < trashIcon.length; i++) {
-            trashIcon[i].addEventListener("click", function (event) {
-                var rowToRemove = event.currentTarget.parentNode;
-                rowToRemove.parentNode.removeChild(rowToRemove);
-            })
-        }*/
-
-        /*    // Get card infos fields
-            cardOwnerTab = document.getElementsByClassName("card-owner");
-            cardNumberTab = document.getElementsByClassName("card-number");
-            cardExpTab = document.getElementsByClassName("card-exp");
-            cardCvvTab = document.getElementsByClassName("card-cvv");
-            trashIcon = document.getElementsByClassName("fa-trash");
-        */
 
         if (cardOwnerTab) {
             // Check if the owner name is valid, if not then execute if block
@@ -278,17 +262,9 @@ window.addEventListener("load", function () {
         }
     });
 
-
-
     if (cardOwnerTab) {
         console.log(cardOwnerTab.length);
     }
-
-    /*    for (i = 0; i < cardOwnerTab.length; i++) {
-            cardOwnerTab[i].addEventListener("load", function () {
-               
-            });
-        }*/
 });
 
 // Display value of card if not null and add trash button listener

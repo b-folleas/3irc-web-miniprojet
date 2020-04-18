@@ -70,10 +70,9 @@ body {
   width: 20px;
   height: 20px;
   vertical-align: middle;
-  margin-right: 5px;
 }
 
-#topnav i {
+#topnav i, #topnav img {
   margin-right: 1em;
 }
 
@@ -111,7 +110,7 @@ body {
   display: flex;
 }
 
-.page-container h1, .page-container h3,.page-container h2, .page-container label {
+.page-container h1, .page-container h3, .page-container h2, .page-container label {
   margin: 2%;
   margin-bottom: 0%;
 }
@@ -162,10 +161,6 @@ body {
   display: inline;
 }
 
-.page-container i {
-  padding: 5px 10px;
-}
-
 .long-input {
   width: 30%;
   min-width: 250px;
@@ -188,6 +183,7 @@ body {
   padding: 8px;
   outline: 0;
   width: fit-content;
+  max-height: 38px;
   display: block;
   font-weight: 600;
   font-size: 14px;
@@ -217,7 +213,6 @@ body {
 .input-file+label {
   background-image: linear-gradient(260deg, #2376ae 0%, #c16ecf 100%);
   margin: 5% auto;
-  max-height: 38px;
 }
 
 .input-file:focus+label {
@@ -241,11 +236,6 @@ body {
   display: inline-flex;
   max-height: 38px;
 }
-
-/*
-#consign-passwd {
-  padding: 0 10%;
-}*/
 
 #confirm-passwd {
   margin-right: auto;
@@ -283,10 +273,16 @@ body {
   color: red;
 }
 
-#logout-i {
+.inner-i {
   vertical-align: middle;
   margin: auto;
   padding: 0 4px;
+}
+
+.inner-row>* {
+  display: inline-flex;
+  padding: 5px 10px;
+  margin: 1%;
 }
 
 /* Cards Icons */
@@ -319,7 +315,7 @@ body {
   background: #4082f5;
 }
 
-/* Index Title */
+/* Title */
 
 #web-title {
   font-family: 'Tangerine', 'Arial Narrow', Arial, sans-serif;
@@ -331,6 +327,22 @@ body {
   background-image: linear-gradient(260deg, #2376ae 0%, #c16ecf 100%);
   padding: 2%;
   text-align: center;
+}
+
+/* Filter Row */
+
+#filter-row {
+  background-image: linear-gradient(260deg, #2376ae 0%, #c16ecf 100%);
+  display: flex;
+  justify-content: space-between;
+}
+
+#filter-row>* {
+  color: white;
+}
+
+#undo-btn>i {
+  color: white;
 }
 
 /* Grid */
@@ -383,8 +395,7 @@ body {
 
 .grid-right {
   direction: rtl;
-  margin-right: 2%;
-  margin-bottom: 2%;
+  margin: 2%;
 }
 
 .grid-btn {
@@ -409,7 +420,6 @@ body {
 }
 
 .form-row {
-  /*display: inline-flex;*/
   width: 100%;
   justify-content: start;
 }
@@ -418,13 +428,9 @@ body {
   display: inline;
 }
 
-#destination-details{
+#destination-details {
   margin-top: 2%;
 }
-/*
-#destination-place {
-  margin-top: 0%;
-}*/
 
 #destination-country {
   color: #696969;
@@ -450,18 +456,14 @@ body {
   display: none;
 }
 
-#reset-btn>i{
+.reset>i {
   color: gray;
 }
 
-#reset-btn>i:hover {
+.reset>i:hover {
   color: #c0c0c0;
   cursor: pointer;
 }
-/*
-#booking-form-btn * {
-  display: inline;
-}*/
 
 /* Tags */
 
@@ -504,13 +506,13 @@ body {
   font-weight: bold;
 }
 
-#cart-total {
+.inline-row {
   margin: 2%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   background-color: #FFF;
 }
 
-#cart-total>* {
+.inline-row>* {
   display: inline-flex;
   padding: 5px 10px;
   margin: 1%;
@@ -731,7 +733,7 @@ body {
   color: #fff;
 }
 
-/* About members is the right columnon the about page */
+/* About members is the right column on the about page */
 
 #about-members {
   width: 70%;
@@ -962,9 +964,6 @@ body {
   .page-container {
     display: block;
     padding: 1px;
-  }
-  .page-container label {
-    display: block;
   }
   .profile-row {
     display: block;
